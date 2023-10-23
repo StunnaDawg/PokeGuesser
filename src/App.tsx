@@ -1,33 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react"
+import pokeFetcher from "../hooks/pokeFetcher"
+import { PokemonContextProvider } from "../context/pokemonContext"
+import { usePokemon} from "../context/pokemonContext"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentPokemon, setCurrentPokemon] = useState<string>("")
+  const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } = usePokemon();
 
+//   useEffect(() => {
+// setCurrentPokemon(randomPokemon)
+//   }, [])
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <PokemonContextProvider>
+      <div className="flex-1 flex justify-center items-center">
+        <h1 className="underline font-bold">PokeGuesser</h1>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+
+      <div className="flex-1 flex justify-center items-center">
+        <h3>{pokemonTitle != '' ? pokemonTitle : 'loading...'}</h3>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      </PokemonContextProvider>
     </>
   )
 }
