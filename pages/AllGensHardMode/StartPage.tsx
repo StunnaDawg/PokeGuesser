@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { usePokemon } from "../../context/pokemonContext"
 import React from "react"
+import usePokeFetcher from '../../hooks/pokeFetcher'
 
 const AllGenHardStart = () => {
-  const [currentPokemon, setCurrentPokemon] = useState<string>("")
+
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
   return (
@@ -18,6 +19,7 @@ const AllGenHardStart = () => {
           <div className="flex flex-row justify-center">
             <h3>{pokemonTitle != "" ? pokemonTitle : "loading..."}</h3>
           </div>
+          <button onClick={() => usePokeFetcher(setPokemonTitle, setPokemonSprite)}>Refresh Pokemon</button>
         </div>
       </div>
     </>

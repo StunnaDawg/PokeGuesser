@@ -1,15 +1,18 @@
 import { PokemonClient } from "pokenode-ts"
-import { usePokemon} from "../context/pokemonContext"
+import { Dispatch, SetStateAction } from "react"
 
-const pokeFetcher = async () => {
-    // const { title, sprite, setTitle, setSprite } = usePokemon();
+const usePokeFetcher = async (setPokeName: Dispatch<SetStateAction<string>> , setPokeSprite: Dispatch<SetStateAction<string>>) => {
   try {
-    const api = new PokemonClient().getPokemonByName("luxray")
+    const randomNumber = Math.floor(Math.random() * 1015) + 1;
+    const api = new PokemonClient().getPokemonById(randomNumber)
     const randomPokemon: any =  ((await api))
+    console.log(randomPokemon.name)
+    setPokeName(randomPokemon.name)
     console.log(randomPokemon)
+    setPokeSprite(randomPokemon.sprites.front_default)
   } catch (err) {
     console.error(err)
   }
 }
 
-export default pokeFetcher
+export default usePokeFetcher
