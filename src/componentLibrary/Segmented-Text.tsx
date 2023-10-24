@@ -1,6 +1,7 @@
 // OTPInput.tsx
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, ChangeEvent } from 'react';
+import { useUserNameGuess } from '../context';
 
 interface OTPInputProps {
   length: number;
@@ -8,32 +9,46 @@ interface OTPInputProps {
 }
 
 const OTPInput: React.FC<OTPInputProps> = ({ length, onComplete }) => {
-  const [otp, setOtp] = useState<string[]>(Array(length).fill(''));
+  const [otp, setOtp] = useState<string[]>([])
+  const [focused, setFocused] = useState<boolean>(false)
   const inputs = useRef<(HTMLInputElement | null)[]>([]);
+  // const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
+  
+  const onInputChange = (userInput: ChangeEvent<HTMLInputElement>) => {
+    const newTypedValue = userInput.target.value
+    setOtp([...otp, newTypedValue])
+    console.log(otp)
+  }
+
+  const onLetterKeyPress = (event: any) => {
+    const letterPattern = /^[a-zA-Z]$/;
+    if (letterPattern.test(event.key)) {
+    const currentIndex  = inputs.current.findIndex((input) => input = event.target)
+    const nextInput = inputs.current[currentIndex + 1]
+    
+    if(nextInput) {
+      nextInput.focus()
+    }
+    }
+
+    
+  }
 
   useEffect(() => {
-    if (otp.join('').length === length) {
-      onComplete(otp.join(''));
-    }
-  }, [otp, length, onComplete]);
+    console.log(focused)
+  }, [focused])
 
   return (
     <div className="flex justify-center">
       {Array.from({ length }).map((_, index) => (
         <input
           key={index}
+          ref={(e) =>(inputs.current[index] = e)}
           className="m-1 p-2 text-center border rounded w-12 h-12"
           type="tel"
           maxLength={1}
-          value={otp[index]}
-          ref={(ref) => (inputs.current[index] = ref)}
-          onChange={(e) => {
-            setOtp([...otp.slice(0, index), e.target.value, ...otp.slice(index + 1)]);
-            if (e.target.value && index < length - 1) {
-              inputs.current[index + 1]?.focus();
-            }
-          }}
-          onFocus={(e) => e.target.select()}
+          onChange={onInputChange}
+          onKeyDown={(event) => {onLetterKeyPress(event); console.log('key pressed')}}
         />
       ))}
     </div>

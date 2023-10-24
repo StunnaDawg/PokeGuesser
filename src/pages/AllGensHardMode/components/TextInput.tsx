@@ -1,9 +1,12 @@
 import React, { useEffect, ChangeEvent } from "react"
 import { useUserNameGuess } from "../../../context"
 import OTPInput from "../../../componentLibrary/Segmented-Text"
+import { usePokemon } from "../../../context/pokemonContext"
 
 const TextInput = () => {
   const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
+  const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
+    usePokemon()
 
   const onInputChange = (userInput: ChangeEvent<HTMLInputElement>) => {
     const newTypedValue = userInput.target.value
@@ -17,7 +20,9 @@ const TextInput = () => {
     <OTPInput
       length={6}
       onComplete={(code) => {
-        console.log("OTP code entered:", code)
+        if (code ===  pokemonTitle) {
+          console.log('winner')
+        }
       }}
     />
   )
