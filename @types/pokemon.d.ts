@@ -8,3 +8,11 @@ export type PokemonActions = {
     setPokemonTitle: Dispatch<SetStateAction<string>>;
     setPokemonSprite: Dispatch<SetStateAction<string>>;
 };
+
+export type UserGuess = {
+    pokemonNameGuess: string;
+}
+
+export type UserGuessAction = {
+    setPokemonNameGuess: Dispatch<SetStateAction<string>>
+}
