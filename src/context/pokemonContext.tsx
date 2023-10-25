@@ -12,9 +12,8 @@ const PokemonContext = createContext<PokemonContextType | undefined>(undefined)
 export const PokemonContextProvider = ({
   children,
 }: PokemonContextProviderProps) => {
-  const [pokemonTitle, setPokemonTitle] = useState<string>("luxray")
-  const [pokemonSprite, setPokemonSprite] = useState<string>(
-    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/405.png"
+  const [pokemonTitle, setPokemonTitle] = useState<string>("")
+  const [pokemonSprite, setPokemonSprite] = useState<string>(""
   )
 
   return (

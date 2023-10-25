@@ -8,16 +8,21 @@ import React, {
   KeyboardEvent,
 } from "react"
 import { useUserNameGuess } from "../context"
+import { usePokemon } from "../context/pokemonContext"
 
-interface OTPInputProps {
-  length: number
-  onComplete: (code: string) => void
-}
+// interface OTPInputProps {
+//   length: number
+//   onComplete: (code: string) => void
+// }
 
 let currentOTPIndexNumber: number = 0
 
-const OTPInput: React.FC<OTPInputProps> = ({ length, onComplete }) => {
-  const [otp, setOtp] = useState<string[]>(new Array(length).fill(""))
+const OTPInput: React.FC = () => {
+  const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
+  usePokemon()
+  const [pokemonNameLength, setPokemonNameLength] = useState<number>(pokemonTitle.length)
+  const [otp, setOtp] = useState<string[]>(new Array(pokemonNameLength).fill(""))
+  
   const [currentOtpIndex, setCurrentOtpIndex] = useState<number>(0)
   // const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
   const inputRef = useRef<HTMLInputElement>(null)
@@ -48,6 +53,12 @@ const OTPInput: React.FC<OTPInputProps> = ({ length, onComplete }) => {
   useEffect(() => {
     inputRef.current?.focus()
   }, [currentOtpIndex])
+
+  useEffect(() => {
+    setPokemonNameLength(pokemonTitle.length);
+    setOtp(Array(pokemonTitle.length).fill(""));
+    setCurrentOtpIndex(0);
+  }, [pokemonTitle]);
 
   return (
     <div className="flex justify-center">

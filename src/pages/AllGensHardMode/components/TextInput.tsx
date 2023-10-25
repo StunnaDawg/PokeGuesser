@@ -8,26 +8,18 @@ const TextInput = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
 
-  const onInputChange = (userInput: ChangeEvent<HTMLInputElement>) => {
-    const newTypedValue = userInput.target.value
-    setPokemonNameGuess(newTypedValue)
-  }
+  let lengthChange = pokemonTitle.length
 
   useEffect(() => {
     console.log(pokemonNameGuess)
   }, [pokemonNameGuess])
 
   useEffect(() => {
+    console.log('lenghtChange', lengthChange)
   }, [pokemonTitle])
 
   return (
     <OTPInput
-      length={pokemonTitle.length}
-      onComplete={(code) => {
-        if (code === pokemonTitle) {
-          console.log("winner")
-        }
-      }}
     />
   )
 }
