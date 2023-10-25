@@ -10,16 +10,17 @@ import React, {
 import { useUserNameGuess } from "../context"
 import { usePokemon } from "../context/pokemonContext"
 
-// interface OTPInputProps {
-//   length: number
-//   onComplete: (code: string) => void
-// }
+interface OTPInputProps {
+  // length: number
+  onComplete: (code: string) => void
+}
 
 let currentOTPIndexNumber: number = 0
 
 const OTPInput: React.FC = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
   usePokemon()
+  const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
   const [pokemonNameLength, setPokemonNameLength] = useState<number>(pokemonTitle.length)
   const [otp, setOtp] = useState<string[]>(new Array(pokemonNameLength).fill(""))
   
@@ -38,6 +39,8 @@ const OTPInput: React.FC = () => {
       setCurrentOtpIndex(currentOTPIndexNumber + 1)
     }
     setOtp(newOtp)
+
+    setPokemonNameGuess(newOtp.join(''))
   }
 
   const handleOnKeyDown = (
@@ -59,6 +62,10 @@ const OTPInput: React.FC = () => {
     setOtp(Array(pokemonTitle.length).fill(""));
     setCurrentOtpIndex(0);
   }, [pokemonTitle]);
+
+useEffect(() => {
+  console.log('guess', pokemonNameGuess)
+}, [pokemonNameGuess])
 
   return (
     <div className="flex justify-center">

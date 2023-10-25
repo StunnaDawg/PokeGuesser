@@ -11,6 +11,9 @@ const TextInput = () => {
   let lengthChange = pokemonTitle.length
 
   useEffect(() => {
+    if (pokemonNameGuess === pokemonTitle) {
+      console.log('winner')
+    }
     console.log(pokemonNameGuess)
   }, [pokemonNameGuess])
 
@@ -19,8 +22,7 @@ const TextInput = () => {
   }, [pokemonTitle])
 
   return (
-    <OTPInput
-    />
+    <OTPInput/>
   )
 }
 
