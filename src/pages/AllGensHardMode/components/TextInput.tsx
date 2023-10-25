@@ -16,12 +16,16 @@ const TextInput = () => {
   useEffect(() => {
     console.log(pokemonNameGuess)
   }, [pokemonNameGuess])
+
+  useEffect(() => {
+  }, [pokemonTitle])
+
   return (
     <OTPInput
-      length={6}
+      length={pokemonTitle.length}
       onComplete={(code) => {
-        if (code ===  pokemonTitle) {
-          console.log('winner')
+        if (code === pokemonTitle) {
+          console.log("winner")
         }
       }}
     />
