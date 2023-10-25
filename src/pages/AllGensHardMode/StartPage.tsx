@@ -7,6 +7,11 @@ import TextInput from "./components/TextInput"
 const AllGenHardStart = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
+
+  useEffect(() => {
+    usePokeFetcher(setPokemonTitle, setPokemonSprite)
+  }, [])
+  
   return (
     <>
       <div className="flex-1 flex justify-center items-center">
