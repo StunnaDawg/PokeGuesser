@@ -9,6 +9,7 @@ import React, {
 } from "react"
 import { useUserNameGuess } from "../context"
 import { usePokemon } from "../context/pokemonContext"
+import { useAnswerStatus } from "../context"
 
 interface OTPInputProps {
   // length: number
@@ -21,6 +22,7 @@ const OTPInput: React.FC = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
   usePokemon()
   const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
+  // const {answerStatus, setAnswerStatus} = useAnswerStatus()
   const [pokemonNameLength, setPokemonNameLength] = useState<number>(pokemonTitle.length)
   const [otp, setOtp] = useState<string[]>(new Array(pokemonNameLength).fill(""))
   
@@ -54,8 +56,10 @@ const OTPInput: React.FC = () => {
   }
 
   useEffect(() => {
-    inputRef.current?.focus()
-  }, [currentOtpIndex])
+    if (currentOtpIndex >= 0 && currentOtpIndex < pokemonNameLength) {
+      inputRef.current?.focus();
+    }
+  }, [currentOtpIndex, pokemonNameLength]);
 
   useEffect(() => {
     setPokemonNameLength(pokemonTitle.length);
@@ -73,7 +77,7 @@ useEffect(() => {
         <input
           key={index}
           ref={index === currentOtpIndex ? inputRef : null}
-          className="m-1 p-2 text-center border rounded w-12 h-12"
+          className= "m-1 p-2 text-center border rounded w-12 h-12"
           type="tel"
           maxLength={1}
           onKeyDown={(e) => handleOnKeyDown(e, index)}
