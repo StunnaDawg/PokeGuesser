@@ -11,7 +11,7 @@ import { useUserNameGuess } from "../context"
 import { usePokemon } from "../context/pokemonContext"
 import { useAnswerStatus } from "../context"
 
-let currentOTPIndexNumber: number = 0
+
 
 const OTPInput: React.FC = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
@@ -21,6 +21,7 @@ const OTPInput: React.FC = () => {
   const [pokemonNameLength, setPokemonNameLength] = useState<number>(pokemonTitle.length)
   const [otp, setOtp] = useState<string[]>(new Array(pokemonNameLength).fill(""))
   const [currentIndex, setCurrentIndex] = useState<number>()
+let currentOTPIndexNumber: number = 0
   
   const [currentOtpIndex, setCurrentOtpIndex] = useState<number>(0)
   // const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
@@ -50,9 +51,8 @@ const OTPInput: React.FC = () => {
     //   setCurrentOtpIndex(currentOTPIndexNumber - 1)
     // }
   }
-
   useEffect(() => {
-      inputRef.current?.focus();
+      inputRef.current?.focus(); 
   }, [currentOtpIndex, pokemonTitle]);
 
   useEffect(() => {

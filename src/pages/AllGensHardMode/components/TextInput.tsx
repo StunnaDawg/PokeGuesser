@@ -8,25 +8,33 @@ const TextInput = () => {
   const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
-  const { answerCorrectStatus, setCorrectAnswerStatus, answerWrongStatus, setWrongAnswerStatus } = useAnswerStatus()
+  const {
+    answerCorrectStatus,
+    setCorrectAnswerStatus,
+    answerWrongStatus,
+    setWrongAnswerStatus,
+  } = useAnswerStatus()
 
   useEffect(() => {
-    if (pokemonNameGuess === pokemonTitle && pokemonNameGuess !== '') {
+    if (pokemonNameGuess === pokemonTitle) {
       console.log("winner")
       setCorrectAnswerStatus(true)
       const timer = setTimeout(() => {
-        usePokeFetcher(setPokemonTitle, setPokemonSprite);
-      }, 1000); 
-      return () => clearTimeout(timer);
+        usePokeFetcher(setPokemonTitle, setPokemonSprite)
+      }, 1000)
+      return () => clearTimeout(timer)
     }
-    
-    if (pokemonNameGuess !== pokemonTitle && pokemonNameGuess.length === pokemonTitle.length) {
+
+    if (
+      pokemonNameGuess !== pokemonTitle &&
+      pokemonNameGuess.length === pokemonTitle.length
+    ) {
       console.log("loser")
       setWrongAnswerStatus(true)
       const timer = setTimeout(() => {
-        usePokeFetcher(setPokemonTitle, setPokemonSprite);
-      }, 1000); 
-      return () => clearTimeout(timer);
+        usePokeFetcher(setPokemonTitle, setPokemonSprite)
+      }, 1000)
+      return () => clearTimeout(timer)
     }
 
     console.log(pokemonNameGuess)
