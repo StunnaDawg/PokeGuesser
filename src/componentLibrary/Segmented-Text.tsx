@@ -22,9 +22,10 @@ const OTPInput: React.FC = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
   usePokemon()
   const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
-  // const {answerStatus, setAnswerStatus} = useAnswerStatus()
+  const {answerStatus, setAnswerStatus} = useAnswerStatus()
   const [pokemonNameLength, setPokemonNameLength] = useState<number>(pokemonTitle.length)
   const [otp, setOtp] = useState<string[]>(new Array(pokemonNameLength).fill(""))
+  const [currentIndex, setCurrentIndex] = useState<number>()
   
   const [currentOtpIndex, setCurrentOtpIndex] = useState<number>(0)
   // const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
@@ -50,16 +51,14 @@ const OTPInput: React.FC = () => {
     index: number
   ) => {
     currentOTPIndexNumber = index
-    if (e.key === "Backspace") {
-      setCurrentOtpIndex(currentOTPIndexNumber - 1)
-    }
+    // if (e.key === "Backspace") {
+    //   setCurrentOtpIndex(currentOTPIndexNumber - 1)
+    // }
   }
 
   useEffect(() => {
-    if (currentOtpIndex >= 0 && currentOtpIndex < pokemonNameLength) {
       inputRef.current?.focus();
-    }
-  }, [currentOtpIndex, pokemonNameLength]);
+  }, [currentOtpIndex, pokemonTitle]);
 
   useEffect(() => {
     setPokemonNameLength(pokemonTitle.length);
@@ -67,24 +66,31 @@ const OTPInput: React.FC = () => {
     setCurrentOtpIndex(0);
   }, [pokemonTitle]);
 
+  useEffect(() => {
+    if(otp.length === currentIndex) {
+      setOtp(Array(pokemonTitle.length).fill(""));
+    }
+  }, [otp])
+
 useEffect(() => {
   console.log('guess', pokemonNameGuess)
 }, [pokemonNameGuess])
 
   return (
     <div className="flex justify-center">
-      {otp.map((_, index) => (
+      {otp.map((_, index) => {
+        return (
         <input
           key={index}
-          ref={index === currentOtpIndex ? inputRef : null}
-          className= "m-1 p-2 text-center border rounded w-12 h-12"
+          ref={index == currentOtpIndex ? inputRef : null}
+          className= {`m-1 p-2 text-center border rounded w-12 h-12 ${answerStatus === true ? 'border-green-500' : ''}`}
           type="tel"
           maxLength={1}
           onKeyDown={(e) => handleOnKeyDown(e, index)}
           onChange={onHandleChange}
           value={otp[index]}
         />
-      ))}
+      )})}
     </div>
   )
 }
