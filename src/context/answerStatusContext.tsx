@@ -12,11 +12,13 @@ const AnswerStatusContext = createContext<AnswerStatusContextType | undefined>(u
 export const AnswerStatusContextProvider = ({
   children,
 }: AnswerStatusContextProviderProps) => {
-  const [answerStatus, setAnswerStatus] = useState<boolean>(false)
+  const [answerCorrectStatus, setCorrectAnswerStatus] = useState<boolean>(false)
+  const [answerWrongStatus, setWrongAnswerStatus] = useState<boolean>(false)
+
 
   return (
     <>
-    <AnswerStatusContext.Provider value={{ answerStatus, setAnswerStatus }}>
+    <AnswerStatusContext.Provider value={{ answerCorrectStatus, setCorrectAnswerStatus, answerWrongStatus, setWrongAnswerStatus }}>
       {children}
     </AnswerStatusContext.Provider>
     </>

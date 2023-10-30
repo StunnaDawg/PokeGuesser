@@ -11,18 +11,13 @@ import { useUserNameGuess } from "../context"
 import { usePokemon } from "../context/pokemonContext"
 import { useAnswerStatus } from "../context"
 
-interface OTPInputProps {
-  // length: number
-  onComplete: (code: string) => void
-}
-
 let currentOTPIndexNumber: number = 0
 
 const OTPInput: React.FC = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
   usePokemon()
   const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
-  const {answerStatus, setAnswerStatus} = useAnswerStatus()
+  const { answerCorrectStatus, setCorrectAnswerStatus, answerWrongStatus, setWrongAnswerStatus } = useAnswerStatus()
   const [pokemonNameLength, setPokemonNameLength] = useState<number>(pokemonTitle.length)
   const [otp, setOtp] = useState<string[]>(new Array(pokemonNameLength).fill(""))
   const [currentIndex, setCurrentIndex] = useState<number>()
@@ -83,7 +78,7 @@ useEffect(() => {
         <input
           key={index}
           ref={index == currentOtpIndex ? inputRef : null}
-          className= {`m-1 p-2 text-center border rounded w-12 h-12 ${answerStatus === true ? 'border-green-500' : ''}`}
+          className= {`m-1 p-2 text-center border rounded w-12 h-12 ${answerCorrectStatus === true ? 'border-green-500' : ''} ${answerWrongStatus === true ? 'border-red-500' : ''}`}
           type="tel"
           maxLength={1}
           onKeyDown={(e) => handleOnKeyDown(e, index)}

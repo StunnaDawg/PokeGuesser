@@ -18,9 +18,11 @@ export type UserGuessAction = {
 }
 
 export type AnswerStatus = {
-    answerStatus: boolean;
+    answerCorrectStatus: boolean;
+    answerWrongStatus: boolean;
 }
 
 export type AnswerStatusAction = {
-    setAnswerStatus: Dispatch<SetStateAction<boolean>>;
+    setCorrectAnswerStatus: Dispatch<SetStateAction<boolean>>;
+    setWrongAnswerStatus: Dispatch<SetStateAction<boolean>>;
 }

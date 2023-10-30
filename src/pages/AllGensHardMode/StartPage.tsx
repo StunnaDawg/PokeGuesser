@@ -9,7 +9,10 @@ const AllGenHardStart = () => {
     usePokemon()
 
   useEffect(() => {
-    usePokeFetcher(setPokemonTitle, setPokemonSprite)
+    const timer = setTimeout(() => {
+      usePokeFetcher(setPokemonTitle, setPokemonSprite);
+    }, 3000); 
+    return () => clearTimeout(timer);
   }, [])
   
   return (
@@ -33,11 +36,6 @@ const AllGenHardStart = () => {
       </div>
 
       <div className="flex-1 flex justify-center items-center">
-        <button
-          onClick={() => usePokeFetcher(setPokemonTitle, setPokemonSprite)}
-        >
-          Refresh Pokemon
-        </button>
       </div>
     </>
   )

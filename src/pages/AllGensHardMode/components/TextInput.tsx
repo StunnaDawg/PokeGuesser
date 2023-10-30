@@ -1,4 +1,4 @@
-import React, { useEffect, ChangeEvent } from "react"
+import React, { useEffect } from "react"
 import { useAnswerStatus, useUserNameGuess } from "../../../context"
 import OTPInput from "../../../componentLibrary/Segmented-Text"
 import { usePokemon } from "../../../context/pokemonContext"
@@ -8,21 +8,33 @@ const TextInput = () => {
   const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
-  const { answerStatus, setAnswerStatus } = useAnswerStatus()
-  let lengthChange = pokemonTitle.length
+  const { answerCorrectStatus, setCorrectAnswerStatus, answerWrongStatus, setWrongAnswerStatus } = useAnswerStatus()
 
   useEffect(() => {
-    if (pokemonNameGuess === pokemonTitle) {
+    if (pokemonNameGuess === pokemonTitle && pokemonNameGuess !== '') {
       console.log("winner")
-      setAnswerStatus(true)
-      usePokeFetcher(setPokemonTitle, setPokemonSprite)
+      setCorrectAnswerStatus(true)
+      const timer = setTimeout(() => {
+        usePokeFetcher(setPokemonTitle, setPokemonSprite);
+      }, 1000); 
+      return () => clearTimeout(timer);
     }
     
+    if (pokemonNameGuess !== pokemonTitle && pokemonNameGuess.length === pokemonTitle.length) {
+      console.log("loser")
+      setWrongAnswerStatus(true)
+      const timer = setTimeout(() => {
+        usePokeFetcher(setPokemonTitle, setPokemonSprite);
+      }, 1000); 
+      return () => clearTimeout(timer);
+    }
+
     console.log(pokemonNameGuess)
   }, [pokemonNameGuess])
 
   useEffect(() => {
-    setAnswerStatus(false)
+    setWrongAnswerStatus(false)
+    setCorrectAnswerStatus(false)
   }, [pokemonTitle])
 
   return <OTPInput />
