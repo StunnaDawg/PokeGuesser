@@ -14,5 +14,15 @@ export type UserGuess = {
 }
 
 export type UserGuessAction = {
-    setPokemonNameGuess: Dispatch<SetStateAction<string>>
+    setPokemonNameGuess: Dispatch<SetStateAction<string>>;
+}
+
+export type AnswerStatus = {
+    answerCorrectStatus: boolean;
+    answerWrongStatus: boolean;
+}
+
+export type AnswerStatusAction = {
+    setCorrectAnswerStatus: Dispatch<SetStateAction<boolean>>;
+    setWrongAnswerStatus: Dispatch<SetStateAction<boolean>>;
 }
