@@ -14,13 +14,13 @@ const AllGenHardStart = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       usePokeFetcher(setPokemonTitle, setPokemonSprite);
-setIsStarted(true)
+    setIsStarted(true)
     }, 1000); 
     return () => clearTimeout(timer);
   }, [])
   
   return (
-    <>
+      <>
       <div className="flex-1 flex justify-center items-center">
         <h1 className="underline font-bold">PokeGuesser</h1>
       </div>
@@ -35,7 +35,7 @@ setIsStarted(true)
             <h3>{pokemonTitle != "" ? pokemonTitle : "loading..."}</h3>
           </div>
           <div className="flex flex-row justify-center">
-            {isStarted ? <TextInput />: null }
+             <TextInput />
             
           </div>
         </div>

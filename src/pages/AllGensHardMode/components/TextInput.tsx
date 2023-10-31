@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useAnswerStatus, useUserNameGuess } from "../../../context"
 import OTPInput from "../../../componentLibrary/Segmented-Text"
 import { usePokemon } from "../../../context/pokemonContext"
@@ -16,7 +16,7 @@ const TextInput = () => {
   } = useAnswerStatus()
 
   useEffect(() => {
-    if (pokemonNameGuess === pokemonTitle) {
+    if (pokemonNameGuess === pokemonTitle && pokemonTitle !== '') {
       console.log("winner")
       setCorrectAnswerStatus(true)
       const timer = setTimeout(() => {
@@ -45,7 +45,9 @@ const TextInput = () => {
     setCorrectAnswerStatus(false)
   }, [pokemonTitle])
 
-  return <OTPInput />
+  return (
+    pokemonTitle != '' ? <OTPInput /> : null
+  )
 }
 
 export default TextInput
