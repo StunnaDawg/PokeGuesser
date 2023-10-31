@@ -2,13 +2,13 @@ import { useEffect, useState } from "react"
 import { usePokemon } from "../../context/pokemonContext"
 import React from "react"
 import usePokeFetcher from "../../hooks/pokeFetcher"
-import TextInput from "./components/TextInput"
+import TextInput from "./TextInput"
 import { useAnswerStatus } from "../../context"
 import UserScore from "../../componentLibrary/Score"
 import GameModal from "./components/AnswerModal"
 import { useUserScore } from "../../context"
 
-const AllGenHardStart = () => {
+const ClassicMode = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
   const {
@@ -63,4 +63,9 @@ const AllGenHardStart = () => {
   )
 }
 
-export default AllGenHardStart
+export default ClassicMode
+
+export const classicModeRoute = {
+  element: <ClassicMode />,
+}
+

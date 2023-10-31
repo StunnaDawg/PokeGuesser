@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { useAnswerStatus, useUserNameGuess } from "../../../context"
-import OTPInput from "../../../componentLibrary/Segmented-Text"
-import { usePokemon } from "../../../context/pokemonContext"
-import usePokeFetcher from "../../../hooks/pokeFetcher"
+import { useAnswerStatus, useUserNameGuess } from "../../context"
+import OTPInput from "../../componentLibrary/Segmented-Text"
+import { usePokemon } from "../../context/pokemonContext"
+import usePokeFetcher from "../../hooks/pokeFetcher"
 
 const TextInput = () => {
   const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
