@@ -78,7 +78,7 @@ useEffect(() => {
         <input
           key={index}
           ref={index == currentOtpIndex ? inputRef : null}
-          className= {`m-1 p-2 text-center border rounded w-12 h-12 ${answerCorrectStatus === true ? 'border-green-500' : ''} ${answerWrongStatus === true ? 'border-red-500' : ''}`}
+          className= {`m-0.5 p-0.5 text-center border-b w-8 h-8  ${answerCorrectStatus === true ? 'border-green-500' : ''} ${answerWrongStatus === true ? 'focus: border-red-500' : ''}`}
           type="tel"
           maxLength={1}
           onKeyDown={(e) => handleOnKeyDown(e, index)}
