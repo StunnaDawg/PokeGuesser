@@ -3,6 +3,8 @@ import { createBrowserRouter, useRouteError, Navigate } from "react-router-dom"
 import ClassicMode from "./pages/AllGensHardMode/StartPage"
 
 import MainPage from "./pages/MainPage"
+import SignUpPage from "./pages/SignUp"
+import LoginPage from "./pages/Login"
 
 export const router = createBrowserRouter([
   {
@@ -12,6 +14,14 @@ export const router = createBrowserRouter([
   {
     path: "classic",
     element: <ClassicMode />,
+  },
+  {
+    path: "/signup",
+    element: <SignUpPage />,
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
   },
 ])
 
