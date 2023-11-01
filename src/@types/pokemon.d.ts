@@ -26,3 +26,11 @@ export type AnswerStatusAction = {
     setCorrectAnswerStatus: Dispatch<SetStateAction<boolean>>;
     setWrongAnswerStatus: Dispatch<SetStateAction<boolean>>;
 }
+
+export type UserScore = {
+    userScore: number;
+}
+
+export type UserScoreAction = {
+    setUserScore: Dispatch<SetStateAction<number>>
+}
