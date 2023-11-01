@@ -5,6 +5,7 @@ import {
   AnswerStatusContextProvider,
 } from "./answerStatusContext"
 import { useUserScore, UserScoreContextProvider } from "./userScoreContext"
+import { UserAuthContextProvider, useUserAuth } from "./AuthContext"
 
 export {
   PokemonContextProvider,
@@ -14,4 +15,6 @@ export {
   AnswerStatusContextProvider,
   useUserScore,
   UserScoreContextProvider,
+  UserAuthContextProvider,
+  useUserAuth,
 }

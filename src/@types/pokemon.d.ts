@@ -34,3 +34,11 @@ export type UserScore = {
 export type UserScoreAction = {
     setUserScore: Dispatch<SetStateAction<number>>
 }
+
+export type UserAuth = {
+    isSignedIn: boolean;
+}
+
+export type UserAuthAction = { 
+    setIsSignedIn: Dispatch<SetStateAction<boolean>>
+}
