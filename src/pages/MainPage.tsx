@@ -14,7 +14,7 @@ const MainPage = () => {
           Classic Mode
         </Link>
         <button className="my-2">Practice Mode</button>
-        <button className="my-2">LeaderBoard</button>
+        <Link to='/leaderboard' className="my-2">LeaderBoard</Link>
         <Outlet />
       </div>
     </>

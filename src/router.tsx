@@ -5,6 +5,7 @@ import ClassicMode from "./pages/AllGensHardMode/StartPage"
 import MainPage from "./pages/MainPage"
 import SignUpPage from "./pages/SignUp"
 import LoginPage from "./pages/Login"
+import LeaderBoard from "./pages/LeaderBoard"
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
+  },
+  {
+    path: "/leaderboard",
+    element: <LeaderBoard />,
   },
 ])
 
