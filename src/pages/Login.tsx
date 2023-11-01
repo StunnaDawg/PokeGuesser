@@ -3,6 +3,7 @@ import { FIREBASE_AUTH } from "../../firebase"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { useUserAuth } from "../context"
 import { redirect, useNavigate } from "react-router-dom"
+import signInWithGoogle from "../hooks/signInWithGoogle"
 
 const LoginPage = () => {
   const [email, setEmail] = useState<string>("")
@@ -44,6 +45,8 @@ const LoginPage = () => {
       />
 
       <button onClick={handleSignUp}>Log in</button>
+
+      <button onClick={signInWithGoogle}>Log in with Google</button>
 
       <button onClick={handleSignUpRedirect}>Don't have any account?</button>
     </>

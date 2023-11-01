@@ -16,7 +16,7 @@ const MainPage = () => {
 
   useEffect(() => {
     if (!isSignedIn) {
-      navigate("/signup")
+      navigate("/login")
     }
   }, [isSignedIn, navigate])
   return (
