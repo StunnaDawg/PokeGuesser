@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react"
 import { usePokemon } from "../../context/pokemonContext"
-import React from "react"
 import usePokeFetcher from "../../hooks/pokeFetcher"
 import TextInput from "./TextInput"
 import { useAnswerStatus } from "../../context"
-import UserScore from "../../componentLibrary/Score"
+import { UserScore, ClassicModeLife } from "../../componentLibrary"
 import GameModal from "./components/AnswerModal"
-import { useUserScore } from "../../context"
+import { useUserScore, useClassicModeLife } from "../../context"
 
 const ClassicMode = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
@@ -19,6 +18,7 @@ const ClassicMode = () => {
   } = useAnswerStatus()
   const [isStarted, setIsStarted] = useState<boolean>(false)
   const {userScore, setUserScore} = useUserScore()
+  const {lives, setLives} = useClassicModeLife()
   useEffect(() => {
     const timer = setTimeout(() => {
       usePokeFetcher(setPokemonTitle, setPokemonSprite)
@@ -34,12 +34,27 @@ const ClassicMode = () => {
 
   }, [answerCorrectStatus])
 
+  useEffect(() => {
+    if(answerWrongStatus === true) {
+      if (lives.length > 0) {
+      setLives([1,2,3].slice(0, lives.length - 1));
+    }
+
+    if (lives.length === 0) {
+      console.log("game over")
+    }
+
+  }
+}, [answerWrongStatus])
+
   return (
     <>
       <div className="flex-1 flex justify-center items-center">
         <h1 className="underline font-bold">PokeGuesser</h1>
       </div>
-
+      <div className="flex flex-row justify-center">
+<ClassicModeLife />
+</div>
       <div className="flex-1 flex justify-center items-center">
         <div className="flex-col">
           <div className="flex flex-row justify-center">
@@ -48,6 +63,7 @@ const ClassicMode = () => {
           <div className="flex flex-row justify-center">
             {/* <h3>{pokemonTitle != "" ? pokemonTitle : "loading..."}</h3> */}
             <UserScore />
+            
           </div>
           <div className="flex flex-row justify-center">
             <TextInput />

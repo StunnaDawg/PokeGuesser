@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useAnswerStatus, useUserNameGuess } from "../../context"
-import OTPInput from "../../componentLibrary/Segmented-Text"
+import { OTPInput } from "../../componentLibrary"
 import { usePokemon } from "../../context/pokemonContext"
 import usePokeFetcher from "../../hooks/pokeFetcher"
 

@@ -1,21 +1,31 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import { RouterProvider } from 'react-router-dom'
-import { router } from './router'
-import { AnswerStatusContextProvider, PokemonContextProvider, UserGuessContextProvider, UserScoreContextProvider } from './context'
+import React from "react"
+import ReactDOM from "react-dom/client"
+import "./index.css"
+import { RouterProvider } from "react-router-dom"
+import { router } from "./router"
+import {
+  AnswerStatusContextProvider,
+  PokemonContextProvider,
+  UserAuthContextProvider,
+  UserGuessContextProvider,
+  UserScoreContextProvider,
+  ClassicModeLifeContextProvider,
+} from "./context"
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <PokemonContextProvider>
-        <UserScoreContextProvider>
+      <UserScoreContextProvider>
+        <ClassicModeLifeContextProvider>
           <AnswerStatusContextProvider>
             <UserGuessContextProvider>
-              <RouterProvider router={router} />
+              <UserAuthContextProvider>
+                <RouterProvider router={router} />
+              </UserAuthContextProvider>
             </UserGuessContextProvider>
           </AnswerStatusContextProvider>
-        </UserScoreContextProvider>
-      </PokemonContextProvider>
-    
-  </React.StrictMode>,
+        </ClassicModeLifeContextProvider>
+      </UserScoreContextProvider>
+    </PokemonContextProvider>
+  </React.StrictMode>
 )
