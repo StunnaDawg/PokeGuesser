@@ -42,3 +42,11 @@ export type UserAuth = {
 export type UserAuthAction = { 
     setIsSignedIn: Dispatch<SetStateAction<boolean>>
 }
+
+export type ClassicModeLife = {
+    lives: number[];
+}
+
+export type ClassicModeLifeAction = {
+    setLives: Dispatch<SetStateAction<number[]>>
+}

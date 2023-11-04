@@ -9,19 +9,22 @@ import {
   UserAuthContextProvider,
   UserGuessContextProvider,
   UserScoreContextProvider,
+  ClassicModeLifeContextProvider,
 } from "./context"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <PokemonContextProvider>
       <UserScoreContextProvider>
-        <AnswerStatusContextProvider>
-          <UserGuessContextProvider>
-            <UserAuthContextProvider>
-            <RouterProvider router={router} />
-            </UserAuthContextProvider>
-          </UserGuessContextProvider>
-        </AnswerStatusContextProvider>
+        <ClassicModeLifeContextProvider>
+          <AnswerStatusContextProvider>
+            <UserGuessContextProvider>
+              <UserAuthContextProvider>
+                <RouterProvider router={router} />
+              </UserAuthContextProvider>
+            </UserGuessContextProvider>
+          </AnswerStatusContextProvider>
+        </ClassicModeLifeContextProvider>
       </UserScoreContextProvider>
     </PokemonContextProvider>
   </React.StrictMode>
