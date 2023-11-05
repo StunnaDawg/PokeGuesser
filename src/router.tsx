@@ -1,11 +1,12 @@
-import React from "react"
-import { createBrowserRouter, useRouteError, Navigate } from "react-router-dom"
+
+import { createBrowserRouter, useRouteError } from "react-router-dom"
 import ClassicMode from "./pages/AllGensHardMode/StartPage"
 
 import MainPage from "./pages/MainPage"
 import SignUpPage from "./pages/SignUp"
 import LoginPage from "./pages/Login"
 import LeaderBoard from "./pages/LeaderBoard"
+import GameOver from "./pages/GameOver"
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
   {
     path: "/leaderboard",
     element: <LeaderBoard />,
+  },
+  {
+    path: "gameover",
+    element: <GameOver />,
   },
 ])
 
