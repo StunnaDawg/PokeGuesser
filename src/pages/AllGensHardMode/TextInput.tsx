@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useAnswerStatus, useUserNameGuess } from "../../context"
+import { useAnswerStatus, useClassicModeLife, useUserNameGuess } from "../../context"
 import { OTPInput } from "../../componentLibrary"
 import { usePokemon } from "../../context/pokemonContext"
 import usePokeFetcher from "../../hooks/pokeFetcher"
@@ -14,6 +14,7 @@ const TextInput = () => {
     answerWrongStatus,
     setWrongAnswerStatus,
   } = useAnswerStatus()
+  const {lives} = useClassicModeLife()
 
   useEffect(() => {
     if (pokemonNameGuess === pokemonTitle && pokemonTitle !== '') {
@@ -28,13 +29,18 @@ const TextInput = () => {
     if (
       pokemonNameGuess !== pokemonTitle &&
       pokemonNameGuess.length === pokemonTitle.length
+      && pokemonTitle !== ''
     ) {
       console.log("loser")
       setWrongAnswerStatus(true)
+      if(lives.length > 0) {
       const timer = setTimeout(() => {
         usePokeFetcher(setPokemonTitle, setPokemonSprite)
       }, 1000)
+    
+      console.log('I fetced a new pokemon')
       return () => clearTimeout(timer)
+    } 
     }
 
     console.log(pokemonNameGuess)

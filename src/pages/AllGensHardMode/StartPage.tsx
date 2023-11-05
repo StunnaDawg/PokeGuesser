@@ -6,6 +6,7 @@ import { useAnswerStatus } from "../../context"
 import { UserScore, ClassicModeLife } from "../../componentLibrary"
 import GameModal from "./components/AnswerModal"
 import { useUserScore, useClassicModeLife } from "../../context"
+import { Outlet, useNavigate } from "react-router-dom"
 
 const ClassicMode = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
@@ -19,9 +20,13 @@ const ClassicMode = () => {
   const [isStarted, setIsStarted] = useState<boolean>(false)
   const {userScore, setUserScore} = useUserScore()
   const {lives, setLives} = useClassicModeLife()
+  const navigate = useNavigate()
+
+
   useEffect(() => {
     const timer = setTimeout(() => {
       usePokeFetcher(setPokemonTitle, setPokemonSprite)
+      console.log("fetching")
       setIsStarted(true)
     }, 1000)
     return () => clearTimeout(timer)
@@ -41,7 +46,10 @@ const ClassicMode = () => {
     }
 
     if (lives.length === 0) {
-      console.log("game over")
+      const timer = setTimeout(() => {
+      navigate("/gameover")
+    }, 1000)
+    return () => clearTimeout(timer)
     }
 
   }
@@ -75,6 +83,7 @@ const ClassicMode = () => {
       </div>
 
       <div className="flex-1 flex justify-center items-center"></div>
+      
     </>
   )
 }
