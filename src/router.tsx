@@ -8,11 +8,12 @@ import LoginPage from "./pages/Login"
 import LeaderBoard from "./pages/LeaderBoard"
 import GameOver from "./pages/GameOver"
 import CreateUsername from "./pages/CreateUsername"
+import RootLayout from "./pages/RootLayout"
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainPage />,
+    element: <RootLayout />,
   },
   {
     path: "classic",

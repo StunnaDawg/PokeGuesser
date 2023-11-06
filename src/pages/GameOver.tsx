@@ -24,23 +24,20 @@ const GameOver = () => {
     }
 
     useEffect(() => {
-        const getUserName = () => {
-            getUsername(setCurrentUser)
+        const getUserName = async () => {
+            await getUsername(setCurrentUser)
         }
         
         getUserName();
     }, [])
 
     useEffect(() => {
-        if (currentUser === "") {
-            navigate("/create-username")
-        }
+        console.log(currentUser)
     }, [currentUser])
-
-    return (
+        return (
         <div className="flex flex-1 flex-col items-center">
             <h1>Game Over</h1>
-            <p>Score: {userScore} </p>
+            <p>{currentUser ? currentUser : 'loading username'} Score: {userScore} </p>
             <button onClick={async () => {await restartGame()}}>Retry</button>
         </div>
     );
