@@ -7,6 +7,7 @@ import SignUpPage from "./pages/SignUp"
 import LoginPage from "./pages/Login"
 import LeaderBoard from "./pages/LeaderBoard"
 import GameOver from "./pages/GameOver"
+import CreateUsername from "./pages/CreateUsername"
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
   {
     path: "gameover",
     element: <GameOver />,
+  },
+  {
+    path: "create-username",
+    element: <CreateUsername />,
   },
 ])
 
