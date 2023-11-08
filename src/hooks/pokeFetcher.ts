@@ -9,7 +9,7 @@ const usePokeFetcher = async (setPokeName: Dispatch<SetStateAction<string>> , se
     console.log(randomPokemon.name)
     setPokeName(randomPokemon.name)
     console.log(randomPokemon)
-    setPokeSprite(randomPokemon.sprites.front_default)
+    setPokeSprite(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${randomNumber}.png`)
   } catch (err) {
     console.error(err)
   }
