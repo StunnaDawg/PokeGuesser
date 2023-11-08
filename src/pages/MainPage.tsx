@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom"
+import { Link } from "react-router-dom"
 const MainPage = () => {
 
   return (
@@ -12,7 +12,6 @@ const MainPage = () => {
         <Link to="/leaderboard" className="my-2">
           LeaderBoard
         </Link>
-        <Outlet />
       </div>
     </>
   )

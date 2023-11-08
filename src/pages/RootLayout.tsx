@@ -1,4 +1,4 @@
-import { Link, useNavigate, useNavigation } from "react-router-dom"
+import { Link, Outlet, useNavigate, useNavigation } from "react-router-dom"
 import { useUserAuth } from "../context"
 import { FIREBASE_AUTH } from "../../firebase"
 import { useEffect } from "react"
@@ -43,6 +43,9 @@ const RootLayout = () => {
           )}
         </div>
       </div>{" "}
+      <div className={`container ${isLoading ? "loading" : ""}`}>
+        <Outlet />
+      </div>
     </>
   )
 }
