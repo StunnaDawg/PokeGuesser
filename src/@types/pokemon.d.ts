@@ -50,3 +50,7 @@ export type ClassicModeLife = {
 export type ClassicModeLifeAction = {
     setLives: Dispatch<SetStateAction<number[]>>
 }
+
+export type username = { 
+    username: string;
+}

@@ -1,5 +1,5 @@
 
-import { createBrowserRouter, useRouteError } from "react-router-dom"
+import { createBrowserRouter, useRouteError, Navigate } from "react-router-dom"
 import ClassicMode from "./pages/AllGensHardMode/StartPage"
 
 import MainPage from "./pages/MainPage"
@@ -7,33 +7,9 @@ import SignUpPage from "./pages/SignUp"
 import LoginPage from "./pages/Login"
 import LeaderBoard from "./pages/LeaderBoard"
 import GameOver from "./pages/GameOver"
+import CreateUsername from "./pages/CreateUsername"
+import RootLayout from "./pages/RootLayout"
 
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <MainPage />,
-  },
-  {
-    path: "classic",
-    element: <ClassicMode />,
-  },
-  {
-    path: "/signup",
-    element: <SignUpPage />,
-  },
-  {
-    path: "/login",
-    element: <LoginPage />,
-  },
-  {
-    path: "/leaderboard",
-    element: <LeaderBoard />,
-  },
-  {
-    path: "gameover",
-    element: <GameOver />,
-  },
-])
 
 function ErrorPage() {
   const error = useRouteError()
@@ -50,3 +26,37 @@ function ErrorPage() {
     </>
   )
 }
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      {
+        errorElement: <ErrorPage />,
+        children: [
+          {index: true, element: <Navigate to='/main-menu'/>},
+          { path: "main-menu",
+    element: <MainPage />},
+    { path: "classic",
+    element: <ClassicMode />},
+    {
+      path: "gameover",
+      element: <GameOver />,
+    }, {
+    path: "signup",
+    element: <SignUpPage />,
+  },{
+    path: "login",
+    element: <LoginPage />,
+  },{
+    path: "leaderboard",
+    element: <LeaderBoard />,
+  },{
+    path: "create-username",
+    element: <CreateUsername />,
+  },
+        ],
+      },
+    ],
+  },
+])
