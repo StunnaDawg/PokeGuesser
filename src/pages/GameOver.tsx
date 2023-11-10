@@ -1,26 +1,17 @@
 import { useUserNameGuess, useUserScore } from "../context";
-import { useClassicModeLife } from "../context";
 import { useNavigate } from "react-router-dom";
-import { usePokemon } from "../context/pokemonContext";
 import { useEffect, useState } from "react";
 import { getUsername } from "../hooks/getUsername";
+import useResetGame from "../hooks/resetGame";
 
 const GameOver = () => {
     const {userScore, setUserScore} = useUserScore();
-    const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
-    const {lives, setLives} = useClassicModeLife();
-    const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
-    usePokemon()
     const [currentUser, setCurrentUser] = useState<string>("")
     const navigate = useNavigate();
+    const resetGame = useResetGame()
 
-    const restartGame = async () => { 
-        setUserScore(0);
-        setLives([0,1,2,3]);
-        setPokemonNameGuess("");
-        setPokemonTitle("");
-        setPokemonSprite("");
-        navigate("/classic");
+    const restartGame = () => { 
+        resetGame('/classic', [1,2,3])
     }
 
     useEffect(() => {
@@ -38,7 +29,7 @@ const GameOver = () => {
         <div className="flex flex-1 flex-col items-center">
             <h1>Game Over</h1>
             <p>{currentUser ? currentUser : 'loading username'} Score: {userScore} </p>
-            <button onClick={async () => {await restartGame()}}>Retry</button>
+            <button onClick={restartGame}>Retry</button>
         </div>
     );
 }
