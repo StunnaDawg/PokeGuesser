@@ -2,13 +2,14 @@
 import { usePokemon } from "../../../context/pokemonContext"
 import usePokeFetcher from "../../../hooks/pokeFetcher"
 import TextInput from "../components/TextInput"
-import { useAnswerStatus} from "../../../context"
+import { useAnswerStatus, useUserScore} from "../../../context"
 import { UserScore } from "../../../componentLibrary"
 import GameModal from "../../AllGensHardMode/components/AnswerModal"
 import { useNavigate } from "react-router-dom"
 const AllGensPracticeMode = () => { 
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
+    const {userScore, setUserScore} = useUserScore()
   const {
     answerCorrectStatus,
     setCorrectAnswerStatus,
@@ -28,6 +29,12 @@ const AllGensPracticeMode = () => {
     return () => clearTimeout(timer)
   }, [])
 
+  useEffect(() => {
+    if(answerCorrectStatus === true) {
+      setUserScore(prevScore => prevScore + 1);
+    }
+
+  }, [answerCorrectStatus])
   return (
     <>
       <div className="flex-1 flex justify-center items-center">
