@@ -8,7 +8,7 @@ const MainPage = () => {
         <Link to="/classic" className="my-2">
           Classic Mode
         </Link>
-        <button className="my-2">Practice Mode</button>
+        <Link to="/practice-mode" className="my-2">Practice Mode</Link>
         <Link to="/leaderboard" className="my-2">
           LeaderBoard
         </Link>
