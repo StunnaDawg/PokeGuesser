@@ -9,6 +9,8 @@ import LeaderBoard from "./pages/LeaderBoard"
 import GameOver from "./pages/GameOver"
 import CreateUsername from "./pages/CreateUsername"
 import RootLayout from "./pages/RootLayout"
+import ChoosePracticeMode from "./pages/PracticeMode/StartPage"
+import AllGensPracticeMode from "./pages/PracticeMode/categories/AllGens"
 
 
 function ErrorPage() {
@@ -54,6 +56,13 @@ export const router = createBrowserRouter([
   },{
     path: "create-username",
     element: <CreateUsername />,
+  },{
+    path: "practice-mode",
+    element: <ChoosePracticeMode />,
+    children: [
+      { path: "all-gens", element: <AllGensPracticeMode /> },
+      // ... potentially other child routes
+    ],
   },
         ],
       },
