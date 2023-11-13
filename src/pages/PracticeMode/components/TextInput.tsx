@@ -4,7 +4,11 @@ import { OTPInput } from "../../../componentLibrary"
 import { usePokemon } from "../../../context/pokemonContext"
 import usePokeFetcher from "../../../hooks/pokeFetcher"
 
-const TextInput = () => {
+type TextInputProps = {
+  generation: number;
+};
+
+const TextInput: React.FC<TextInputProps> = ({generation}) => {
   const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
@@ -21,7 +25,7 @@ const TextInput = () => {
       console.log("winner")
       setCorrectAnswerStatus(true)
       const timer = setTimeout(() => {
-        usePokeFetcher(setPokemonTitle, setPokemonSprite)
+        usePokeFetcher(setPokemonTitle, setPokemonSprite, generation)
       }, 1000)
       return () => clearTimeout(timer)
     }
@@ -34,7 +38,7 @@ const TextInput = () => {
       console.log("loser")
       setWrongAnswerStatus(true)
       const timer = setTimeout(() => {
-        usePokeFetcher(setPokemonTitle, setPokemonSprite)
+        usePokeFetcher(setPokemonTitle, setPokemonSprite, generation)
       }, 1000)
     
       console.log('I fetced a new pokemon')

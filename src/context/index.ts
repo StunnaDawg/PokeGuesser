@@ -10,7 +10,7 @@ import {
   useClassicModeLife,
   ClassicModeLifeContextProvider,
 } from "./classicModeLife"
-
+import { useCategoryContext, CategoryContextProvider } from "./categoryContext"
 export {
   PokemonContextProvider,
   UserGuessContextProvider,
@@ -23,4 +23,6 @@ export {
   useUserAuth,
   useClassicModeLife,
   ClassicModeLifeContextProvider,
+  useCategoryContext,
+  CategoryContextProvider,
 }
