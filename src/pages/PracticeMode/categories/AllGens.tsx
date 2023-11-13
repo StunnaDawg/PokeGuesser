@@ -11,7 +11,7 @@ const AllGensPracticeMode = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
     const {userScore, setUserScore} = useUserScore()
-    const {category} = useCategoryContext()
+    const {categoryStart, categoryEnd} = useCategoryContext()
   const {
     answerCorrectStatus,
     setCorrectAnswerStatus,
@@ -23,7 +23,7 @@ const AllGensPracticeMode = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      usePokeFetcher(setPokemonTitle, setPokemonSprite, 1015)
+      usePokeFetcher(setPokemonTitle, setPokemonSprite, categoryStart, categoryEnd)
       console.log("fetching")
       setIsStarted(true)
     }, 1000)
@@ -54,7 +54,7 @@ const AllGensPracticeMode = () => {
             
           </div>
           <div className="flex flex-row justify-center">
-            <TextInput generation={1015}/>
+            <TextInput generationStart={0} generationEnd={1015}/>
             <GameModal isOpen={answerCorrectStatus || answerWrongStatus}>
               {answerCorrectStatus ? "Correct" : `Wrong ${pokemonTitle}`}{" "}
             </GameModal>

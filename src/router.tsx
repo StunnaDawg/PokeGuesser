@@ -11,7 +11,6 @@ import CreateUsername from "./pages/CreateUsername"
 import RootLayout from "./pages/RootLayout"
 import ChoosePracticeMode from "./pages/PracticeMode/StartPage"
 import AllGensPracticeMode from "./pages/PracticeMode/categories/AllGens"
-import GenOnePracticeMode from "./pages/PracticeMode/categories/GenOne"
 
 
 function ErrorPage() {
@@ -41,7 +40,8 @@ export const router = createBrowserRouter([
           { path: "main-menu",
     element: <MainPage />},
     { path: "classic",
-    element: <ClassicMode />},
+    element: <ClassicMode />
+  },
     {
       path: "gameover",
       element: <GameOver />,
@@ -62,9 +62,14 @@ export const router = createBrowserRouter([
     element: <ChoosePracticeMode />,
     children: [
       { path: "all-gens", element: <AllGensPracticeMode /> },
-      { path: "gen-1", element: <GenOnePracticeMode /> },
+      { path: "gen-1", element: <AllGensPracticeMode /> },
       { path: "gen-2", element: <AllGensPracticeMode /> },
       { path: "gen-3", element: <AllGensPracticeMode /> },
+      { path: "gen-4", element: <AllGensPracticeMode /> },
+      { path: "gen-5", element: <AllGensPracticeMode /> },
+      { path: "gen-7", element: <AllGensPracticeMode /> },
+      { path: "gen-8", element: <AllGensPracticeMode /> },
+      { path: "gen-9", element: <AllGensPracticeMode /> },
     ],
   },
         ],

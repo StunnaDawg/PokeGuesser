@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react"
-import { usePokemon } from "../../context/pokemonContext"
 import usePokeFetcher from "../../hooks/pokeFetcher"
 import TextInput from "./TextInput"
 import { useAnswerStatus } from "../../context"
 import { UserScore, ClassicModeLife } from "../../componentLibrary"
 import GameModal from "./components/AnswerModal"
-import { useUserScore, useClassicModeLife } from "../../context"
-import { Outlet, useNavigate } from "react-router-dom"
+import { useUserScore, useClassicModeLife, usePokemon } from "../../context"
+import { useNavigate } from "react-router-dom"
 
 const ClassicMode = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
@@ -25,7 +24,7 @@ const ClassicMode = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      usePokeFetcher(setPokemonTitle, setPokemonSprite, 1015)
+      usePokeFetcher(setPokemonTitle, setPokemonSprite, 0, 1015)
       console.log("fetching")
       setIsStarted(true)
     }, 1000)

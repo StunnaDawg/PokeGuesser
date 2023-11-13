@@ -1,4 +1,4 @@
-import { PokemonContextProvider } from "./pokemonContext"
+import { PokemonContextProvider, usePokemon } from "./pokemonContext"
 import { UserGuessContextProvider, useUserNameGuess } from "./userGuessContext"
 import {
   useAnswerStatus,
@@ -25,4 +25,5 @@ export {
   ClassicModeLifeContextProvider,
   useCategoryContext,
   CategoryContextProvider,
+  usePokemon
 }
