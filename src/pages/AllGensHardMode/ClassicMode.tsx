@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react"
 import usePokeFetcher from "../../hooks/pokeFetcher"
 import TextInput from "./TextInput"
-import { useAnswerStatus } from "../../context"
 import { UserScore, ClassicModeLife } from "../../componentLibrary"
 import GameModal from "./components/AnswerModal"
-import { useUserScore, useClassicModeLife, usePokemon } from "../../context"
+import { useUserScore, useClassicModeLife, usePokemon, useAnswerStatus, useCategoryContext} from "../../context"
 import { useNavigate } from "react-router-dom"
 
 const ClassicMode = () => {
@@ -12,19 +11,18 @@ const ClassicMode = () => {
     usePokemon()
   const {
     answerCorrectStatus,
-    setCorrectAnswerStatus,
     answerWrongStatus,
-    setWrongAnswerStatus,
   } = useAnswerStatus()
   const [isStarted, setIsStarted] = useState<boolean>(false)
-  const {userScore, setUserScore} = useUserScore()
+  const { setUserScore} = useUserScore()
   const {lives, setLives} = useClassicModeLife()
+  const {categoryStart, categoryEnd} = useCategoryContext()
   const navigate = useNavigate()
 
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      usePokeFetcher(setPokemonTitle, setPokemonSprite, 0, 1015)
+      usePokeFetcher(setPokemonTitle, setPokemonSprite, categoryStart, categoryEnd)
       console.log("fetching")
       setIsStarted(true)
     }, 1000)
