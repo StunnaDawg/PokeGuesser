@@ -1,31 +1,25 @@
- import { useEffect, useState } from "react"
+ import { useEffect} from "react"
 import { usePokemon } from "../../../context/pokemonContext"
 import usePokeFetcher from "../../../hooks/pokeFetcher"
 import TextInput from "../components/TextInput"
 import { useAnswerStatus, useUserScore, useCategoryContext} from "../../../context"
 import { UserScore } from "../../../componentLibrary"
 import GameModal from "../../AllGensHardMode/components/AnswerModal"
-import { useNavigate } from "react-router-dom"
 
 const AllGensPracticeMode = () => { 
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
-    const {userScore, setUserScore} = useUserScore()
+    const { setUserScore} = useUserScore()
     const {categoryStart, categoryEnd} = useCategoryContext()
   const {
     answerCorrectStatus,
-    setCorrectAnswerStatus,
     answerWrongStatus,
-    setWrongAnswerStatus,
   } = useAnswerStatus()
-  const [isStarted, setIsStarted] = useState<boolean>(false)
-  const navigate = useNavigate()
 
   useEffect(() => {
     const timer = setTimeout(() => {
       usePokeFetcher(setPokemonTitle, setPokemonSprite, categoryStart, categoryEnd)
       console.log("fetching")
-      setIsStarted(true)
     }, 1000)
     return () => clearTimeout(timer)
   }, [])

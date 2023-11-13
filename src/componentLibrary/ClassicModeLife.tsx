@@ -2,7 +2,7 @@ import React from "react";
 import { useClassicModeLife } from "../context";
 
 const ClassicModeLife: React.FC = () => { 
-    const {lives, setLives} = useClassicModeLife()
+    const {lives} = useClassicModeLife()
  return (
     <>
  <h1>Lives: </h1>

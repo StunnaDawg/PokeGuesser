@@ -3,10 +3,10 @@ import { useClassicModeLife, useUserNameGuess, useUserScore } from "../context";
 import { usePokemon } from "../context/pokemonContext";
 
 const useResetGame = () => {
-const {userScore, setUserScore} = useUserScore();
-    const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
-    const {lives, setLives} = useClassicModeLife();
-    const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
+const { setUserScore} = useUserScore();
+    const { setPokemonNameGuess } = useUserNameGuess()
+    const { setLives} = useClassicModeLife();
+    const { setPokemonTitle, setPokemonSprite } =
     usePokemon()
     const navigate = useNavigate(); 
     return (goWhere: string, retryLives: number[]) => {

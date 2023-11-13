@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import usePokeFetcher from "../../hooks/pokeFetcher"
 import TextInput from "./TextInput"
 import { UserScore, ClassicModeLife } from "../../componentLibrary"
@@ -13,7 +13,6 @@ const ClassicMode = () => {
     answerCorrectStatus,
     answerWrongStatus,
   } = useAnswerStatus()
-  const [isStarted, setIsStarted] = useState<boolean>(false)
   const { setUserScore} = useUserScore()
   const {lives, setLives} = useClassicModeLife()
   const {categoryStart, categoryEnd} = useCategoryContext()
@@ -24,7 +23,6 @@ const ClassicMode = () => {
     const timer = setTimeout(() => {
       usePokeFetcher(setPokemonTitle, setPokemonSprite, categoryStart, categoryEnd)
       console.log("fetching")
-      setIsStarted(true)
     }, 1000)
     return () => clearTimeout(timer)
   }, [])

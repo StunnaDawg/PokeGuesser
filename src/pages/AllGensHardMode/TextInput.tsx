@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useAnswerStatus, useClassicModeLife, useUserNameGuess, usePokemon, useCategoryContext } from "../../context"
 import { OTPInput } from "../../componentLibrary"
 import usePokeFetcher from "../../hooks/pokeFetcher"
 
 const TextInput = () => {
-  const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
-  const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
+  const { pokemonNameGuess } = useUserNameGuess()
+  const { pokemonTitle, setPokemonTitle, setPokemonSprite } =
     usePokemon()
   const {
-    answerCorrectStatus,
     setCorrectAnswerStatus,
-    answerWrongStatus,
     setWrongAnswerStatus,
   } = useAnswerStatus()
   const {categoryStart, categoryEnd} = useCategoryContext()

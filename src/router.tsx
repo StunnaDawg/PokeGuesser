@@ -1,5 +1,5 @@
 
-import { createBrowserRouter, useRouteError, Navigate } from "react-router-dom"
+import { createBrowserRouter, Navigate } from "react-router-dom"
 import ClassicMode from "./pages/AllGensHardMode/ClassicMode"
 
 import MainPage from "./pages/MainPage"
@@ -15,7 +15,7 @@ import ChooseClassicMode from "./pages/AllGensHardMode/StartPage"
 
 
 function ErrorPage() {
-  const error = useRouteError()
+  // const error  = useRouteError()
 
   return (
     <>
