@@ -25,7 +25,7 @@ const ClassicMode = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      usePokeFetcher(setPokemonTitle, setPokemonSprite)
+      usePokeFetcher(setPokemonTitle, setPokemonSprite, 1015)
       console.log("fetching")
       setIsStarted(true)
     }, 1000)
