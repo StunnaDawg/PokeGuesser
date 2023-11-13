@@ -54,3 +54,11 @@ export type ClassicModeLifeAction = {
 export type username = { 
     username: string;
 }
+
+export type CategoryType = { 
+    category: string;
+}
+
+export type CategoryContextAction = { 
+    setCategory: Dispatch<SetStateAction<string>>;
+}

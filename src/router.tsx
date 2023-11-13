@@ -11,6 +11,7 @@ import CreateUsername from "./pages/CreateUsername"
 import RootLayout from "./pages/RootLayout"
 import ChoosePracticeMode from "./pages/PracticeMode/StartPage"
 import AllGensPracticeMode from "./pages/PracticeMode/categories/AllGens"
+import GenOnePracticeMode from "./pages/PracticeMode/categories/GenOne"
 
 
 function ErrorPage() {
@@ -61,7 +62,9 @@ export const router = createBrowserRouter([
     element: <ChoosePracticeMode />,
     children: [
       { path: "all-gens", element: <AllGensPracticeMode /> },
-      // ... potentially other child routes
+      { path: "gen-1", element: <GenOnePracticeMode /> },
+      { path: "gen-2", element: <AllGensPracticeMode /> },
+      { path: "gen-3", element: <AllGensPracticeMode /> },
     ],
   },
         ],

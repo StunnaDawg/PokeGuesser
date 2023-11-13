@@ -9,10 +9,10 @@ const {userScore, setUserScore} = useUserScore();
     const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
     const navigate = useNavigate(); 
-    return (goWhere: string) => {
+    return (goWhere: string, retryLives: number[]) => {
         try {
         setUserScore(0);
-        setLives([1, 2, 3]);
+        setLives(retryLives);
         setPokemonNameGuess("");
         setPokemonTitle("");
         setPokemonSprite("");

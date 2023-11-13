@@ -7,7 +7,7 @@ import { UserScore } from "../../../componentLibrary"
 import GameModal from "../../AllGensHardMode/components/AnswerModal"
 import { useNavigate } from "react-router-dom"
 
-const AllGensPracticeMode = () => { 
+const GenOnePracticeMode = () => { 
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
     const {userScore, setUserScore} = useUserScore()
@@ -23,7 +23,7 @@ const AllGensPracticeMode = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      usePokeFetcher(setPokemonTitle, setPokemonSprite, 1015)
+      usePokeFetcher(setPokemonTitle, setPokemonSprite, 151)
       console.log("fetching")
       setIsStarted(true)
     }, 1000)
@@ -54,7 +54,7 @@ const AllGensPracticeMode = () => {
             
           </div>
           <div className="flex flex-row justify-center">
-            <TextInput generation={1015}/>
+            <TextInput generation={151}/>
             <GameModal isOpen={answerCorrectStatus || answerWrongStatus}>
               {answerCorrectStatus ? "Correct" : `Wrong ${pokemonTitle}`}{" "}
             </GameModal>
@@ -68,4 +68,4 @@ const AllGensPracticeMode = () => {
   )
 }
 
-export default AllGensPracticeMode
+export default GenOnePracticeMode
