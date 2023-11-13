@@ -1,31 +1,28 @@
 import { useEffect} from "react"
-import { useAnswerStatus, useClassicModeLife, useUserNameGuess} from "../../../context"
+import { useAnswerStatus, useUserNameGuess, usePokemon} from "../../../context"
 import { OTPInput } from "../../../componentLibrary"
-import { usePokemon } from "../../../context/pokemonContext"
 import usePokeFetcher from "../../../hooks/pokeFetcher"
 
 type TextInputProps = {
-  generation: number;
+  generationStart: number;
+  generationEnd: number;
 };
 
-const TextInput: React.FC<TextInputProps> = ({generation}) => {
-  const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
-  const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
+const TextInput: React.FC<TextInputProps> = ({generationStart, generationEnd}) => {
+  const { pokemonNameGuess } = useUserNameGuess()
+  const { pokemonTitle, setPokemonTitle, setPokemonSprite } =
     usePokemon()
   const {
-    answerCorrectStatus,
     setCorrectAnswerStatus,
-    answerWrongStatus,
     setWrongAnswerStatus,
   } = useAnswerStatus()
-  const {lives} = useClassicModeLife()
 
   useEffect(() => {
     if (pokemonNameGuess === pokemonTitle && pokemonTitle !== '') {
       console.log("winner")
       setCorrectAnswerStatus(true)
       const timer = setTimeout(() => {
-        usePokeFetcher(setPokemonTitle, setPokemonSprite, generation)
+        usePokeFetcher(setPokemonTitle, setPokemonSprite, generationStart, generationEnd)
       }, 1000)
       return () => clearTimeout(timer)
     }
@@ -38,7 +35,7 @@ const TextInput: React.FC<TextInputProps> = ({generation}) => {
       console.log("loser")
       setWrongAnswerStatus(true)
       const timer = setTimeout(() => {
-        usePokeFetcher(setPokemonTitle, setPokemonSprite, generation)
+        usePokeFetcher(setPokemonTitle, setPokemonSprite, generationStart, generationEnd)
       }, 1000)
     
       console.log('I fetced a new pokemon')

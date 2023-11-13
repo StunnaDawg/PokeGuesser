@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from "react"
-import { useAnswerStatus, useClassicModeLife, useUserNameGuess } from "../../context"
+import { useEffect } from "react"
+import { useAnswerStatus, useClassicModeLife, useUserNameGuess, usePokemon, useCategoryContext } from "../../context"
 import { OTPInput } from "../../componentLibrary"
-import { usePokemon } from "../../context/pokemonContext"
 import usePokeFetcher from "../../hooks/pokeFetcher"
 
 const TextInput = () => {
-  const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
-  const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
+  const { pokemonNameGuess } = useUserNameGuess()
+  const { pokemonTitle, setPokemonTitle, setPokemonSprite } =
     usePokemon()
   const {
-    answerCorrectStatus,
     setCorrectAnswerStatus,
-    answerWrongStatus,
     setWrongAnswerStatus,
   } = useAnswerStatus()
+  const {categoryStart, categoryEnd} = useCategoryContext()
   const {lives} = useClassicModeLife()
 
   useEffect(() => {
@@ -21,7 +19,7 @@ const TextInput = () => {
       console.log("winner")
       setCorrectAnswerStatus(true)
       const timer = setTimeout(() => {
-        usePokeFetcher(setPokemonTitle, setPokemonSprite)
+        usePokeFetcher(setPokemonTitle, setPokemonSprite, categoryStart, categoryEnd)
       }, 1000)
       return () => clearTimeout(timer)
     }
@@ -35,7 +33,7 @@ const TextInput = () => {
       setWrongAnswerStatus(true)
       if(lives.length > 0) {
       const timer = setTimeout(() => {
-        usePokeFetcher(setPokemonTitle, setPokemonSprite)
+        usePokeFetcher(setPokemonTitle, setPokemonSprite, categoryStart, categoryEnd)
       }, 1000)
     
       console.log('I fetced a new pokemon')

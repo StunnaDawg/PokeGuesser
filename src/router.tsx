@@ -1,6 +1,6 @@
 
-import { createBrowserRouter, useRouteError, Navigate } from "react-router-dom"
-import ClassicMode from "./pages/AllGensHardMode/StartPage"
+import { createBrowserRouter, Navigate } from "react-router-dom"
+import ClassicMode from "./pages/AllGensHardMode/ClassicMode"
 
 import MainPage from "./pages/MainPage"
 import SignUpPage from "./pages/SignUp"
@@ -11,11 +11,11 @@ import CreateUsername from "./pages/CreateUsername"
 import RootLayout from "./pages/RootLayout"
 import ChoosePracticeMode from "./pages/PracticeMode/StartPage"
 import AllGensPracticeMode from "./pages/PracticeMode/categories/AllGens"
-import GenOnePracticeMode from "./pages/PracticeMode/categories/GenOne"
+import ChooseClassicMode from "./pages/AllGensHardMode/StartPage"
 
 
 function ErrorPage() {
-  const error = useRouteError()
+  // const error  = useRouteError()
 
   return (
     <>
@@ -41,7 +41,20 @@ export const router = createBrowserRouter([
           { path: "main-menu",
     element: <MainPage />},
     { path: "classic",
-    element: <ClassicMode />},
+    element: <ChooseClassicMode />,
+    children: [
+      { path: "all-gens", element: <ClassicMode /> },
+      { path: "gen-1", element: <ClassicMode />  },
+      { path: "gen-2", element: <ClassicMode />  },
+      { path: "gen-3", element: <ClassicMode />  },
+      { path: "gen-4", element: <ClassicMode />  },
+      { path: "gen-5", element: <ClassicMode />  },
+      { path: "gen-6", element: <ClassicMode />  },
+      { path: "gen-7", element: <ClassicMode />  },
+      { path: "gen-8", element: <ClassicMode />  },
+      { path: "gen-9", element: <ClassicMode />  },
+    ],
+  },
     {
       path: "gameover",
       element: <GameOver />,
@@ -62,9 +75,15 @@ export const router = createBrowserRouter([
     element: <ChoosePracticeMode />,
     children: [
       { path: "all-gens", element: <AllGensPracticeMode /> },
-      { path: "gen-1", element: <GenOnePracticeMode /> },
+      { path: "gen-1", element: <AllGensPracticeMode /> },
       { path: "gen-2", element: <AllGensPracticeMode /> },
       { path: "gen-3", element: <AllGensPracticeMode /> },
+      { path: "gen-4", element: <AllGensPracticeMode /> },
+      { path: "gen-5", element: <AllGensPracticeMode /> },
+      { path: "gen-6", element: <AllGensPracticeMode /> },
+      { path: "gen-7", element: <AllGensPracticeMode /> },
+      { path: "gen-8", element: <AllGensPracticeMode /> },
+      { path: "gen-9", element: <AllGensPracticeMode /> },
     ],
   },
         ],

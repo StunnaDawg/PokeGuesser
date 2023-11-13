@@ -1,31 +1,28 @@
- import { useEffect, useState } from "react"
-import { usePokemon } from "../../../context/pokemonContext"
-import usePokeFetcher from "../../../hooks/pokeFetcher"
-import TextInput from "../components/TextInput"
-import { useAnswerStatus, useUserScore, useCategoryContext} from "../../../context"
-import { UserScore } from "../../../componentLibrary"
-import GameModal from "../../AllGensHardMode/components/AnswerModal"
+import { useEffect } from "react"
+import usePokeFetcher from "../../hooks/pokeFetcher"
+import TextInput from "./TextInput"
+import { UserScore, ClassicModeLife } from "../../componentLibrary"
+import GameModal from "./components/AnswerModal"
+import { useUserScore, useClassicModeLife, usePokemon, useAnswerStatus, useCategoryContext} from "../../context"
 import { useNavigate } from "react-router-dom"
 
-const GenOnePracticeMode = () => { 
+const ClassicMode = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
-    const {userScore, setUserScore} = useUserScore()
-    const {category} = useCategoryContext()
   const {
     answerCorrectStatus,
-    setCorrectAnswerStatus,
     answerWrongStatus,
-    setWrongAnswerStatus,
   } = useAnswerStatus()
-  const [isStarted, setIsStarted] = useState<boolean>(false)
+  const { setUserScore} = useUserScore()
+  const {lives, setLives} = useClassicModeLife()
+  const {categoryStart, categoryEnd} = useCategoryContext()
   const navigate = useNavigate()
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      usePokeFetcher(setPokemonTitle, setPokemonSprite, 151)
+      usePokeFetcher(setPokemonTitle, setPokemonSprite, categoryStart, categoryEnd)
       console.log("fetching")
-      setIsStarted(true)
     }, 1000)
     return () => clearTimeout(timer)
   }, [])
@@ -37,12 +34,30 @@ const GenOnePracticeMode = () => {
 
   }, [answerCorrectStatus])
 
+  useEffect(() => {
+    if(answerWrongStatus === true) {
+      if (lives.length > 0) {
+      setLives([1,2,3].slice(0, lives.length - 1));
+    }
+
+    if (lives.length === 0) {
+      const timer = setTimeout(() => {
+      navigate("/gameover")
+    }, 1000)
+    return () => clearTimeout(timer)
+    }
+
+  }
+}, [answerWrongStatus])
 
   return (
     <>
       <div className="flex-1 flex justify-center items-center">
         <h1 className="underline font-bold">PokeGuesser</h1>
       </div>
+      <div className="flex flex-row justify-center">
+<ClassicModeLife />
+</div>
       <div className="flex-1 flex justify-center items-center">
         <div className="flex-col">
           <div className="flex flex-row justify-center">
@@ -54,7 +69,7 @@ const GenOnePracticeMode = () => {
             
           </div>
           <div className="flex flex-row justify-center">
-            <TextInput generation={151}/>
+            <TextInput />
             <GameModal isOpen={answerCorrectStatus || answerWrongStatus}>
               {answerCorrectStatus ? "Correct" : `Wrong ${pokemonTitle}`}{" "}
             </GameModal>
@@ -68,4 +83,9 @@ const GenOnePracticeMode = () => {
   )
 }
 
-export default GenOnePracticeMode
+export default ClassicMode
+
+export const classicModeRoute = {
+  element: <ClassicMode />,
+}
+

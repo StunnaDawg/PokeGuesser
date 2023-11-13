@@ -12,12 +12,13 @@ const CategoryContext = createContext<CategoryContextType | undefined>(undefined
 export const CategoryContextProvider = ({
   children,
 }: CategoryContextProviderProps) => {
-  const [category, setCategory] = useState<string>('false')
+  const [categoryStart, setCategoryStart] = useState<number>(0)
+  const [categoryEnd, setCategoryEnd] = useState<number>(1015)
 
 
   return (
     <>
-    <CategoryContext.Provider value={{ category, setCategory }}>
+    <CategoryContext.Provider value={{ categoryStart, setCategoryStart, categoryEnd, setCategoryEnd }}>
       {children}
     </CategoryContext.Provider>
     </>
