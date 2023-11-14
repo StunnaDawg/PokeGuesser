@@ -5,13 +5,14 @@ import ClassicMode from "./pages/AllGensHardMode/ClassicMode"
 import MainPage from "./pages/MainPage"
 import SignUpPage from "./pages/SignUp"
 import LoginPage from "./pages/Login"
-import LeaderBoard from "./pages/LeaderBoard"
 import GameOver from "./pages/GameOver"
 import CreateUsername from "./pages/CreateUsername"
 import RootLayout from "./pages/RootLayout"
 import ChoosePracticeMode from "./pages/PracticeMode/StartPage"
 import AllGensPracticeMode from "./pages/PracticeMode/categories/AllGens"
 import ChooseClassicMode from "./pages/AllGensHardMode/StartPage"
+import ChooseLeaderBoard from "./pages/LeaderBoard/ChooseLeaderBoard"
+import LeaderBoard from "./pages/LeaderBoard/LeaderBoard"
 
 
 function ErrorPage() {
@@ -66,7 +67,19 @@ export const router = createBrowserRouter([
     element: <LoginPage />,
   },{
     path: "leaderboard",
-    element: <LeaderBoard />,
+    element: <ChooseLeaderBoard />,
+    children: [
+      { index: true, path: "all-gens", element: <LeaderBoard /> },
+      { path: "gen-1", element: <LeaderBoard /> },
+      { path: "gen-2", element: <LeaderBoard /> },
+      { path: "gen-3", element: <LeaderBoard /> },
+      { path: "gen-4", element: <LeaderBoard /> },
+      { path: "gen-5", element: <LeaderBoard /> },
+      { path: "gen-6", element: <LeaderBoard /> },
+      { path: "gen-7", element: <LeaderBoard /> },
+      { path: "gen-8", element: <LeaderBoard /> },
+      { path: "gen-9", element: <LeaderBoard /> },
+    ],
   },{
     path: "create-username",
     element: <CreateUsername />,

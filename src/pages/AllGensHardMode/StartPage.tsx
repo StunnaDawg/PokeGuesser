@@ -1,10 +1,15 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link, Outlet } from "react-router-dom"
 import { useCategoryContext } from "../../context"
 
 const ChooseClassicMode = () => {
   const [clickedLink, setClickedLink] = useState<boolean>(false)
   const { setCategoryStart, setCategoryEnd } = useCategoryContext()
+
+  useEffect(() => {
+    setClickedLink(false)
+  }, [])
+  
   return (
     <>
       {!clickedLink ? (

@@ -37,7 +37,7 @@ const ClassicMode = () => {
   useEffect(() => {
     if(answerWrongStatus === true) {
       if (lives.length > 0) {
-      setLives([1,2,3].slice(0, lives.length - 1));
+        setLives(prevLives => prevLives.slice(0, -1));
     }
 
     if (lives.length === 0) {
