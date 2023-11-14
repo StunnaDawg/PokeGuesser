@@ -9,7 +9,7 @@ const MainPage = () => {
           Classic Mode
         </Link>
         <Link to="/practice-mode" className="my-2">Practice Mode</Link>
-        <Link to="/leaderboard" className="my-2">
+        <Link to="/leaderboard/all-gens" className="my-2">
           LeaderBoard
         </Link>
       </div>
