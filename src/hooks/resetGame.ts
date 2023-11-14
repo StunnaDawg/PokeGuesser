@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useClassicModeLife, useUserNameGuess, useUserScore } from "../context";
+import { useAnswerStatus, useClassicModeLife, useUserNameGuess, useUserScore } from "../context";
 import { usePokemon } from "../context/pokemonContext";
 
 const useResetGame = () => {
@@ -8,6 +8,10 @@ const { setUserScore} = useUserScore();
     const { setLives} = useClassicModeLife();
     const { setPokemonTitle, setPokemonSprite } =
     usePokemon()
+    const {
+        setCorrectAnswerStatus,
+        setWrongAnswerStatus,
+      } = useAnswerStatus()
     const navigate = useNavigate(); 
     return (goWhere: string, retryLives: number[]) => {
         try {
@@ -16,6 +20,8 @@ const { setUserScore} = useUserScore();
         setPokemonNameGuess("");
         setPokemonTitle("");
         setPokemonSprite("");
+        setCorrectAnswerStatus(false),
+        setWrongAnswerStatus(false),
         navigate(goWhere);
     } catch (error) {
         console.log(error); 

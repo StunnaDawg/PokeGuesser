@@ -6,9 +6,9 @@ const ClassicModeLife: React.FC = () => {
  return (
     <>
  <h1>Lives: </h1>
-    {lives.map((life, index) => (  
-        <div key={index}>life{life}</div>
-    ))}
+      {lives.map((life, index) => (
+         <div key={index}>{life}</div>
+      ))}
     </>
  )
 }
