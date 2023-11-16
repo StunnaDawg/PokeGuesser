@@ -1,10 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FIREBASE_AUTH, db } from "../../firebase"
 import { updateProfile } from "firebase/auth"
+import { redirect } from "react-router-dom"
 
 const CreateUsername = () => {
   const [username, setUsername] = useState<string>("")
 const user = FIREBASE_AUTH.currentUser
+const displayName = user?.displayName
   const handleUsername = async () => {
     try {
       if(user) {
@@ -16,6 +18,12 @@ const user = FIREBASE_AUTH.currentUser
       console.log(error)
     }
   }
+
+  useEffect(() => { 
+    if(displayName !== '' && displayName !== null) {
+      redirect('/main-menu')
+      }
+  }, [])
 
   return (
     <>

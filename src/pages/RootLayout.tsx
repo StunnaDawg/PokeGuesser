@@ -5,12 +5,12 @@ import { useEffect, useState } from "react"
 import useResetGame from "../hooks/resetGame"
 
 const RootLayout = () => {
-  const [userName, setUserName] = useState<string>("")
   const { state } = useNavigation()
   const isLoading = state === "loading"
   const { isSignedIn } = useUserAuth()
   const navigate = useNavigate()
   const resetGame = useResetGame()
+  const displayName = FIREBASE_AUTH.currentUser?.displayName
 
   const handleSignOut = () => {
     try {
@@ -40,7 +40,7 @@ const handleResetGame = () => {
         <div>
           {isSignedIn ? (
             <>
-              <h1>Welcome {userName}</h1>
+              <h1>Welcome {displayName}</h1>
               <button onClick={handleSignOut}>Sign Out</button>
             </>
           ) : (
