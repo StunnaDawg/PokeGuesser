@@ -55,6 +55,11 @@ export type username = {
     username: string;
 }
 
+export type usernameAction = { 
+    setUsername: Dispatch<SetStateAction<string>>;
+}
+
+
 export type CategoryType = { 
     categoryStart: number;
     categoryEnd: number;

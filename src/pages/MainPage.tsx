@@ -12,6 +12,9 @@ const MainPage = () => {
         <Link to="/leaderboard/all-gens" className="my-2">
           LeaderBoard
         </Link>
+        <Link to="/create-username" className="my-2">
+          create username
+        </Link>
       </div>
     </>
   )

@@ -26,7 +26,7 @@ const SignUpPage = () => {
   
   useEffect(() => {
     if (isSignedIn) {
-      navigate("/main-menu")
+      navigate("/create-username")
     }
   }, [isSignedIn, navigate])
   return (
