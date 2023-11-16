@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import { FIREBASE_AUTH, db } from "../../firebase"
 import { updateProfile } from "firebase/auth"
-import { redirect } from "react-router-dom"
+import { redirect, useNavigate } from "react-router-dom"
 
 const CreateUsername = () => {
   const [username, setUsername] = useState<string>("")
 const user = FIREBASE_AUTH.currentUser
 const displayName = user?.displayName
+const navigate = useNavigate()
   const handleUsername = async () => {
     try {
       if(user) {
@@ -19,11 +20,11 @@ const displayName = user?.displayName
     }
   }
 
-  useEffect(() => { 
-    if(displayName !== '' && displayName !== null) {
-      redirect('/main-menu')
-      }
-  }, [])
+  // const handleDisplayName = () => { 
+  //   if(displayName !== '' && displayName !== null) {
+  //     navigate('/main-menu')
+  //     }
+  // }
 
   return (
     <>
@@ -34,7 +35,7 @@ const displayName = user?.displayName
         onChange={(text) => setUsername(text.target.value)}
       />
         <div></div>
-      <button onClick={handleUsername}>Create Username</button>
+      <button onClick={async ()  => {await handleUsername(); navigate('/main-menu')}}>Create Username</button>
     </>
   )
 }
