@@ -1,13 +1,14 @@
 import { Link, Outlet, useNavigate, useNavigation } from "react-router-dom"
 import { useUserAuth } from "../context"
 import { FIREBASE_AUTH } from "../../firebase"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import useResetGame from "../hooks/resetGame"
 
 const RootLayout = () => {
+  const [userName, setUserName] = useState<string>("")
   const { state } = useNavigation()
   const isLoading = state === "loading"
-  const { isSignedIn, setIsSignedIn } = useUserAuth()
+  const { isSignedIn } = useUserAuth()
   const navigate = useNavigate()
   const resetGame = useResetGame()
 
@@ -28,6 +29,7 @@ const handleResetGame = () => {
       navigate("/login")
     }
   }, [isSignedIn, navigate])
+
   return (
     <>
       <div className="flex flex-row justify-between">
@@ -38,7 +40,7 @@ const handleResetGame = () => {
         <div>
           {isSignedIn ? (
             <>
-              <h1>Welcome {FIREBASE_AUTH.currentUser?.email}</h1>
+              <h1>Welcome {userName}</h1>
               <button onClick={handleSignOut}>Sign Out</button>
             </>
           ) : (

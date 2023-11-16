@@ -1,7 +1,6 @@
 import { useUserNameGuess, useUserScore } from "../context";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getUsername } from "../hooks/getUsername";
 import useResetGame from "../hooks/resetGame";
 
 const GameOver = () => {
@@ -13,14 +12,6 @@ const GameOver = () => {
     const restartGame = () => { 
         resetGame('/classic', [1,2,3])
     }
-
-    useEffect(() => {
-        const getUserName = async () => {
-            await getUsername(setCurrentUser)
-        }
-        
-        getUserName();
-    }, [])
 
     useEffect(() => {
         console.log(currentUser)

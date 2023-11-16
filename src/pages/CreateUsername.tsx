@@ -1,26 +1,22 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { FIREBASE_AUTH, db } from "../../firebase"
-import { addDoc, collection } from "firebase/firestore"
+import { updateProfile } from "firebase/auth"
 
 const CreateUsername = () => {
   const [username, setUsername] = useState<string>("")
-const userNameCollectionRef = collection(db, "usernames")
+const user = FIREBASE_AUTH.currentUser
   const handleUsername = async () => {
     try {
-      await addDoc(userNameCollectionRef, {
-        username: username,
-        userId: FIREBASE_AUTH.currentUser?.uid,
-      })
+      if(user) {
+      await updateProfile(user, { displayName: username }).catch(
+        (err) => console.log(err)
+      );
+      }
     } catch (error) {
       console.log(error)
     }
   }
-  
-//   useEffect(() => {
-//     if (isSignedIn) {
-//       navigate("/")
-//     }
-//   }, [isSignedIn, navigate])
+
   return (
     <>
       <h1>Create a Username</h1>
