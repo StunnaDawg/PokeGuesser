@@ -9,119 +9,222 @@ const ChooseClassicMode = () => {
   useEffect(() => {
     setClickedLink(false)
   }, [])
-  
+
   return (
     <>
       {!clickedLink ? (
-        <div className="flex-1 flex flex-col items-center">
-          <h1>Choose a category!</h1>
-          <ul>
-            <li>
-              <Link
-                to="all-gens"
-                onClick={() => {
-                  setCategoryStart(0),
-                    setCategoryEnd(1015),
-                    setClickedLink(true)
-                }}
-              >
-                All Generations
-              </Link>
-            </li>
-            <Link
-              to="gen-1"
-              onClick={() => {
-                setCategoryStart(0), setCategoryEnd(151), setClickedLink(true)
-              }}
-            >
-              Gen 1
-            </Link>
-            <li>
-              <Link
-                to="gen-2"
-                onClick={() => {
-                  setCategoryStart(152),
-                    setCategoryEnd(251),
-                    setClickedLink(true)
-                }}
-              >
-                Gen 2
-              </Link>
-            </li>
-            <Link
-              to="gen-3"
-              onClick={() => {
-                setCategoryStart(252), setCategoryEnd(386), setClickedLink(true)
-              }}
-            >
-              Gen 3
-            </Link>
-            <li>
-              <Link
-                to="gen-4"
-                onClick={() => {
-                  setCategoryStart(387),
-                    setCategoryEnd(493),
-                    setClickedLink(true)
-                }}
-              >
-                Gen 4
-              </Link>
-            </li>
-            <Link
-              to="gen-5"
-              onClick={() => {
-                setCategoryStart(494), setCategoryEnd(649), setClickedLink(true)
-              }}
-            >
-              Gen 5
-            </Link>
-            <li>
-              <Link
-                to="gen-6"
-                onClick={() => {
-                  setCategoryStart(650),
-                    setCategoryEnd(721),
-                    setClickedLink(true)
-                }}
-              >
-                Gen 6
-              </Link>
-            </li>
-            <Link
-              to="gen-7"
-              onClick={() => {
-                setCategoryStart(722), setCategoryEnd(809), setClickedLink(true)
-              }}
-            >
-              Gen 7
-            </Link>
-            <li>
-              <Link
-                to="gen-8"
-                onClick={() => {
-                  setCategoryStart(810),
-                    setCategoryEnd(905),
-                    setClickedLink(true)
-                }}
-              >
-                Gen 8
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="gen-9"
-                onClick={() => {
-                  setCategoryStart(906),
-                    setCategoryEnd(1010),
-                    setClickedLink(true)
-                }}
-              >
-                Gen 9 - A few pokemon are missing
-              </Link>
-            </li>
-          </ul>
-        </div>
+        <>
+          {/* <div className="flex flex-row justify-center"></div> */}
+          <div className="flex flex-col items-center h-screen">
+            <div className="flex flex-row justify-center">
+              <div className="mx-2 text-center">
+                <h1 className="text-3xl">Classic Mode</h1>
+                <Link
+                  className="text-2xl"
+                  to="all-gens"
+                  onClick={() => {
+                    setCategoryStart(0),
+                      setCategoryEnd(1015),
+                      setClickedLink(true)
+                  }}
+                >
+                  <img
+                    src="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
+                    alt="Ditto"
+                  />
+                  {/* <img
+                    src="https://img.pokemondb.net/sprites/black-white/anim/normal/ditto.gif"
+                    alt="Ditto"
+                  /> */}
+                  All Gens
+                </Link>
+              </div>
+            </div>
+            <div className="flex flex-row justify-center m-5">
+              <div className="mx-2 text-center">
+                <Link
+                  className="text-2xl"
+                  to="gen-1"
+                  onClick={() => {
+                    setCategoryStart(0),
+                      setCategoryEnd(151),
+                      setClickedLink(true)
+                  }}
+                >
+                  <img
+                    src="https://img.pokemondb.net/sprites/scarlet-violet/normal/raichu.png"
+                    alt="Raichu"
+                  />
+                  {/* <img
+                    src="https://img.pokemondb.net/sprites/black-white/anim/normal/blastoise.gif"
+                    alt="Blastoise"
+                  /> */}
+                  Gen 1
+                </Link>
+              </div>
+              <div className="mx-2 text-center">
+                <Link
+                  className="text-2xl"
+                  to="gen-2"
+                  onClick={() => {
+                    setCategoryStart(152),
+                      setCategoryEnd(251),
+                      setClickedLink(true)
+                  }}
+                >
+                  <img
+                    src="https://img.pokemondb.net/sprites/scarlet-violet/normal/donphan.png"
+                    alt="Donphan"
+                  />
+                  {/* <img
+                    src="https://img.pokemondb.net/sprites/black-white/anim/normal/donphan-f.gif"
+                    alt="Donphan"
+                  /> */}
+                  Gen 2
+                </Link>
+              </div>
+              <div className="mx-2 text-center">
+                <Link
+                  className="text-2xl"
+                  to="gen-3"
+                  onClick={() => {
+                    setCategoryStart(252),
+                      setCategoryEnd(386),
+                      setClickedLink(true)
+                  }}
+                >
+                  <img
+                    src="https://img.pokemondb.net/sprites/scarlet-violet/normal/breloom.png"
+                    alt="Breloom"
+                  />
+                  {/* <img
+                    src="https://img.pokemondb.net/sprites/black-white/anim/normal/jirachi.gif"
+                    alt="Jirachi"
+                  /> */}
+                  Gen 3
+                </Link>
+              </div>
+            </div>
+            <div className="flex flex-row justify-center m-5">
+              <div className="mx-2 text-center">
+                <Link
+                  className="text-2xl"
+                  to="gen-4"
+                  onClick={() => {
+                    setCategoryStart(387),
+                      setCategoryEnd(493),
+                      setClickedLink(true)
+                  }}
+                >
+                  <img
+                    src="https://img.pokemondb.net/sprites/scarlet-violet/normal/luxray.png"
+                    alt="Luxray"
+                  />
+                  Gen 4
+                </Link>
+              </div>
+
+              <div className="flex flex-row justify-center">
+                <div className="mx-2 text-center">
+                  <Link
+                    className="text-2xl"
+                    to="gen-5"
+                    onClick={() => {
+                      setCategoryStart(494),
+                        setCategoryEnd(649),
+                        setClickedLink(true)
+                    }}
+                  >
+                    <img
+                      src="https://img.pokemondb.net/sprites/scarlet-violet/normal/axew.png"
+                      alt="Axew"
+                    />
+                    {/* <img
+                    src="https://img.pokemondb.net/sprites/black-white-2/anim/normal/tepig.gif"
+                    alt="Tepig"
+                  /> */}
+                    Gen 5
+                  </Link>
+                </div>
+                <div className="mx-2 text-center">
+                  <Link
+                    className="text-2xl"
+                    to="gen-6"
+                    onClick={() => {
+                      setCategoryStart(650),
+                        setCategoryEnd(721),
+                        setClickedLink(true)
+                    }}
+                  >
+                    <img
+                      src="https://img.pokemondb.net/sprites/scarlet-violet/normal/greninja.png"
+                      alt="Greninja"
+                    />
+                    {/* <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/674.png" /> */}
+                    Gen 6
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-row justify-center m-5">
+              <div className="mx-2 text-center">
+                <Link
+                  className="text-2xl"
+                  to="gen-7"
+                  onClick={() => {
+                    setCategoryStart(722),
+                      setCategoryEnd(809),
+                      setClickedLink(true)
+                  }}
+                >
+                  <img
+                    src="https://img.pokemondb.net/sprites/scarlet-violet/normal/rowlet.png"
+                    alt="Rowlet"
+                  />
+                  {/* <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/722.png" /> */}
+                  Gen 7
+                </Link>
+              </div>
+
+              <div className="mx-2 text-center">
+                <Link
+                  className="text-2xl"
+                  to="gen-8"
+                  onClick={() => {
+                    setCategoryStart(810),
+                      setCategoryEnd(905),
+                      setClickedLink(true)
+                  }}
+                >
+                  <img
+                    src="https://img.pokemondb.net/sprites/scarlet-violet/normal/snom.png"
+                    alt="Snom"
+                  />
+                  {/* <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/872.png" /> */}
+                  Gen 8
+                </Link>
+              </div>
+              <div className="mx-2 text-center">
+                <Link
+                  className="text-2xl"
+                  to="gen-9"
+                  onClick={() => {
+                    setCategoryStart(906),
+                      setCategoryEnd(1010),
+                      setClickedLink(true)
+                  }}
+                >
+                  <img
+                    src="https://img.pokemondb.net/sprites/scarlet-violet/normal/tinkaton.png"
+                    alt="Tinkaton"
+                  />
+                  {/* <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/959.png" /> */}
+                  Gen 9
+                </Link>
+              </div>
+            </div>
+          </div>
+        </>
       ) : (
         <Outlet />
       )}
