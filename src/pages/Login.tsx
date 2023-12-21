@@ -31,24 +31,36 @@ const LoginPage = () => {
   }, [isSignedIn, navigate])
   return (
     <>
-      <h1>Log in Page</h1>
-      <input
-        placeholder="Email"
-        value={email}
-        onChange={(text) => setEmail(text.target.value)}
-      />
+      <div className="flex-1 flex flex-col items-center justify-center h-screen text-xl font-pokemon-solid">
+        <div className="flex flex-col items-center">
+          <h1>Log in to PokeGuesser</h1>
+          <input
+            className="border-2 border-black my-1 font-pokemon-solid"
+            placeholder="Email"
+            value={email}
+            onChange={(text) => setEmail(text.target.value)}
+          />
 
-      <input
-        placeholder="Password"
-        value={password}
-        onChange={(text) => setPassword(text.target.value)}
-      />
+          <input
+            className="border-2 border-black my-1 font-pokemon-solid"
+            placeholder="Password"
+            value={password}
+            onChange={(text) => setPassword(text.target.value)}
+          />
+        </div>
 
-      <button onClick={handleSignUp}>Log in</button>
+        <div className="flex flex-row justify-center font-pokemon-solid text-xl">
+          <div className="flex flex-col">
+            <button onClick={handleSignUp}>Log in</button>
 
-      <button onClick={signInWithGoogle}>Log in with Google</button>
+            <button onClick={signInWithGoogle}>Log in with Google</button>
 
-      <button onClick={handleSignUpRedirect}>Don't have any account?</button>
+            <button onClick={handleSignUpRedirect}>
+              Don't have any account?
+            </button>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

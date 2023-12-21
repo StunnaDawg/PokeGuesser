@@ -3,6 +3,7 @@ import { useUserAuth } from "../context"
 import { FIREBASE_AUTH } from "../../firebase"
 import { useEffect, useState } from "react"
 import useResetGame from "../hooks/resetGame"
+import "../public/regular/abomasnow.png"
 import Footer from "../componentLibrary/Footer"
 
 const RootLayout = () => {
@@ -46,7 +47,7 @@ const RootLayout = () => {
                 <div className="m-3">
                   <button onClick={() => navigate("profile-updates")}>
                     <h1 className="font-pokemon-solid">
-                      Welcome {displayName}
+                      Welcome {displayName} <img src="../publi" />
                     </h1>
                   </button>
                 </div>
@@ -62,10 +63,10 @@ const RootLayout = () => {
             </>
           ) : (
             <>
-              <Link className="m-3" to="/signup">
+              <Link className="m-3 font-pokemon-solid" to="/signup">
                 Create New Account
               </Link>
-              <Link className="m-1" to="/login">
+              <Link className="m-1 font-pokemon-solid " to="/login">
                 Login
               </Link>
             </>
