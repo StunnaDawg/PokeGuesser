@@ -34,13 +34,31 @@ const RootLayout = () => {
   return (
     <>
       <div className="flex flex-row justify-between">
-        <button onClick={handleResetGame}>Main Menu</button>
-
+        <div className="m-3">
+          <button className="font-pokemon-solid" onClick={handleResetGame}>
+            Main Menu
+          </button>
+        </div>
         <div>
           {isSignedIn ? (
             <>
-              <h1>Welcome {displayName}</h1>
-              <button onClick={handleSignOut}>Sign Out</button>
+              <div className="flex flex-row">
+                <div className="m-3">
+                  <button onClick={() => navigate("profile-updates")}>
+                    <h1 className="font-pokemon-solid">
+                      Welcome {displayName}
+                    </h1>
+                  </button>
+                </div>
+                <div className="my-3 mx-1">
+                  <button
+                    className="font-pokemon-solid"
+                    onClick={handleSignOut}
+                  >
+                    Sign Out
+                  </button>
+                </div>
+              </div>
             </>
           ) : (
             <>

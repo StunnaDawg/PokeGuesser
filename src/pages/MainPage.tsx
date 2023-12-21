@@ -63,9 +63,6 @@ const MainPage = () => {
           <Link to="/leaderboard/all-gens" className="my-2 font-pokemon-solid">
             LeaderBoard
           </Link>
-          <Link to="/create-username" className="my-2 font-pokemon-solid">
-            Create Username
-          </Link>
         </div>
 
         {isWideScreen ? (
