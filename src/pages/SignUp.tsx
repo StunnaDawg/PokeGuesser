@@ -23,7 +23,7 @@ const SignUpPage = () => {
   const handleLoginRedirect = () => {
     navigate("/login")
   }
-  
+
   useEffect(() => {
     if (isSignedIn) {
       navigate("/create-username")
@@ -31,24 +31,36 @@ const SignUpPage = () => {
   }, [isSignedIn, navigate])
   return (
     <>
-      <h1>Sign Up Page</h1>
-      <input
-        placeholder="Email"
-        value={email}
-        onChange={(text) => setEmail(text.target.value)}
-      />
+      <div className="flex-1 flex flex-col items-center justify-center h-screen text-xl">
+        <div className="flex flex-col items-center">
+          <h1 className="font-pokemon-solid">Create an Account</h1>
+          <input
+            className="border-2 border-black my-1 font-pokemon-solid "
+            placeholder="Email"
+            value={email}
+            onChange={(text) => setEmail(text.target.value)}
+          />
 
-      <input
-        placeholder="Password"
-        value={password}
-        onChange={(text) => setPassword(text.target.value)}
-      />
+          <input
+            className="border-2 border-black my-1 font-pokemon-solid"
+            placeholder="Password"
+            value={password}
+            onChange={(text) => setPassword(text.target.value)}
+          />
+        </div>
 
-      <button onClick={handleSignUp}>Sign up</button>
+        <div className="flex flex-row justify-center font-pokemon-solid text-xl">
+          <div className="flex flex-col">
+            <button onClick={handleSignUp}>Sign up</button>
 
-      <button onClick={signInWithGoogle}>Sign up with Google</button>
+            <button onClick={signInWithGoogle}>Sign up with Google</button>
 
-      <button onClick={handleLoginRedirect}>Already have an account?</button>
+            <button onClick={handleLoginRedirect}>
+              Already have an account?
+            </button>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
