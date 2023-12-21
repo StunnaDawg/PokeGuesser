@@ -3,6 +3,7 @@ import { useUserAuth } from "../context"
 import { FIREBASE_AUTH } from "../../firebase"
 import { useEffect, useState } from "react"
 import useResetGame from "../hooks/resetGame"
+import Footer from "../componentLibrary/Footer"
 
 const RootLayout = () => {
   const { state } = useNavigation()
@@ -20,10 +21,10 @@ const RootLayout = () => {
     }
   }
 
-const handleResetGame = () => { 
-  resetGame('main-menu', [1,2,3])
-}
-  
+  const handleResetGame = () => {
+    resetGame("main-menu", [1, 2, 3])
+  }
+
   useEffect(() => {
     if (!isSignedIn) {
       navigate("/login")
@@ -33,9 +34,7 @@ const handleResetGame = () => {
   return (
     <>
       <div className="flex flex-row justify-between">
-        <button onClick={handleResetGame}>
-          Main Menu
-        </button>
+        <button onClick={handleResetGame}>Main Menu</button>
 
         <div>
           {isSignedIn ? (

@@ -5,10 +5,20 @@ export default {
     extend: {
       fontFamily: {
         "pokemon-solid": ["Pokemon Solid", "sans-serif"],
-        "pokemon-pixels": ["Pokemon pixels 1", "sans-serif"],
-        "pokemon-pixels-2": ["Pokemon pixels 2", "sans-serif"],
+        "pokemon-pixel-regular": ["Pokemon Pixel Font Regular", "sans-serif"],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addBase, theme }) {
+      addBase({
+        "@font-face": {
+          fontFamily: "Pokemon Pixel Font Regular",
+          src: `url("https://www.fontsaddict.com/fontface/pokemon-pixel-font-regular.ttf")`,
+          fontWeight: "normal",
+          fontStyle: "normal",
+        },
+      })
+    },
+  ],
 }
