@@ -11,18 +11,25 @@ import { useUserNameGuess } from "../context"
 import { usePokemon } from "../context/pokemonContext"
 import { useAnswerStatus } from "../context"
 
-
-
 const OTPInput: React.FC = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
-  usePokemon()
+    usePokemon()
   const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
-  const { answerCorrectStatus, setCorrectAnswerStatus, answerWrongStatus, setWrongAnswerStatus } = useAnswerStatus()
-  const [pokemonNameLength, setPokemonNameLength] = useState<number>(pokemonTitle.length)
-  const [otp, setOtp] = useState<string[]>(new Array(pokemonNameLength).fill(""))
+  const {
+    answerCorrectStatus,
+    setCorrectAnswerStatus,
+    answerWrongStatus,
+    setWrongAnswerStatus,
+  } = useAnswerStatus()
+  const [pokemonNameLength, setPokemonNameLength] = useState<number>(
+    pokemonTitle.length
+  )
+  const [otp, setOtp] = useState<string[]>(
+    new Array(pokemonNameLength).fill("")
+  )
   const [currentIndex, setCurrentIndex] = useState<number>()
-let currentOTPIndexNumber: number = 0
-  
+  let currentOTPIndexNumber: number = 0
+
   const [currentOtpIndex, setCurrentOtpIndex] = useState<number>(0)
   // const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
   const inputRef = useRef<HTMLInputElement>(null)
@@ -39,7 +46,7 @@ let currentOTPIndexNumber: number = 0
     }
     setOtp(newOtp)
 
-    setPokemonNameGuess(newOtp.join(''))
+    setPokemonNameGuess(newOtp.join(""))
   }
 
   const handleOnKeyDown = (
@@ -52,40 +59,43 @@ let currentOTPIndexNumber: number = 0
     // }
   }
   useEffect(() => {
-      inputRef.current?.focus(); 
-  }, [currentOtpIndex, pokemonTitle]);
+    inputRef.current?.focus()
+  }, [currentOtpIndex, pokemonTitle])
 
   useEffect(() => {
-    setPokemonNameLength(pokemonTitle.length);
-    setOtp(Array(pokemonTitle.length).fill(""));
-    setCurrentOtpIndex(0);
-  }, [pokemonTitle]);
+    setPokemonNameLength(pokemonTitle.length)
+    setOtp(Array(pokemonTitle.length).fill(""))
+    setCurrentOtpIndex(0)
+  }, [pokemonTitle])
 
   useEffect(() => {
-    if(otp.length === currentIndex) {
-      setOtp(Array(pokemonTitle.length).fill(""));
+    if (otp.length === currentIndex) {
+      setOtp(Array(pokemonTitle.length).fill(""))
     }
   }, [otp])
 
-useEffect(() => {
-  console.log('guess', pokemonNameGuess)
-}, [pokemonNameGuess])
+  useEffect(() => {
+    console.log("guess", pokemonNameGuess)
+  }, [pokemonNameGuess])
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center xl:text-4xl font-bold">
       {otp.map((_, index) => {
         return (
-        <input
-          key={index}
-          ref={index == currentOtpIndex ? inputRef : null}
-          className= {`m-0.5 p-0.5 text-center border-b border-black w-8 h-8  ${answerCorrectStatus === true ? 'border-green-500' : ''} ${answerWrongStatus === true ? 'focus: border-red-500' : ''}`}
-          type="tel"
-          maxLength={1}
-          onKeyDown={(e) => handleOnKeyDown(e, index)}
-          onChange={onHandleChange}
-          value={otp[index]}
-        />
-      )})}
+          <input
+            key={index}
+            ref={index == currentOtpIndex ? inputRef : null}
+            className={`m-0.5 p-0.5 text-center border-b border-black w-6 h-6 xl:w-32 xl:h-32  ${
+              answerCorrectStatus === true ? "border-green-500" : ""
+            } ${answerWrongStatus === true ? "focus: border-red-500" : ""}`}
+            type="tel"
+            maxLength={1}
+            onKeyDown={(e) => handleOnKeyDown(e, index)}
+            onChange={onHandleChange}
+            value={otp[index]}
+          />
+        )
+      })}
     </div>
   )
 }

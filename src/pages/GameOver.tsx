@@ -17,9 +17,9 @@ const GameOver = () => {
     console.log(currentUser)
   }, [currentUser])
   return (
-    <div className="flex-1 flex flex-col items-center justify-center h-screen font-pokemon-solid">
+    <div className="flex-1 flex flex-col items-center justify-center h-screen font-pokemon-solid xl:text-5xl">
       <h1>Game Over</h1>
-      <p>
+      <p className="my-5">
         {displayName ? displayName : "loading username"} Score: {userScore}{" "}
       </p>
       <button onClick={restartGame}>Retry</button>
