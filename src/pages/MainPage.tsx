@@ -53,20 +53,25 @@ const MainPage = () => {
           )}
         </div>
         <div className="flex flex-col items-center justify-center h-screen">
-          <h1 className="font-pokemon-solid underline text-5xl">PokeGuesser</h1>
+          <h1 className="font-pokemon-solid underline text-3xl xl:text-5xl">
+            PokeGuesser
+          </h1>
 
-          <Link to="/classic" className="my-2 font-pokemon-solid text-3xl">
+          <Link
+            to="/classic"
+            className="my-2 font-pokemon-solid text-2xl xl:text-4xl"
+          >
             Classic Mode
           </Link>
           <Link
             to="/practice-mode"
-            className="my-2 font-pokemon-solid text-3xl"
+            className="my-2 font-pokemon-solid text-2xl xl:text-3xl"
           >
             Practice Mode
           </Link>
           <Link
             to="/leaderboard/all-gens"
-            className="my-2 font-pokemon-solid text-3xl"
+            className="my-2 font-pokemon-solid text-2xl xl:text-3xl"
           >
             LeaderBoard
           </Link>

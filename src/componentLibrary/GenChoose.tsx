@@ -27,7 +27,7 @@ const GenChoose = ({
   return (
     <div className="mx-2 text-center">
       <Link
-        className="text-4xl font-pokemon-solid"
+        className=" text-2xl xl:text-4xl font-pokemon-solid"
         to={linkToName}
         onClick={() => {
           setCategoryStart(categoryStart),
@@ -35,11 +35,7 @@ const GenChoose = ({
             setClickedLink(true)
         }}
       >
-        <img
-          src={imgLink}
-          alt={imgAlt}
-          className="w-36 h-36 object-contain m-4"
-        />
+        <img src={imgLink} alt={imgAlt} className="w-36 h-36 object-contain" />
         {/* <img
                     src="https://img.pokemondb.net/sprites/black-white/anim/normal/blastoise.gif"
                     alt="Blastoise"

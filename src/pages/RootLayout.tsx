@@ -34,7 +34,7 @@ const RootLayout = () => {
 
   return (
     <>
-      <div className="flex flex-row justify-center items-center text-3xl">
+      <div className="flex flex-row justify-center items-center text-xl xl:text-3xl bg-slate-300">
         <div>
           <div>
             {isSignedIn ? (
@@ -80,8 +80,10 @@ const RootLayout = () => {
             </div>
           </div>
         </div>
-      </div>{" "}
-      <div className={`${isLoading ? "loading" : ""}`}>
+      </div>
+      <div
+        className={`${isLoading ? "loading" : ""} bg-slate-400 h-max-screen`}
+      >
         <Outlet />
       </div>
     </>

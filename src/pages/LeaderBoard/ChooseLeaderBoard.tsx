@@ -4,10 +4,10 @@ import { Link, Outlet } from "react-router-dom"
 const ChooseLeaderBoard = () => {
   return (
     <>
-    <div className="flex-1 flex flex-row justify-center">
-      <h1 className="underline">Welcome to the LeaderBoard</h1>
+      <div className="flex-1 flex flex-row justify-center">
+        <h1 className="underline">Coming Soon</h1>
       </div>
-      <ul className="flex-1 flex flex-row justify-center">
+      {/* <ul className="flex-1 flex flex-row justify-center">
         <li className="mx-1">
           <Link to="all-gens">All Generations</Link>
         </li>
@@ -39,8 +39,8 @@ const ChooseLeaderBoard = () => {
           <Link to="gen-9">Gen 9</Link>
         </li>
       </ul>
-      
-      <Outlet />
+
+      <Outlet /> */}
     </>
   )
 }

@@ -30,7 +30,6 @@ const ClassicMode = () => {
         categoryStart,
         categoryEnd
       )
-      console.log("fetching")
     }, 1000)
     return () => clearTimeout(timer)
   }, [])

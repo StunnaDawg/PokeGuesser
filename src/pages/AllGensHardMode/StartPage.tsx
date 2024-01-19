@@ -15,9 +15,9 @@ const ChooseClassicMode = () => {
     <>
       {!clickedLink ? (
         <>
-          <div className="flex flex-row justify-center items-center mt-8">
+          <div className="flex flex-row justify-center items-center">
             <div className="flex flex-col items-center h-screen">
-              <h1 className="text-5xl font-pokemon-solid underline mt-10">
+              <h1 className=" text-3xl xl:text-5xl font-pokemon-solid underline mt-10">
                 Welcome to Classic Mode
               </h1>
               <div className="flex flex-row justify-center">
@@ -70,7 +70,7 @@ const ChooseClassicMode = () => {
                   linkToName="gen-3"
                 />
               </div>
-              <div className="flex flex-row justify-center m-5">
+              <div className="flex flex-row justify-center p-5 bg-slate-400">
                 <GenChoose
                   setCategoryEnd={setCategoryEnd}
                   setCategoryStart={setCategoryStart}
@@ -83,19 +83,18 @@ const ChooseClassicMode = () => {
                   linkToName="gen-4"
                 />
 
-                <div className="flex flex-row justify-center">
-                  <GenChoose
-                    setCategoryEnd={setCategoryEnd}
-                    setCategoryStart={setCategoryStart}
-                    setClickedLink={setClickedLink}
-                    categoryStart={494}
-                    categoryEnd={649}
-                    imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/axew.png"
-                    imgAlt="Axew"
-                    title="Gen 5"
-                    linkToName="gen-5"
-                  />
-                </div>
+                <GenChoose
+                  setCategoryEnd={setCategoryEnd}
+                  setCategoryStart={setCategoryStart}
+                  setClickedLink={setClickedLink}
+                  categoryStart={494}
+                  categoryEnd={649}
+                  imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/axew.png"
+                  imgAlt="Axew"
+                  title="Gen 5"
+                  linkToName="gen-5"
+                />
+
                 <GenChoose
                   setCategoryEnd={setCategoryEnd}
                   setCategoryStart={setCategoryStart}
@@ -109,7 +108,7 @@ const ChooseClassicMode = () => {
                 />
               </div>
 
-              <div className="flex flex-row justify-center m-5">
+              <div className="flex flex-row justify-center p-5 bg-slate-400">
                 <GenChoose
                   setCategoryEnd={setCategoryEnd}
                   setCategoryStart={setCategoryStart}
