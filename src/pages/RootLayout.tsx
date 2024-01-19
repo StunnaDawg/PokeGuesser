@@ -3,7 +3,7 @@ import { useUserAuth } from "../context"
 import { FIREBASE_AUTH } from "../../firebase"
 import { useEffect, useState } from "react"
 import useResetGame from "../hooks/resetGame"
-import "../public/regular/abomasnow.png"
+import pPic from "../public/regular/pikachu-alola-cap.png"
 import Footer from "../componentLibrary/Footer"
 
 const RootLayout = () => {
@@ -34,46 +34,56 @@ const RootLayout = () => {
 
   return (
     <>
-      <div className="flex flex-row justify-between">
-        <div className="m-3">
-          <button className="font-pokemon-solid" onClick={handleResetGame}>
-            Main Menu
-          </button>
-        </div>
+      <div className="flex flex-row justify-center items-center text-xl xl:text-3xl bg-slate-300">
         <div>
-          {isSignedIn ? (
-            <>
-              <div className="flex flex-row">
-                <div className="m-3">
-                  <button onClick={() => navigate("profile-updates")}>
-                    <h1 className="font-pokemon-solid">
-                      Welcome {displayName} <img src="../publi" />
-                    </h1>
-                  </button>
+          <div>
+            {isSignedIn ? (
+              <>
+                <div className="flex flex-row">
+                  <div className="m-3">
+                    <button onClick={() => navigate("profile-updates")}>
+                      <div className="flex flex-row">
+                        <h1 className="font-pokemon-solid">
+                          Welcome {displayName}
+                        </h1>
+                        <img src={pPic} />
+                      </div>
+                    </button>
+                  </div>
+                  <div className="my-3 mx-1">
+                    <button
+                      className="font-pokemon-solid"
+                      onClick={handleSignOut}
+                    >
+                      Sign Out
+                    </button>
+                  </div>
                 </div>
-                <div className="my-3 mx-1">
-                  <button
-                    className="font-pokemon-solid"
-                    onClick={handleSignOut}
-                  >
-                    Sign Out
-                  </button>
-                </div>
-              </div>
-            </>
-          ) : (
-            <>
-              <Link className="m-3 font-pokemon-solid" to="/signup">
-                Create New Account
-              </Link>
-              <Link className="m-1 font-pokemon-solid " to="/login">
-                Login
-              </Link>
-            </>
-          )}
+              </>
+            ) : (
+              <>
+                <Link className="m-3 font-pokemon-solid" to="/signup">
+                  Create New Account
+                </Link>
+                <Link className="m-1 font-pokemon-solid " to="/login">
+                  Login
+                </Link>
+              </>
+            )}
+            <div className="flex flex-row justify-center">
+              <button
+                className="font-pokemon-solid underline"
+                onClick={handleResetGame}
+              >
+                Main Menu
+              </button>
+            </div>
+          </div>
         </div>
-      </div>{" "}
-      <div className={`container ${isLoading ? "loading" : ""}`}>
+      </div>
+      <div
+        className={`${isLoading ? "loading" : ""} bg-slate-400 h-max-screen`}
+      >
         <Outlet />
       </div>
     </>

@@ -30,7 +30,6 @@ const ClassicMode = () => {
         categoryStart,
         categoryEnd
       )
-      console.log("fetching")
     }, 1000)
     return () => clearTimeout(timer)
   }, [])
@@ -58,28 +57,30 @@ const ClassicMode = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center">
-        <div className="flex-1 flex justify-center items-center font-pokemon-solid">
-          <h1 className="underline font-bold">Classic Mode</h1>
-        </div>
-        <div className="flex flex-row justify-center font-pokemon-solid">
-          <ClassicModeLife />
-        </div>
-        <div className="flex-1 flex justify-center items-center">
-          <div className="flex-col">
-            <div className="flex flex-row justify-center">
-              <img src={pokemonSprite} />
-            </div>
-            <div className="flex flex-row justify-center font-pokemon-solid">
-              {/* <h3>{pokemonTitle != "" ? pokemonTitle : "loading..."}</h3> */}
-              <UserScore />
-            </div>
-            <div className="flex flex-row justify-center">
-              <TextInput />
+      <div className="flex flex-row justify-center items-center h-screen">
+        <div className="flex flex-col items-center ">
+          <div className="flex-1 flex justify-center items-center font-pokemon-solid">
+            <h1 className="underline font-bold xl:text-5xl">Classic Mode</h1>
+          </div>
+          <div className="flex flex-row justify-center font-pokemon-solid">
+            <ClassicModeLife />
+          </div>
+          <div className="flex-1 flex justify-center items-center">
+            <div className="flex-col">
               <div className="flex flex-row justify-center">
-                <GameModal isOpen={answerCorrectStatus || answerWrongStatus}>
-                  {answerCorrectStatus ? "Correct" : `Wrong ${pokemonTitle}`}{" "}
-                </GameModal>
+                <img src={pokemonSprite} className="xl:w-64 xl:h-64" />
+              </div>
+              <div className="flex flex-row justify-center font-pokemon-solid xl:text-5xl">
+                {/* <h3>{pokemonTitle != "" ? pokemonTitle : "loading..."}</h3> */}
+                <UserScore />
+              </div>
+              <div className="flex flex-row justify-center">
+                <TextInput />
+                <div className="flex flex-row justify-center">
+                  <GameModal isOpen={answerCorrectStatus || answerWrongStatus}>
+                    {answerCorrectStatus ? "Correct" : `Wrong ${pokemonTitle}`}{" "}
+                  </GameModal>
+                </div>
               </div>
             </div>
           </div>
