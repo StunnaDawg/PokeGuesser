@@ -12,22 +12,16 @@ import { usePokemon } from "../context/pokemonContext"
 import { useAnswerStatus } from "../context"
 
 const OTPInput: React.FC = () => {
-  const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
-    usePokemon()
-  const { pokemonNameGuess, setPokemonNameGuess } = useUserNameGuess()
-  const {
-    answerCorrectStatus,
-    setCorrectAnswerStatus,
-    answerWrongStatus,
-    setWrongAnswerStatus,
-  } = useAnswerStatus()
+  const { pokemonTitle } = usePokemon()
+  const { setPokemonNameGuess } = useUserNameGuess()
+  const { answerCorrectStatus, answerWrongStatus } = useAnswerStatus()
   const [pokemonNameLength, setPokemonNameLength] = useState<number>(
     pokemonTitle.length
   )
   const [otp, setOtp] = useState<string[]>(
     new Array(pokemonNameLength).fill("")
   )
-  const [currentIndex, setCurrentIndex] = useState<number>()
+  const [currentIndex] = useState<number>()
   let currentOTPIndexNumber: number = 0
 
   const [currentOtpIndex, setCurrentOtpIndex] = useState<number>(0)

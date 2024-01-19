@@ -1,5 +1,4 @@
 import { useEffect } from "react"
-import { ItemClient } from "pokenode-ts"
 import usePokeFetcher from "../../hooks/pokeFetcher"
 import TextInput from "./TextInput"
 import { UserScore, ClassicModeLife } from "../../componentLibrary"
@@ -76,11 +75,10 @@ const ClassicMode = () => {
               </div>
               <div className="flex flex-row justify-center">
                 <TextInput />
-                <div className="flex flex-row justify-center">
-                  <GameModal isOpen={answerCorrectStatus || answerWrongStatus}>
-                    {answerCorrectStatus ? "Correct" : `Wrong ${pokemonTitle}`}{" "}
-                  </GameModal>
-                </div>
+
+                <GameModal isOpen={answerCorrectStatus || answerWrongStatus}>
+                  {answerCorrectStatus ? "Correct" : `Wrong ${pokemonTitle}`}{" "}
+                </GameModal>
               </div>
             </div>
           </div>
