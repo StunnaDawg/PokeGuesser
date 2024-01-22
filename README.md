@@ -6,10 +6,10 @@ PokeGuesser is Pokemon Guessing game built using TypeScript, React, and Firebase
 
 ## ScreenShots
 Design not final.
+![Screenshot 2024-01-22 at 2 16 35 PM](https://github.com/StunnaDawg/PokeGuesser/assets/117373824/84596661-aeae-421e-870e-f54e680c3044)
+![Screenshot 2024-01-22 at 2 16 51 PM](https://github.com/StunnaDawg/PokeGuesser/assets/117373824/d9b34aa3-c6bb-4363-a029-b1de07a7ad60)
+![Screenshot 2024-01-22 at 2 17 06 PM](https://github.com/StunnaDawg/PokeGuesser/assets/117373824/8c045888-a574-4c76-a1ce-ff9f5cb77156)
 
-![Screenshot 2023-12-21 at 12 07 53 PM](https://github.com/StunnaDawg/PokeGuesser/assets/117373824/0d1df36c-c5a7-4303-968e-bbece42e4756)
-
-![Screenshot 2023-12-21 at 2 14 16 PM](https://github.com/StunnaDawg/PokeGuesser/assets/117373824/5c07c8cc-1c67-41cc-88b6-773383856ad3)
 
 
 
