@@ -12,5 +12,6 @@ Design not final.
 
 
 
+![Screenshot 2024-01-22 at 1 55 30 PM](https://github.com/StunnaDawg/PokeGuesser/assets/117373824/53b3aa60-4bce-4387-8df0-658fe7422040)
 
 More ReadMe updates to come.
