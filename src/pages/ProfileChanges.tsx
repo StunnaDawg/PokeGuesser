@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react"
-import { FIREBASE_AUTH, db } from "../../firebase"
+import { useState } from "react"
+import { FIREBASE_AUTH } from "../../firebase"
 import { updateProfile } from "firebase/auth"
-import { redirect, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const ProfileChanges = () => {
   const [username, setUsername] = useState<string>("")
   const user = FIREBASE_AUTH.currentUser
-  const displayName = user?.displayName
   const navigate = useNavigate()
   const handleUsername = async () => {
     try {
@@ -19,12 +18,6 @@ const ProfileChanges = () => {
       console.log(error)
     }
   }
-
-  // const handleDisplayName = () => {
-  //   if(displayName !== '' && displayName !== null) {
-  //     navigate('/main-menu')
-  //     }
-  // }
 
   return (
     <>
