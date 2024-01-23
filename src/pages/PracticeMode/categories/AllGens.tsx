@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { usePokemon } from "../../../context/pokemonContext"
 import usePokeFetcher from "../../../hooks/pokeFetcher"
 import TextInput from "../components/TextInput"
@@ -9,15 +9,18 @@ import {
 } from "../../../context"
 import { UserScore } from "../../../componentLibrary"
 import GameModal from "../../AllGensHardMode/components/AnswerModal"
+import LoadingPikachu from "../../../componentLibrary/Loading"
 
 const AllGensPracticeMode = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
   const { setUserScore } = useUserScore()
+  const [loading, setLoading] = useState<boolean>(false)
   const { categoryStart, categoryEnd } = useCategoryContext()
   const { answerCorrectStatus, answerWrongStatus } = useAnswerStatus()
 
   useEffect(() => {
+    setLoading(true)
     const timer = setTimeout(() => {
       usePokeFetcher(
         setPokemonTitle,
@@ -25,7 +28,7 @@ const AllGensPracticeMode = () => {
         categoryStart,
         categoryEnd
       )
-      console.log("fetching")
+      setLoading(false)
     }, 1000)
     return () => clearTimeout(timer)
   }, [])
@@ -38,28 +41,38 @@ const AllGensPracticeMode = () => {
 
   return (
     <>
-      <div className="flex-1 flex justify-center items-center font-pokemon-solid">
-        <h1 className="underline font-bold">Practice Mode</h1>
-      </div>
-      <div className="flex-1 flex justify-center items-center">
-        <div className="flex-col">
-          <div className="flex flex-row justify-center">
-            <img src={pokemonSprite} />
+      <div className="flex flex-row justify-center items-center h-screen">
+        <div className="flex flex-col items-center ">
+          <div className="flex-1 flex justify-center items-center font-pokemon-solid">
+            <h1 className="underline font-bold xl:text-5xl">Practice Mode</h1>
           </div>
-          <div className="flex flex-row justify-center font-pokemon-solid">
-            {/* <h3>{pokemonTitle != "" ? pokemonTitle : "loading..."}</h3> */}
-            <UserScore />
-          </div>
-          <div className="flex flex-row justify-center">
-            <TextInput generationStart={0} generationEnd={1015} />
-            <GameModal isOpen={answerCorrectStatus || answerWrongStatus}>
-              {answerCorrectStatus ? "Correct" : `Wrong ${pokemonTitle}`}{" "}
-            </GameModal>
+          <div className="flex-1 flex justify-center items-center">
+            <div className="flex-col">
+              <div className="flex flex-row justify-center">
+                {loading ? (
+                  <LoadingPikachu />
+                ) : (
+                  <img src={pokemonSprite} className="xl:w-64 xl:h-64" />
+                )}
+              </div>
+              <div className="flex flex-row justify-center font-pokemon-solid xl:text-5xl">
+                {/* <h3>{pokemonTitle != "" ? pokemonTitle : "loading..."}</h3> */}
+                <UserScore />
+              </div>
+              <div className="flex flex-row justify-center">
+                <TextInput
+                  generationEnd={categoryEnd}
+                  generationStart={categoryStart}
+                />
+
+                <GameModal isOpen={answerCorrectStatus || answerWrongStatus}>
+                  {answerCorrectStatus ? "Correct" : `Wrong ${pokemonTitle}`}{" "}
+                </GameModal>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <div className="flex-1 flex justify-center items-center"></div>
     </>
   )
 }

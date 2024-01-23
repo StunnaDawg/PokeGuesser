@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
 import { FIREBASE_AUTH } from "../../firebase"
 import { createUserWithEmailAndPassword } from "firebase/auth"
-import { redirect, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useUserAuth } from "../context"
 import signInWithGoogle from "../hooks/signInWithGoogle"
 
 const SignUpPage = () => {
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
-  const { isSignedIn, setIsSignedIn } = useUserAuth()
+  const { isSignedIn } = useUserAuth()
   const auth = FIREBASE_AUTH
   const navigate = useNavigate()
 

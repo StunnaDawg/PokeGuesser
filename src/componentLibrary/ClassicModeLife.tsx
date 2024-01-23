@@ -6,8 +6,8 @@ const ClassicModeLife: React.FC = () => {
   return (
     <>
       <div className="flex flex-row items-center">
-        {lives.map((life, index) => (
-          <div key={index}>
+        {lives.map((life: number, index) => (
+          <div key={index} id={life.toString()}>
             <img
               src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
               className="xl:w-24 xl:h-24"

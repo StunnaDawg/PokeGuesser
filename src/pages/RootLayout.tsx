@@ -1,10 +1,9 @@
 import { Link, Outlet, useNavigate, useNavigation } from "react-router-dom"
 import { useUserAuth } from "../context"
 import { FIREBASE_AUTH } from "../../firebase"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import useResetGame from "../hooks/resetGame"
 import pPic from "../public/regular/pikachu-alola-cap.png"
-import Footer from "../componentLibrary/Footer"
 
 const RootLayout = () => {
   const { state } = useNavigation()

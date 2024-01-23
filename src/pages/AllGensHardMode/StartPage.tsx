@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link, Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import { useCategoryContext } from "../../context"
 import GenChoose from "../../componentLibrary/GenChoose"
 
@@ -15,8 +15,8 @@ const ChooseClassicMode = () => {
     <>
       {!clickedLink ? (
         <>
-          <div className="flex flex-row justify-center items-center">
-            <div className="flex flex-col items-center h-screen">
+          <div className="flex flex-row justify-center items-center 2xl:h-screen">
+            <div className="flex flex-col items-center ">
               <h1 className=" text-3xl xl:text-5xl font-pokemon-solid underline mt-10">
                 Welcome to Classic Mode
               </h1>
