@@ -26,7 +26,7 @@ const SignUpPage = () => {
 
   useEffect(() => {
     if (isSignedIn) {
-      navigate("/create-username")
+      navigate("/profile-updates")
     }
   }, [isSignedIn, navigate])
   return (
