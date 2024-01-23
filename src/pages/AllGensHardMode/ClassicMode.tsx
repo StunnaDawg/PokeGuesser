@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import usePokeFetcher from "../../hooks/pokeFetcher"
 import TextInput from "./TextInput"
 import { UserScore, ClassicModeLife } from "../../componentLibrary"
@@ -11,10 +11,12 @@ import {
   useCategoryContext,
 } from "../../context"
 import { useNavigate } from "react-router-dom"
+import LoadingPikachu from "../../componentLibrary/Loading"
 
 const ClassicMode = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
+  const [loading, setLoading] = useState<boolean>(false)
   const { answerCorrectStatus, answerWrongStatus } = useAnswerStatus()
   const { setUserScore } = useUserScore()
   const { lives, setLives } = useClassicModeLife()
@@ -22,6 +24,7 @@ const ClassicMode = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
+    setLoading(true)
     const timer = setTimeout(() => {
       usePokeFetcher(
         setPokemonTitle,
@@ -29,8 +32,11 @@ const ClassicMode = () => {
         categoryStart,
         categoryEnd
       )
+      setLoading(false)
     }, 1000)
-    return () => clearTimeout(timer)
+    return () => {
+      clearTimeout(timer)
+    }
   }, [])
 
   useEffect(() => {
@@ -67,7 +73,11 @@ const ClassicMode = () => {
           <div className="flex-1 flex justify-center items-center">
             <div className="flex-col">
               <div className="flex flex-row justify-center">
-                <img src={pokemonSprite} className="xl:w-64 xl:h-64" />
+                {loading ? (
+                  <LoadingPikachu />
+                ) : (
+                  <img src={pokemonSprite} className="xl:w-64 xl:h-64" />
+                )}
               </div>
               <div className="flex flex-row justify-center font-pokemon-solid xl:text-5xl">
                 {/* <h3>{pokemonTitle != "" ? pokemonTitle : "loading..."}</h3> */}
