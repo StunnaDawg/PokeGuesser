@@ -48,9 +48,7 @@ const OTPInput: React.FC = () => {
     index: number
   ) => {
     currentOTPIndexNumber = index
-    // if (e.key === "Backspace") {
-    //   setCurrentOtpIndex(currentOTPIndexNumber - 1)
-    // }
+    e
   }
   useEffect(() => {
     inputRef.current?.focus()
@@ -75,7 +73,7 @@ const OTPInput: React.FC = () => {
           <input
             key={index}
             ref={index == currentOtpIndex ? inputRef : null}
-            className={`m-0.5 p-0.5 text-center border-b border-black w-8 h-8 xl:w-32 xl:h-32  ${
+            className={`m-0.5 p-0.5 text-center border-4 border-black w-8 h-8 xl:w-32 xl:h-32 ${
               answerCorrectStatus === true ? "border-green-500" : ""
             } ${answerWrongStatus === true ? "focus: border-red-500" : ""}`}
             type="tel"
