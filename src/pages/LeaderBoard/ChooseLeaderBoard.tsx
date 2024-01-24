@@ -25,7 +25,8 @@ const ChooseLeaderBoard = () => {
                     imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
                     imgAlt="Ditto"
                     title="All Gens"
-                    board="all-gens"
+                    boardLink="all-gens"
+                    boardId="h220CJnGaLsWLbkeoQK5"
                   />
                 </div>
               </div>
@@ -35,21 +36,24 @@ const ChooseLeaderBoard = () => {
                   imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
                   imgAlt="Ditto"
                   title="All Gens"
-                  board="all-gens"
+                  boardLink="all-gens"
+                  boardId=""
                 />
                 <LeaderBoardChoose
                   setClickedLink={setClickedLink}
                   imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
                   imgAlt="Ditto"
                   title="All Gens"
-                  board="all-gens"
+                  boardLink="all-gens"
+                  boardId=""
                 />
                 <LeaderBoardChoose
                   setClickedLink={setClickedLink}
                   imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
                   imgAlt="Ditto"
                   title="All Gens"
-                  board="all-gens"
+                  boardLink="all-gens"
+                  boardId=""
                 />
               </div>
               <div className="flex flex-row justify-center p-5 bg-slate-400">
@@ -58,7 +62,8 @@ const ChooseLeaderBoard = () => {
                   imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
                   imgAlt="Ditto"
                   title="All Gens"
-                  board="all-gens"
+                  boardLink="all-gens"
+                  boardId=""
                 />
 
                 <LeaderBoardChoose
@@ -66,7 +71,8 @@ const ChooseLeaderBoard = () => {
                   imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
                   imgAlt="Ditto"
                   title="All Gens"
-                  board="all-gens"
+                  boardLink="all-gens"
+                  boardId=""
                 />
 
                 <LeaderBoardChoose
@@ -74,7 +80,8 @@ const ChooseLeaderBoard = () => {
                   imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
                   imgAlt="Ditto"
                   title="All Gens"
-                  board="all-gens"
+                  boardLink="all-gens"
+                  boardId=""
                 />
               </div>
 
@@ -84,7 +91,8 @@ const ChooseLeaderBoard = () => {
                   imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
                   imgAlt="Ditto"
                   title="All Gens"
-                  board="all-gens"
+                  boardLink="all-gens"
+                  boardId=""
                 />
 
                 <LeaderBoardChoose
@@ -92,14 +100,16 @@ const ChooseLeaderBoard = () => {
                   imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
                   imgAlt="Ditto"
                   title="All Gens"
-                  board="all-gens"
+                  boardLink="all-gens"
+                  boardId=""
                 />
                 <LeaderBoardChoose
                   setClickedLink={setClickedLink}
                   imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
                   imgAlt="Ditto"
                   title="All Gens"
-                  board="all-gens"
+                  boardLink="all-gens"
+                  boardId=""
                 />
               </div>
             </div>
