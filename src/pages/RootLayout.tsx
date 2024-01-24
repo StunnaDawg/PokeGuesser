@@ -4,6 +4,7 @@ import { FIREBASE_AUTH } from "../../firebase"
 import { useEffect } from "react"
 import useResetGame from "../hooks/resetGame"
 import pPic from "../public/regular/pikachu-alola-cap.png"
+import { Footer } from "../componentLibrary"
 
 const RootLayout = () => {
   const { state } = useNavigation()
@@ -85,6 +86,7 @@ const RootLayout = () => {
       >
         <Outlet />
       </div>
+      <Footer />
     </>
   )
 }

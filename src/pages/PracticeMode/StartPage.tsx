@@ -10,8 +10,8 @@ const ChoosePracticeMode = () => {
     <>
       {!clickedLink ? (
         <>
-          <div className="flex flex-row justify-center items-center">
-            <div className="flex flex-col items-center h-screen">
+          <div className="flex flex-row justify-center items-center h-min-screen">
+            <div className="flex flex-col items-center ">
               <h1 className="text-3xl xl:text-5xl font-pokemon-solid underline mt-10 text-center">
                 Practice Mode
               </h1>

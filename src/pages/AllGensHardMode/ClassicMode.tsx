@@ -65,7 +65,9 @@ const ClassicMode = () => {
       <div className="flex flex-row justify-center items-center h-screen">
         <div className="flex flex-col items-center ">
           <div className="flex-1 flex justify-center items-center font-pokemon-solid">
-            <h1 className="underline font-bold xl:text-5xl">Classic Mode</h1>
+            <h1 className="underline font-bold text-2xl xl:text-5xl">
+              Classic Mode
+            </h1>
           </div>
           <div className="flex flex-row justify-center font-pokemon-solid">
             <ClassicModeLife />
