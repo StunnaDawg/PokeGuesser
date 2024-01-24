@@ -1,0 +1,3 @@
+type LeaderBoard = {
+  username: string
+}

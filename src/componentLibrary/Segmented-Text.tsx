@@ -76,7 +76,8 @@ const OTPInput: React.FC = () => {
             className={`m-0.5 p-0.5 text-center border-4 border-black w-8 h-8 xl:w-32 xl:h-32 ${
               answerCorrectStatus === true ? "border-green-500" : ""
             } ${answerWrongStatus === true ? "focus: border-red-500" : ""}`}
-            type="tel"
+            type="text"
+            pattern="[A-Za-z]*"
             maxLength={1}
             onKeyDown={(e) => handleOnKeyDown(e, index)}
             onChange={onHandleChange}

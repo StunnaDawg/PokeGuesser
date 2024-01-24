@@ -9,7 +9,7 @@ import RootLayout from "./pages/RootLayout"
 import ChoosePracticeMode from "./pages/PracticeMode/StartPage"
 import AllGensPracticeMode from "./pages/PracticeMode/categories/AllGens"
 import ChooseClassicMode from "./pages/AllGensHardMode/StartPage"
-import ChooseLeaderBoard from "./pages/LeaderBoard/ChooseLeaderBoard"
+// import ChooseLeaderBoard from "./pages/LeaderBoard/ChooseLeaderBoard"
 import LeaderBoard from "./pages/LeaderBoard/LeaderBoard"
 import ProfileChanges from "./pages/ProfileChanges"
 
@@ -68,9 +68,9 @@ export const router = createBrowserRouter([
           },
           {
             path: "leaderboard",
-            element: <ChooseLeaderBoard />,
+            element: <LeaderBoard />,
             children: [
-              { index: true, path: "all-gens", element: <LeaderBoard /> },
+              { path: "all-gens", element: <LeaderBoard /> },
               { path: "gen-1", element: <LeaderBoard /> },
               { path: "gen-2", element: <LeaderBoard /> },
               { path: "gen-3", element: <LeaderBoard /> },
