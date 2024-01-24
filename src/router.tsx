@@ -9,7 +9,7 @@ import RootLayout from "./pages/RootLayout"
 import ChoosePracticeMode from "./pages/PracticeMode/StartPage"
 import AllGensPracticeMode from "./pages/PracticeMode/categories/AllGens"
 import ChooseClassicMode from "./pages/AllGensHardMode/StartPage"
-import ChooseLeaderBoard from "./pages/LeaderBoard/ChooseLeaderBoard"
+// import ChooseLeaderBoard from "./pages/LeaderBoard/ChooseLeaderBoard"
 import LeaderBoard from "./pages/LeaderBoard/LeaderBoard"
 import ProfileChanges from "./pages/ProfileChanges"
 
