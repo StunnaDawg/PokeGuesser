@@ -1,43 +1,113 @@
+import { useEffect, useState } from "react"
+import { Outlet } from "react-router-dom"
+import LeaderBoardChoose from "../../componentLibrary/LeaderBoardChoose"
+
 const ChooseLeaderBoard = () => {
+  const [clickedLink, setClickedLink] = useState<boolean>(false)
+
+  useEffect(() => {
+    setClickedLink(false)
+  }, [])
+
   return (
     <>
-      <div className="flex-1 flex flex-row justify-center">
-        <h1 className="underline">Coming Soon</h1>
-      </div>
-      {/* <ul className="flex-1 flex flex-row justify-center">
-        <li className="mx-1">
-          <Link to="all-gens">All Generations</Link>
-        </li>
-        <li className="mx-1">
-          <Link to="gen-1">Gen 1</Link>
-        </li>
-        <li className="mx-1">
-          <Link to="gen-2">Gen 2</Link>
-        </li>
-        <li className="mx-1">
-          <Link to="gen-3">Gen 3</Link>
-        </li>
-        <li className="mx-1">
-          <Link to="gen-4">Gen 4</Link>
-        </li>
-        <li className="mx-1">
-          <Link to="gen-5">Gen 5</Link>
-        </li>
-        <li className="mx-1">
-          <Link to="gen-6">Gen 6</Link>
-        </li>
-        <li className="mx-1">
-          <Link to="gen-7">Gen 7</Link>
-        </li>
-        <li className="mx-1">
-          <Link to="gen-8">Gen 8</Link>
-        </li>
-        <li className="mx-1">
-          <Link to="gen-9">Gen 9</Link>
-        </li>
-      </ul>
+      {!clickedLink ? (
+        <>
+          <div className="flex flex-row justify-center items-center h-min-screen">
+            <div className="flex flex-col items-center ">
+              <h1 className=" text-3xl xl:text-5xl font-pokemon-solid underline mt-10">
+                Welcome to Classic Mode
+              </h1>
+              <div className="flex flex-row justify-center">
+                <div className="text-center items-center ">
+                  <LeaderBoardChoose
+                    setClickedLink={setClickedLink}
+                    imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
+                    imgAlt="Ditto"
+                    title="All Gens"
+                    board="all-gens"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-row justify-center m-5">
+                <LeaderBoardChoose
+                  setClickedLink={setClickedLink}
+                  imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
+                  imgAlt="Ditto"
+                  title="All Gens"
+                  board="all-gens"
+                />
+                <LeaderBoardChoose
+                  setClickedLink={setClickedLink}
+                  imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
+                  imgAlt="Ditto"
+                  title="All Gens"
+                  board="all-gens"
+                />
+                <LeaderBoardChoose
+                  setClickedLink={setClickedLink}
+                  imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
+                  imgAlt="Ditto"
+                  title="All Gens"
+                  board="all-gens"
+                />
+              </div>
+              <div className="flex flex-row justify-center p-5 bg-slate-400">
+                <LeaderBoardChoose
+                  setClickedLink={setClickedLink}
+                  imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
+                  imgAlt="Ditto"
+                  title="All Gens"
+                  board="all-gens"
+                />
 
-      <Outlet /> */}
+                <LeaderBoardChoose
+                  setClickedLink={setClickedLink}
+                  imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
+                  imgAlt="Ditto"
+                  title="All Gens"
+                  board="all-gens"
+                />
+
+                <LeaderBoardChoose
+                  setClickedLink={setClickedLink}
+                  imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
+                  imgAlt="Ditto"
+                  title="All Gens"
+                  board="all-gens"
+                />
+              </div>
+
+              <div className="flex flex-row justify-center p-5 bg-slate-400">
+                <LeaderBoardChoose
+                  setClickedLink={setClickedLink}
+                  imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
+                  imgAlt="Ditto"
+                  title="All Gens"
+                  board="all-gens"
+                />
+
+                <LeaderBoardChoose
+                  setClickedLink={setClickedLink}
+                  imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
+                  imgAlt="Ditto"
+                  title="All Gens"
+                  board="all-gens"
+                />
+                <LeaderBoardChoose
+                  setClickedLink={setClickedLink}
+                  imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
+                  imgAlt="Ditto"
+                  title="All Gens"
+                  board="all-gens"
+                />
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <Outlet />
+      )}
     </>
   )
 }

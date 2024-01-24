@@ -70,7 +70,7 @@ export const router = createBrowserRouter([
             path: "leaderboard",
             element: <ChooseLeaderBoard />,
             children: [
-              { index: true, path: "all-gens", element: <LeaderBoard /> },
+              { path: "all-gens", element: <LeaderBoard /> },
               { path: "gen-1", element: <LeaderBoard /> },
               { path: "gen-2", element: <LeaderBoard /> },
               { path: "gen-3", element: <LeaderBoard /> },

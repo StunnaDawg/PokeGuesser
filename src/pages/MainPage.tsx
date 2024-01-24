@@ -70,7 +70,7 @@ const MainPage = () => {
             Practice Mode
           </Link>
           <Link
-            to="/leaderboard/all-gens"
+            to="/leaderboard"
             className="my-2 font-pokemon-solid text-2xl xl:text-3xl 2xl:text-4xl"
           >
             LeaderBoard
