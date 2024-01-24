@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import { useLeaderBoardId } from "../../context/leaderBoardContext"
-import { LeaderBoardType, User, UserScores } from "../../@types/firebase"
+import { UserLeaderBoard } from "../../@types/firebase"
 import getLeaderboardUsersData from "../../hooks/getLeaderboardData"
-import getUserScores from "../../hooks/getUserScores"
 
 const LeaderBoard = () => {
   const { boardId } = useLeaderBoardId()
-  const [leaderBoardUsers, setLeaderBoardUsers] = useState<User[]>([])
+  const [leaderBoardUsers, setLeaderBoardUsers] = useState<UserLeaderBoard[]>(
+    []
+  )
 
   useEffect(() => {
     getLeaderboardUsersData(boardId, setLeaderBoardUsers)
@@ -21,12 +22,9 @@ const LeaderBoard = () => {
               return (
                 <div key={index}>
                   <p>Hey Boss {user.username}</p>
-                  {user.scores?.map((score) => (
-                    <div>
-                      <div>{score.score}</div>
-                      <div>{score.mode}</div>
-                    </div>
-                  ))}
+                  <p>{user.score}</p>
+                  <p>{user.mode}</p>
+                  <p>{user.userId}</p>
                 </div>
               )
             })
