@@ -21,24 +21,24 @@ const ProfileChanges = () => {
 
   return (
     <>
-      <div className="flex-1 flex flex-col items-center justify-center h-screen text-xl font-pokemon-solid">
+      <div className="flex-1 flex flex-col items-center justify-center h-screen text-xl lg:text-2xl xl:text-3xl 2xl:text-5xl font-pokemon-solid">
         <h1>Change Username</h1>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center m-5">
           <input
-            className="border-2 border-black my-1 font-pokemon-solid"
+            className="border-2 border-black my-1 font-pokemon-solid p-1"
             placeholder="Username"
             value={username}
             onChange={(text) => setUsername(text.target.value)}
           />
-          <button
-            onClick={async () => {
-              await handleUsername()
-              navigate("/main-menu")
-            }}
-          >
-            Confirm
-          </button>
         </div>
+        <button
+          onClick={async () => {
+            await handleUsername()
+            navigate("/main-menu")
+          }}
+        >
+          Confirm
+        </button>
       </div>
     </>
   )
