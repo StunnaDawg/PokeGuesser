@@ -14,8 +14,12 @@ import { useNavigate } from "react-router-dom"
 import LoadingPikachu from "../../componentLibrary/Loading"
 import { FIREBASE_AUTH } from "../../../firebase"
 import addToScoreLeaderboard from "../../hooks/addScoreToLeaderBoard"
+import TimerComponent from "../../componentLibrary/TimerComponent"
 
 const ClassicMode = () => {
+  const [timeScore, setTime] = useState<number>(0)
+  const [startTimer, setStartTimer] = useState<boolean>(false)
+  const [pauseTimer, setPauseTimer] = useState<boolean>(false)
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
   const [loading, setLoading] = useState<boolean>(false)
@@ -36,6 +40,7 @@ const ClassicMode = () => {
         categoryStart,
         categoryEnd
       )
+      setStartTimer(true)
       setLoading(false)
     }, 1000)
     return () => {
@@ -56,6 +61,7 @@ const ClassicMode = () => {
       }
 
       if (lives.length === 0) {
+        setPauseTimer(true)
         const timer = setTimeout(() => {
           if (displayName && userId) {
             addToScoreLeaderboard(
@@ -63,7 +69,8 @@ const ClassicMode = () => {
               userId,
               "classic-all",
               userScore,
-              "h220CJnGaLsWLbkeoQK5"
+              "h220CJnGaLsWLbkeoQK5",
+              timeScore
             )
           }
 
@@ -78,10 +85,15 @@ const ClassicMode = () => {
     <>
       <div className="flex flex-row justify-center items-center h-screen">
         <div className="flex flex-col items-center ">
-          <div className="flex-1 flex justify-center items-center font-pokemon-solid">
+          <div className="flex-1 flex flex-col justify-center items-center font-pokemon-solid">
             <h1 className="underline font-bold text-2xl xl:text-5xl">
               Classic Mode
             </h1>
+            <TimerComponent
+              setTime={setTime}
+              startTimer={startTimer}
+              stopTimer={pauseTimer}
+            />
           </div>
           <div className="flex flex-row justify-center font-pokemon-solid">
             <ClassicModeLife />

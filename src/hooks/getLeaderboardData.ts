@@ -21,6 +21,7 @@ const getLeaderboardUsersData = async (
           userId: doc.data().userid,
           score: doc.data().score,
           mode: doc.data().mode,
+          time: doc.data().time,
         } as UserLeaderBoard)
     )
     const sortedNumbers = users.sort((a, b) => b.score - a.score)

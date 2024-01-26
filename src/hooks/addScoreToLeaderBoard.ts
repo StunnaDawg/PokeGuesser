@@ -6,7 +6,8 @@ const addToScoreLeaderboard = async (
   userId: string,
   gameMode: string,
   gameScore: number,
-  boardId: string
+  boardId: string,
+  gameTime: number
 ) => {
   const leaderBoardCollection = collection(db, "leaderboards", boardId, "users")
 
@@ -14,6 +15,7 @@ const addToScoreLeaderboard = async (
     await addDoc(leaderBoardCollection, {
       mode: gameMode,
       score: gameScore,
+      time: gameTime,
       username: userName,
       userid: userId,
     })
