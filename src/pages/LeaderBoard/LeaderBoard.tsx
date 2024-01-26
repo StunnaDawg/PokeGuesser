@@ -13,6 +13,10 @@ const LeaderBoard = () => {
     getLeaderboardUsersData(boardId, setLeaderBoardUsers)
   }, [])
 
+  useEffect(() => {
+    leaderBoardUsers.sort()
+  }, [leaderBoardUsers])
+
   return (
     <>
       <div className="h-screen">

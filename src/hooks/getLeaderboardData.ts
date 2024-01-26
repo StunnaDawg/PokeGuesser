@@ -23,8 +23,8 @@ const getLeaderboardUsersData = async (
           mode: doc.data().mode,
         } as UserLeaderBoard)
     )
-    console.log(users)
-    setLeaderBoardData(users)
+    const sortedNumbers = users.sort((a, b) => b.score - a.score)
+    setLeaderBoardData(sortedNumbers)
   } catch (err) {
     console.error(err)
   }
