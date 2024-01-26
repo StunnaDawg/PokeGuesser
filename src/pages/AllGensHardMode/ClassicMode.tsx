@@ -12,16 +12,20 @@ import {
 } from "../../context"
 import { useNavigate } from "react-router-dom"
 import LoadingPikachu from "../../componentLibrary/Loading"
+import { FIREBASE_AUTH } from "../../../firebase"
+import addToScoreLeaderboard from "../../hooks/addScoreToLeaderBoard"
 
 const ClassicMode = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
   const [loading, setLoading] = useState<boolean>(false)
   const { answerCorrectStatus, answerWrongStatus } = useAnswerStatus()
-  const { setUserScore } = useUserScore()
+  const { userScore, setUserScore } = useUserScore()
   const { lives, setLives } = useClassicModeLife()
   const { categoryStart, categoryEnd } = useCategoryContext()
   const navigate = useNavigate()
+  const displayName = FIREBASE_AUTH.currentUser?.displayName
+  const userId = FIREBASE_AUTH.currentUser?.uid
 
   useEffect(() => {
     setLoading(true)
@@ -53,6 +57,16 @@ const ClassicMode = () => {
 
       if (lives.length === 0) {
         const timer = setTimeout(() => {
+          if (displayName && userId) {
+            addToScoreLeaderboard(
+              displayName,
+              userId,
+              "classic-all",
+              userScore,
+              "h220CJnGaLsWLbkeoQK5"
+            )
+          }
+
           navigate("/gameover")
         }, 1000)
         return () => clearTimeout(timer)

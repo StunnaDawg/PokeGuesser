@@ -1,7 +1,7 @@
-import { collection, doc, getDoc, getDocs } from "firebase/firestore"
+import { collection, doc, getDocs } from "firebase/firestore"
 import { db } from "../../firebase"
 import { Dispatch, SetStateAction } from "react"
-import { LeaderBoardType, UserLeaderBoard } from "../@types/firebase"
+import { UserLeaderBoard } from "../@types/firebase"
 
 const getLeaderboardUsersData = async (
   id: string,
