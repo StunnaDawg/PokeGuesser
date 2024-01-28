@@ -24,7 +24,7 @@ const TimerComponent = ({ setTime, startTimer, stopTimer }: TimerProps) => {
 
   return (
     <>
-      <div>{time}</div>
+      <div className="text-3xl m-1">Time Elapsed: {time}</div>
     </>
   )
 }
