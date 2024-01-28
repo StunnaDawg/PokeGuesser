@@ -32,6 +32,7 @@ const ChooseClassicMode = () => {
                     imgAlt="Ditto"
                     title="All Gens"
                     linkToName="all-gens"
+                    boardId="h220CJnGaLsWLbkeoQK5"
                   />
                 </div>
               </div>
@@ -46,6 +47,7 @@ const ChooseClassicMode = () => {
                   imgAlt="Raichu"
                   title="Gen 1"
                   linkToName="gen-1"
+                  boardId="UCKoA68QcBPPLmHMQ8me"
                 />
                 <GenChoose
                   setCategoryEnd={setCategoryEnd}
@@ -57,6 +59,7 @@ const ChooseClassicMode = () => {
                   imgAlt="Donphan"
                   title="Gen 2"
                   linkToName="gen-2"
+                  boardId="4PfRrkHjmGtxiD4MGjK3"
                 />
                 <GenChoose
                   setCategoryEnd={setCategoryEnd}
@@ -68,6 +71,7 @@ const ChooseClassicMode = () => {
                   imgAlt="swampert"
                   title="Gen 3"
                   linkToName="gen-3"
+                  boardId="lkA8PPZkEonsBWMcnsND"
                 />
               </div>
               <div className="flex flex-row justify-center p-5 bg-slate-400">
@@ -81,6 +85,7 @@ const ChooseClassicMode = () => {
                   imgAlt="shinx"
                   title="Gen 4"
                   linkToName="gen-4"
+                  boardId="gpLowhzzbO66sr8ErtTd"
                 />
 
                 <GenChoose
@@ -93,6 +98,7 @@ const ChooseClassicMode = () => {
                   imgAlt="Axew"
                   title="Gen 5"
                   linkToName="gen-5"
+                  boardId="cpi9AWd20qN5EvEXWv6p"
                 />
 
                 <GenChoose
@@ -105,6 +111,7 @@ const ChooseClassicMode = () => {
                   imgAlt="Greninja"
                   title="Gen 6"
                   linkToName="gen-6"
+                  boardId="KF0xTGOGLtWthfRAthgP"
                 />
               </div>
 
@@ -119,6 +126,7 @@ const ChooseClassicMode = () => {
                   imgAlt="Rowlet"
                   title="Gen 7"
                   linkToName="gen-7"
+                  boardId="QWQNLVYUZN2vPsJRIzgi"
                 />
 
                 <GenChoose
@@ -131,6 +139,7 @@ const ChooseClassicMode = () => {
                   imgAlt="Snom"
                   title="Gen 8"
                   linkToName="gen-8"
+                  boardId="X4YoDaXNLXHgzYEwCwaS"
                 />
                 <GenChoose
                   setCategoryEnd={setCategoryEnd}
@@ -142,6 +151,7 @@ const ChooseClassicMode = () => {
                   imgAlt="Tinkaton"
                   title="Gen 9"
                   linkToName="gen-9"
+                  boardId="fvGXMpX3uzsaM9ImubCb"
                 />
               </div>
             </div>

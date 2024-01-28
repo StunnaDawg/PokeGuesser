@@ -27,6 +27,7 @@ const ChoosePracticeMode = () => {
                     imgAlt="Ditto"
                     title="All Gens"
                     linkToName="all-gens"
+                    boardId="h220CJnGaLsWLbkeoQK5"
                   />
                 </div>
               </div>
@@ -41,6 +42,7 @@ const ChoosePracticeMode = () => {
                   imgAlt="Raichu"
                   title="Gen 1"
                   linkToName="gen-1"
+                  boardId="UCKoA68QcBPPLmHMQ8me"
                 />
                 <GenChoose
                   setCategoryEnd={setCategoryEnd}
@@ -52,6 +54,7 @@ const ChoosePracticeMode = () => {
                   imgAlt="Donphan"
                   title="Gen 2"
                   linkToName="gen-2"
+                  boardId="4PfRrkHjmGtxiD4MGjK3"
                 />
                 <GenChoose
                   setCategoryEnd={setCategoryEnd}
@@ -63,6 +66,7 @@ const ChoosePracticeMode = () => {
                   imgAlt="swampert"
                   title="Gen 3"
                   linkToName="gen-3"
+                  boardId="lkA8PPZkEonsBWMcnsND"
                 />
               </div>
               <div className="flex flex-row justify-center p-5 bg-slate-400">
@@ -76,6 +80,7 @@ const ChoosePracticeMode = () => {
                   imgAlt="shinx"
                   title="Gen 4"
                   linkToName="gen-4"
+                  boardId="gpLowhzzbO66sr8ErtTd"
                 />
 
                 <GenChoose
@@ -88,6 +93,7 @@ const ChoosePracticeMode = () => {
                   imgAlt="Axew"
                   title="Gen 5"
                   linkToName="gen-5"
+                  boardId="cpi9AWd20qN5EvEXWv6p"
                 />
 
                 <GenChoose
@@ -100,6 +106,7 @@ const ChoosePracticeMode = () => {
                   imgAlt="Greninja"
                   title="Gen 6"
                   linkToName="gen-6"
+                  boardId="KF0xTGOGLtWthfRAthgP"
                 />
               </div>
 
@@ -114,6 +121,7 @@ const ChoosePracticeMode = () => {
                   imgAlt="Rowlet"
                   title="Gen 7"
                   linkToName="gen-7"
+                  boardId="QWQNLVYUZN2vPsJRIzgi"
                 />
 
                 <GenChoose
@@ -126,6 +134,7 @@ const ChoosePracticeMode = () => {
                   imgAlt="Snom"
                   title="Gen 8"
                   linkToName="gen-8"
+                  boardId="X4YoDaXNLXHgzYEwCwaS"
                 />
                 <GenChoose
                   setCategoryEnd={setCategoryEnd}
@@ -137,6 +146,7 @@ const ChoosePracticeMode = () => {
                   imgAlt="Tinkaton"
                   title="Gen 9"
                   linkToName="gen-9"
+                  boardId="fvGXMpX3uzsaM9ImubCb"
                 />
               </div>
             </div>

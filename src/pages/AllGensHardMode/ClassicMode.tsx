@@ -15,6 +15,7 @@ import LoadingPikachu from "../../componentLibrary/Loading"
 import { FIREBASE_AUTH } from "../../../firebase"
 import addToScoreLeaderboard from "../../hooks/addScoreToLeaderBoard"
 import TimerComponent from "../../componentLibrary/TimerComponent"
+import { useLeaderBoardId } from "../../context/leaderBoardContext"
 
 const ClassicMode = () => {
   const [timeScore, setTime] = useState<number>(0)
@@ -23,6 +24,7 @@ const ClassicMode = () => {
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
   const [loading, setLoading] = useState<boolean>(false)
+  const { boardId } = useLeaderBoardId()
   const { answerCorrectStatus, answerWrongStatus } = useAnswerStatus()
   const { userScore, setUserScore } = useUserScore()
   const { lives, setLives } = useClassicModeLife()
@@ -69,7 +71,7 @@ const ClassicMode = () => {
               userId,
               "classic-all",
               userScore,
-              "h220CJnGaLsWLbkeoQK5",
+              boardId,
               timeScore
             )
           }
