@@ -13,7 +13,7 @@ const getLeaderboardUsersData = async (
   try {
     const leaderBoardSnap = await getDocs(leaderBoardUsers)
 
-    const users = leaderBoardSnap.docs.map(
+    const users = leaderBoardSnap.docs.slice(0, 100).map(
       (doc) =>
         ({
           ...doc.data,
