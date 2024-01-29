@@ -1,19 +1,22 @@
-import { useEffect } from "react"
+import { Dispatch, SetStateAction, useEffect } from "react"
 import {
   useAnswerStatus,
   useClassicModeLife,
   useUserNameGuess,
   usePokemon,
-  useCategoryContext,
 } from "../../context"
 import { OTPInput } from "../../componentLibrary"
-import usePokeFetcher from "../../hooks/pokeFetcher"
+import usePokeFetcherClassic from "../../hooks/pokeFetcherClassic"
 
-const TextInput = () => {
+type TextInputProps = {
+  pokemonArray: number[]
+  setPokemonArray: Dispatch<SetStateAction<number[]>>
+}
+
+const TextInput = ({ pokemonArray, setPokemonArray }: TextInputProps) => {
   const { pokemonNameGuess } = useUserNameGuess()
   const { pokemonTitle, setPokemonTitle, setPokemonSprite } = usePokemon()
   const { setCorrectAnswerStatus, setWrongAnswerStatus } = useAnswerStatus()
-  const { categoryStart, categoryEnd } = useCategoryContext()
   const { lives } = useClassicModeLife()
 
   useEffect(() => {
@@ -22,15 +25,17 @@ const TextInput = () => {
       pokemonTitle !== ""
     ) {
       console.log("winner")
+
       setCorrectAnswerStatus(true)
       const timer = setTimeout(() => {
-        usePokeFetcher(
+        usePokeFetcherClassic(
           setPokemonTitle,
           setPokemonSprite,
-          categoryStart,
-          categoryEnd
+          pokemonArray,
+          setPokemonArray
         )
       }, 1000)
+
       return () => clearTimeout(timer)
     }
 
@@ -43,11 +48,11 @@ const TextInput = () => {
       setWrongAnswerStatus(true)
       if (lives.length > 0) {
         const timer = setTimeout(() => {
-          usePokeFetcher(
+          usePokeFetcherClassic(
             setPokemonTitle,
             setPokemonSprite,
-            categoryStart,
-            categoryEnd
+            pokemonArray,
+            setPokemonArray
           )
         }, 1000)
 

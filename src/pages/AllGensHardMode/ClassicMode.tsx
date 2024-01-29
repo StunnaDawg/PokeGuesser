@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
-import usePokeFetcher from "../../hooks/pokeFetcher"
 import TextInput from "./TextInput"
 import { UserScore, ClassicModeLife } from "../../componentLibrary"
-import GameModal from "./components/AnswerModal"
 import {
   useUserScore,
   useClassicModeLife,
@@ -16,11 +14,31 @@ import { FIREBASE_AUTH } from "../../../firebase"
 import addToScoreLeaderboard from "../../hooks/addScoreToLeaderBoard"
 import TimerComponent from "../../componentLibrary/TimerComponent"
 import { useLeaderBoardId } from "../../context/leaderBoardContext"
+import usePokeFetcherClassic from "../../hooks/pokeFetcherClassic"
 
 const ClassicMode = () => {
+  const { categoryStart, categoryEnd } = useCategoryContext()
+  const generatePokemonRandomizeArray = (
+    categoryStart: number,
+    categoryEnd: number
+  ) => {
+    return Array.from(
+      { length: categoryEnd - categoryStart + 1 },
+      (_, index) => categoryStart + index
+    )
+  }
+  const shuffledPokemonArray = generatePokemonRandomizeArray(
+    categoryStart,
+    categoryEnd
+  )
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
   const [timeScore, setTime] = useState<number>(0)
   const [startTimer, setStartTimer] = useState<boolean>(false)
   const [pauseTimer, setPauseTimer] = useState<boolean>(false)
+  const [pokemonArray, setPokemonArray] =
+    useState<number[]>(shuffledPokemonArray)
   const { pokemonTitle, pokemonSprite, setPokemonTitle, setPokemonSprite } =
     usePokemon()
   const [loading, setLoading] = useState<boolean>(false)
@@ -28,7 +46,7 @@ const ClassicMode = () => {
   const { answerCorrectStatus, answerWrongStatus } = useAnswerStatus()
   const { userScore, setUserScore } = useUserScore()
   const { lives, setLives } = useClassicModeLife()
-  const { categoryStart, categoryEnd } = useCategoryContext()
+
   const navigate = useNavigate()
   const displayName = FIREBASE_AUTH.currentUser?.displayName
   const userId = FIREBASE_AUTH.currentUser?.uid
@@ -36,11 +54,11 @@ const ClassicMode = () => {
   useEffect(() => {
     setLoading(true)
     const timer = setTimeout(() => {
-      usePokeFetcher(
+      usePokeFetcherClassic(
         setPokemonTitle,
         setPokemonSprite,
-        categoryStart,
-        categoryEnd
+        pokemonArray,
+        setPokemonArray
       )
       setStartTimer(true)
       setLoading(false)
@@ -114,11 +132,28 @@ const ClassicMode = () => {
                 <UserScore />
               </div>
               <div className="flex flex-row justify-center">
-                <TextInput />
+                <div>
+                  <TextInput
+                    pokemonArray={pokemonArray}
+                    setPokemonArray={setPokemonArray}
+                  />
 
-                <GameModal isOpen={answerCorrectStatus || answerWrongStatus}>
+                  <div className="flex flex-row justify-center font-semibold text-xl 2xl:text-3xl">
+                    {answerCorrectStatus || answerWrongStatus ? (
+                      answerCorrectStatus ? (
+                        "Correct"
+                      ) : (
+                        `Wrong ${pokemonTitle}`
+                      )
+                    ) : (
+                      <p>Hint: For spacing use a dash -</p>
+                    )}
+                  </div>
+
+                  {/* <GameModal isOpen={answerCorrectStatus || answerWrongStatus}>
                   {answerCorrectStatus ? "Correct" : `Wrong ${pokemonTitle}`}{" "}
-                </GameModal>
+                </GameModal> */}
+                </div>
               </div>
             </div>
           </div>
