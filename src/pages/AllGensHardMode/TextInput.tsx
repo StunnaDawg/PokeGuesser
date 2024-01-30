@@ -56,8 +56,6 @@ const TextInput = ({ pokemonArray, setPokemonArray }: TextInputProps) => {
         return () => clearTimeout(timer)
       }
     }
-
-    console.log(pokemonNameGuess)
   }, [pokemonNameGuess])
 
   useEffect(() => {

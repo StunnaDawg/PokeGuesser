@@ -52,19 +52,19 @@ const MainPage = () => {
 
           <Link
             to="/classic"
-            className="my-2 font-pokemon-solid text-2xl xl:text-4xl 2xl:text-5xl"
+            className="my-2 font-pokemon-solid text-2xl xl:text-4xl 2xl:text-5xl hover:text-blue-800"
           >
             Classic Mode
           </Link>
           <Link
             to="/practice-mode"
-            className="my-2 font-pokemon-solid text-2xl xl:text-3xl 2xl:text-4xl"
+            className="my-2 font-pokemon-solid text-2xl xl:text-3xl 2xl:text-4xl hover:text-blue-800"
           >
             Practice Mode
           </Link>
           <Link
             to="/leaderboard"
-            className="my-2 font-pokemon-solid text-2xl xl:text-3xl 2xl:text-4xl"
+            className="my-2 font-pokemon-solid text-2xl xl:text-3xl 2xl:text-4xl hover:text-blue-800"
           >
             LeaderBoard
           </Link>

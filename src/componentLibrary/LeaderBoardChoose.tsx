@@ -23,7 +23,7 @@ const LeaderBoardChoose = ({
   return (
     <div className="mx-2 text-center">
       <Link
-        className=" text-xl xl:text-4xl 2xl:text-5xl font-pokemon-solid"
+        className=" text-xl xl:text-4xl 2xl:text-5xl font-pokemon-solid hover:text-blue-800"
         to={boardLink}
         onClick={() => {
           setBoardId(boardId)

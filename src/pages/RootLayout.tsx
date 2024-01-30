@@ -43,7 +43,7 @@ const RootLayout = () => {
                   <div className="m-3">
                     <button onClick={() => navigate("profile-updates")}>
                       <div className="flex flex-row">
-                        <h1 className="font-pokemon-solid">
+                        <h1 className="font-pokemon-solid hover:text-blue-800">
                           Welcome {displayName}
                         </h1>
                         <img src={pPic} />
@@ -52,7 +52,7 @@ const RootLayout = () => {
                   </div>
                   <div className="my-3 mx-1">
                     <button
-                      className="font-pokemon-solid"
+                      className="font-pokemon-solid hover:text-blue-800"
                       onClick={handleSignOut}
                     >
                       Sign Out
@@ -67,7 +67,7 @@ const RootLayout = () => {
                     <button onClick={() => navigate("profile-updates")}>
                       <div className="flex flex-row">
                         <Link
-                          className="m-3 font-pokemon-solid underline"
+                          className="m-3 font-pokemon-solid underline hover:text-blue-800"
                           to="/main-menu"
                         >
                           Click here to play as a Guest!
@@ -76,7 +76,10 @@ const RootLayout = () => {
                     </button>
                   </div>
                   <div className="my-3 mx-1">
-                    <Link className="font-pokemon-solid" to="/create-account">
+                    <Link
+                      className="font-pokemon-solid hover:text-blue-800"
+                      to="/create-account"
+                    >
                       Create An Account or Login
                     </Link>
                   </div>
@@ -86,7 +89,7 @@ const RootLayout = () => {
             {isSignedIn ? (
               <div className="flex flex-row justify-center">
                 <button
-                  className="font-pokemon-solid underline"
+                  className="font-pokemon-solid underline hover:text-blue-800"
                   onClick={handleResetGame}
                 >
                   Main Menu

@@ -18,10 +18,12 @@ const GameOver = () => {
       <p className="my-5">
         {displayName ? displayName : "Guest"}'s Score: {userScore}{" "}
       </p>
-      <button onClick={restartGame}>Retry</button>
+      <button onClick={restartGame} className="hover:text-blue-800">
+        Retry
+      </button>
 
       {displayName ? null : (
-        <Link to="/create-account">
+        <Link to="/create-account" className="hover:text-blue-800">
           Login or Create an Account to save your score!
         </Link>
       )}

@@ -1,5 +1,3 @@
-// OTPInput.tsx
-
 import React, {
   useState,
   useRef,

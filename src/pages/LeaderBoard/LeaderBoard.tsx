@@ -10,13 +10,14 @@ const LeaderBoard = () => {
   const [leaderBoardUsers, setLeaderBoardUsers] = useState<UserLeaderBoard[]>(
     []
   )
+  const [leaderBoardTitle, setLeaderBoardTitle] = useState<string>("")
 
   useEffect(() => {
-    getLeaderboardUsersData(boardId, setLeaderBoardUsers)
+    getLeaderboardUsersData(boardId, setLeaderBoardUsers, setLeaderBoardTitle)
   }, [])
 
   useEffect(() => {
-    getLeaderboardUsersData(boardId, setLeaderBoardUsers)
+    getLeaderboardUsersData(boardId, setLeaderBoardUsers, setLeaderBoardTitle)
   }, [boardId])
 
   return (
@@ -42,6 +43,12 @@ const LeaderBoard = () => {
               gen3Id="lkA8PPZkEonsBWMcnsND"
             />
 
+            <div className="my-10">
+              <h2 className="text-2xl 2xl:text-5xl">
+                {leaderBoardTitle} Leaderboard
+              </h2>
+            </div>
+
             <div className="bg-slate-200">
               {FIREBASE_AUTH.currentUser ? (
                 <div className="flex flex-row justify-center text-md 2xl:text-2xl ">
@@ -49,22 +56,22 @@ const LeaderBoard = () => {
                     <div className="flex flex-row justify-start items-center flex-1">
                       <div className="flex flex-row justify-start items-center flex-1">
                         <div className=" pl-2 pr-6 2xl:ml-12 2xl:pr-12">
-                          <h2>Rank</h2>
+                          <h3>Rank</h3>
                         </div>
 
                         <div>
-                          <h2>Player</h2>
+                          <h3>Player</h3>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="flex flex-row justify-between p-4 2xl:p-8 items-center 2xl:text-2xl flex-1">
                     <div className=" pr-6 2xl:pl-7">
-                      <h2>Scores</h2>
+                      <h3>Scores</h3>
                     </div>
 
                     <div className="2xl:pr-7">
-                      <h2>Times</h2>
+                      <h3>Times</h3>
                     </div>
                   </div>
                 </div>
