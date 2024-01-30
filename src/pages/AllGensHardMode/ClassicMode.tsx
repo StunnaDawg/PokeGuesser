@@ -46,6 +46,7 @@ const ClassicMode = () => {
   const { answerCorrectStatus, answerWrongStatus } = useAnswerStatus()
   const { userScore, setUserScore } = useUserScore()
   const { lives, setLives } = useClassicModeLife()
+  const [completeGame, setCompleteGame] = useState<boolean>(false)
 
   const navigate = useNavigate()
   const displayName = FIREBASE_AUTH.currentUser?.displayName
@@ -75,6 +76,29 @@ const ClassicMode = () => {
   }, [answerCorrectStatus])
 
   useEffect(() => {
+    if (userScore === categoryEnd) {
+      setCompleteGame(true)
+      setPauseTimer(true)
+      const timer = setTimeout(() => {
+        if (displayName && userId) {
+          addToScoreLeaderboard(
+            displayName,
+            userId,
+            "classic-all",
+            userScore,
+            boardId,
+            timeScore,
+            completeGame
+          )
+        }
+
+        navigate("/gameover")
+      }, 1000)
+      return () => clearTimeout(timer)
+    }
+  }, [userScore])
+
+  useEffect(() => {
     if (answerWrongStatus === true) {
       if (lives.length > 0) {
         setLives((prevLives) => prevLives.slice(0, -1))
@@ -90,7 +114,8 @@ const ClassicMode = () => {
               "classic-all",
               userScore,
               boardId,
-              timeScore
+              timeScore,
+              completeGame
             )
           }
 

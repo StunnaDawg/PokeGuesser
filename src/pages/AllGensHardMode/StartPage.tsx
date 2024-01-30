@@ -26,7 +26,7 @@ const ChooseClassicMode = () => {
                     setCategoryEnd={setCategoryEnd}
                     setCategoryStart={setCategoryStart}
                     setClickedLink={setClickedLink}
-                    categoryStart={0}
+                    categoryStart={1}
                     categoryEnd={1015}
                     imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
                     imgAlt="Ditto"
@@ -41,7 +41,7 @@ const ChooseClassicMode = () => {
                   setCategoryEnd={setCategoryEnd}
                   setCategoryStart={setCategoryStart}
                   setClickedLink={setClickedLink}
-                  categoryStart={0}
+                  categoryStart={1}
                   categoryEnd={151}
                   imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/raichu.png"
                   imgAlt="Raichu"

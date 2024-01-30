@@ -8,7 +8,6 @@ import {
   useCategoryContext,
 } from "../../../context"
 import { UserScore } from "../../../componentLibrary"
-import GameModal from "../../AllGensHardMode/components/AnswerModal"
 import LoadingPikachu from "../../../componentLibrary/Loading"
 
 const AllGensPracticeMode = () => {
@@ -64,10 +63,17 @@ const AllGensPracticeMode = () => {
                   generationEnd={categoryEnd}
                   generationStart={categoryStart}
                 />
-
-                <GameModal isOpen={answerCorrectStatus || answerWrongStatus}>
-                  {answerCorrectStatus ? "Correct" : `Wrong ${pokemonTitle}`}{" "}
-                </GameModal>
+              </div>
+              <div className="flex flex-row justify-center font-semibold text-xl 2xl:text-3xl">
+                {answerCorrectStatus || answerWrongStatus ? (
+                  answerCorrectStatus ? (
+                    "Correct"
+                  ) : (
+                    `Wrong ${pokemonTitle}`
+                  )
+                ) : (
+                  <p>Hint: For spacing use a dash -</p>
+                )}
               </div>
             </div>
           </div>

@@ -84,11 +84,14 @@ const LeaderBoard = () => {
                           </div>
                         </div>
 
-                        {/* <div className="p-8 flex-1">
-                        <p className="mx-3">
-                          Time: {user.time != null ? user.time : "N/A"}
-                        </p>
-                      </div> */}
+                        <div className="p-8 flex-1">
+                          <p className="mx-3">
+                            Time:{" "}
+                            {user.time != null && user.completeGame
+                              ? user.time
+                              : "N/A"}
+                          </p>
+                        </div>
                       </div>
                     )
                   })

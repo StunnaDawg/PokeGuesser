@@ -22,6 +22,7 @@ const getLeaderboardUsersData = async (
           score: doc.data().score,
           mode: doc.data().mode,
           time: doc.data().time,
+          completeGame: doc.data().completeGame,
         } as UserLeaderBoard)
     )
     const sortedNumbers = users.sort((a, b) => b.score - a.score)

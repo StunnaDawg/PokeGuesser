@@ -9,4 +9,5 @@ export type UserLeaderBoard = {
   score: number
   time: number
   mode: string
+  completeGame: boolean
 }

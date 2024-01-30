@@ -7,7 +7,8 @@ const addToScoreLeaderboard = async (
   gameMode: string,
   gameScore: number,
   boardId: string,
-  gameTime: number
+  gameTime: number,
+  completeGame: boolean
 ) => {
   const leaderBoardCollection = collection(db, "leaderboards", boardId, "users")
 
@@ -18,6 +19,7 @@ const addToScoreLeaderboard = async (
       time: gameTime,
       username: userName,
       userid: userId,
+      completeGame: completeGame,
     })
 
     console.log("added the score baby")
