@@ -27,7 +27,7 @@ const LeaderboardHeader = ({
 }: LeaderboardHeaderProps) => {
   const { setBoardId } = useLeaderBoardId()
   return (
-    <div className="flex flex-row justify-between text-2xl 2xl:text-4xl underline">
+    <div className="flex flex-row flex-wrap justify-between text-xl xl:text-2xl 2xl:text-4xl underline overflow-hidden max-w-full">
       <button onClick={() => setBoardId(allGenId)} className="px-4 py-2">
         All Gens
       </button>

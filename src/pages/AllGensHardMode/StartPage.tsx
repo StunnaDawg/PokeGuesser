@@ -146,7 +146,7 @@ const ChooseClassicMode = () => {
                   setCategoryStart={setCategoryStart}
                   setClickedLink={setClickedLink}
                   categoryStart={906}
-                  categoryEnd={1010}
+                  categoryEnd={1015}
                   imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/tinkaton.png"
                   imgAlt="Tinkaton"
                   title="Gen 9"

@@ -68,23 +68,25 @@ const OTPInput: React.FC = () => {
 
   return (
     <div className="flex justify-center xl:text-4xl font-bold">
-      {otp.map((_, index) => {
-        return (
-          <input
-            key={index}
-            ref={index == currentOtpIndex ? inputRef : null}
-            className={`m-0.5 p-0.5 text-center border-4 border-black w-8 h-8 xl:w-32 xl:h-32 ${
-              answerCorrectStatus === true ? "border-green-500" : ""
-            } ${answerWrongStatus === true ? "focus: border-red-500" : ""}`}
-            type="text"
-            pattern="[A-Za-z]*"
-            maxLength={1}
-            onKeyDown={(e) => handleOnKeyDown(e, index)}
-            onChange={onHandleChange}
-            value={otp[index]}
-          />
-        )
-      })}
+      <div className="max-w-32">
+        {otp.map((_, index) => {
+          return (
+            <input
+              key={index}
+              ref={index == currentOtpIndex ? inputRef : null}
+              className={`m-0.5 p-0.5 text-center border-4 border-black w-8 h-8 xl:w-32 xl:h-32 ${
+                answerCorrectStatus === true ? "border-green-500" : ""
+              } ${answerWrongStatus === true ? "focus: border-red-500" : ""}`}
+              type="text"
+              pattern="[A-Za-z]*"
+              maxLength={1}
+              onKeyDown={(e) => handleOnKeyDown(e, index)}
+              onChange={onHandleChange}
+              value={otp[index]}
+            />
+          )
+        })}
+      </div>
     </div>
   )
 }

@@ -12,6 +12,7 @@ const usePokeFetcherClassic = async (
     console.log(pokemonArray.length)
     const api = new PokemonClient().getPokemonById(pokemonArray[0])
     const randomPokemon: any = await api
+
     setPokeName(randomPokemon.name)
 
     setPokeSprite(
