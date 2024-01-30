@@ -1,71 +1,79 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react"
+import LeaderBoard from "../pages/LeaderBoard/LeaderBoard"
 
 export type PokemonState = {
-    pokemonTitle: string;
-    pokemonSprite: string;
+  pokemonTitle: string
+  pokemonSprite: string
 }
 export type PokemonActions = {
-    setPokemonTitle: Dispatch<SetStateAction<string>>;
-    setPokemonSprite: Dispatch<SetStateAction<string>>;
-};
+  setPokemonTitle: Dispatch<SetStateAction<string>>
+  setPokemonSprite: Dispatch<SetStateAction<string>>
+}
 
 export type UserGuess = {
-    pokemonNameGuess: string;
+  pokemonNameGuess: string
 }
 
 export type UserGuessAction = {
-    setPokemonNameGuess: Dispatch<SetStateAction<string>>;
+  setPokemonNameGuess: Dispatch<SetStateAction<string>>
 }
 
 export type AnswerStatus = {
-    answerCorrectStatus: boolean;
-    answerWrongStatus: boolean;
+  answerCorrectStatus: boolean
+  answerWrongStatus: boolean
 }
 
 export type AnswerStatusAction = {
-    setCorrectAnswerStatus: Dispatch<SetStateAction<boolean>>;
-    setWrongAnswerStatus: Dispatch<SetStateAction<boolean>>;
+  setCorrectAnswerStatus: Dispatch<SetStateAction<boolean>>
+  setWrongAnswerStatus: Dispatch<SetStateAction<boolean>>
 }
 
 export type UserScore = {
-    userScore: number;
+  userScore: number
 }
 
 export type UserScoreAction = {
-    setUserScore: Dispatch<SetStateAction<number>>
+  setUserScore: Dispatch<SetStateAction<number>>
 }
 
 export type UserAuth = {
-    isSignedIn: boolean;
+  isSignedIn: boolean
 }
 
-export type UserAuthAction = { 
-    setIsSignedIn: Dispatch<SetStateAction<boolean>>
+export type UserAuthAction = {
+  setIsSignedIn: Dispatch<SetStateAction<boolean>>
 }
 
 export type ClassicModeLife = {
-    lives: number[];
+  lives: number[]
 }
 
 export type ClassicModeLifeAction = {
-    setLives: Dispatch<SetStateAction<number[]>>
+  setLives: Dispatch<SetStateAction<number[]>>
 }
 
-export type username = { 
-    username: string;
+export type Username = {
+  username: string
 }
 
-export type usernameAction = { 
-    setUsername: Dispatch<SetStateAction<string>>;
+export type UsernameAction = {
+  setUsername: Dispatch<SetStateAction<string>>
 }
 
-
-export type CategoryType = { 
-    categoryStart: number;
-    categoryEnd: number;
+export type CategoryType = {
+  categoryStart: number
+  categoryEnd: number
 }
 
-export type CategoryContextAction = { 
-    setCategoryStart: Dispatch<SetStateAction<number>>;
-    setCategoryEnd: Dispatch<SetStateAction<number>>;
+export type CategoryContextAction = {
+  setCategoryStart: Dispatch<SetStateAction<number>>
+  setCategoryEnd: Dispatch<SetStateAction<number>>
+}
+
+export type LeaderBoardId = {
+  boardId: string
+}
+
+export type LeaderBoardIdAction = {
+  setBoardId: Dispatch<SetStateAction<string>>
 }

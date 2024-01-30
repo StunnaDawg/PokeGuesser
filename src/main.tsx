@@ -12,23 +12,26 @@ import {
   ClassicModeLifeContextProvider,
   CategoryContextProvider,
 } from "./context"
+import { LeaderBoardIdContextProvider } from "./context/leaderBoardContext"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <CategoryContextProvider>
-      <PokemonContextProvider>
-        <UserScoreContextProvider>
-          <ClassicModeLifeContextProvider>
-            <AnswerStatusContextProvider>
-              <UserGuessContextProvider>
-                <UserAuthContextProvider>
-                  <RouterProvider router={router} />
-                </UserAuthContextProvider>
-              </UserGuessContextProvider>
-            </AnswerStatusContextProvider>
-          </ClassicModeLifeContextProvider>
-        </UserScoreContextProvider>
-      </PokemonContextProvider>
-    </CategoryContextProvider>
+    <LeaderBoardIdContextProvider>
+      <CategoryContextProvider>
+        <PokemonContextProvider>
+          <UserScoreContextProvider>
+            <ClassicModeLifeContextProvider>
+              <AnswerStatusContextProvider>
+                <UserGuessContextProvider>
+                  <UserAuthContextProvider>
+                    <RouterProvider router={router} />
+                  </UserAuthContextProvider>
+                </UserGuessContextProvider>
+              </AnswerStatusContextProvider>
+            </ClassicModeLifeContextProvider>
+          </UserScoreContextProvider>
+        </PokemonContextProvider>
+      </CategoryContextProvider>
+    </LeaderBoardIdContextProvider>
   </React.StrictMode>
 )

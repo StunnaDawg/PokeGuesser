@@ -21,7 +21,6 @@ const TextInput: React.FC<TextInputProps> = ({
       pokemonNameGuess.toLowerCase() === pokemonTitle &&
       pokemonTitle !== ""
     ) {
-      console.log("winner")
       setCorrectAnswerStatus(true)
       const timer = setTimeout(() => {
         usePokeFetcher(
@@ -39,7 +38,6 @@ const TextInput: React.FC<TextInputProps> = ({
       pokemonNameGuess.length === pokemonTitle.length &&
       pokemonTitle !== ""
     ) {
-      console.log("loser")
       setWrongAnswerStatus(true)
       const timer = setTimeout(() => {
         usePokeFetcher(
@@ -50,7 +48,6 @@ const TextInput: React.FC<TextInputProps> = ({
         )
       }, 1000)
 
-      console.log("I fetced a new pokemon")
       return () => clearTimeout(timer)
     }
 

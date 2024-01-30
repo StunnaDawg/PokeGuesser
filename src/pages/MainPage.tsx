@@ -2,7 +2,9 @@ import { Link } from "react-router-dom"
 import PokeColumn from "../componentLibrary/PokemonCol"
 import { useEffect, useState } from "react"
 const MainPage = () => {
-  const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1024)
+  const [isWideScreen, setIsWideScreen] = useState<boolean>(
+    window.innerWidth >= 1024
+  )
 
   useEffect(() => {
     const handleResize = () => {
@@ -11,7 +13,6 @@ const MainPage = () => {
 
     window.addEventListener("resize", handleResize)
 
-    // Cleanup the event listener when the component unmounts
     return () => {
       window.removeEventListener("resize", handleResize)
     }
@@ -26,30 +27,22 @@ const MainPage = () => {
                 pokemon1="pikachu"
                 pokemon2="pichu"
                 pokemon3="luxray"
-                pokemon4="tinkaton"
               />
 
               <PokeColumn
                 pokemon1="raichu"
                 pokemon2="diglett"
                 pokemon3="garchomp"
-                pokemon4="charizard"
               />
 
               <PokeColumn
                 pokemon1="charmeleon"
                 pokemon2="mewtwo"
                 pokemon3="mew"
-                pokemon4="phanpy"
               />
             </>
           ) : (
-            <PokeColumn
-              pokemon1="pikachu"
-              pokemon2="pichu"
-              pokemon3="luxray"
-              pokemon4="tinkaton"
-            />
+            <PokeColumn pokemon1="pikachu" pokemon2="pichu" pokemon3="luxray" />
           )}
         </div>
         <div className="flex flex-col items-center justify-center h-screen">
@@ -59,19 +52,19 @@ const MainPage = () => {
 
           <Link
             to="/classic"
-            className="my-2 font-pokemon-solid text-2xl xl:text-4xl 2xl:text-5xl"
+            className="my-2 font-pokemon-solid text-2xl xl:text-4xl 2xl:text-5xl hover:text-blue-800"
           >
             Classic Mode
           </Link>
           <Link
             to="/practice-mode"
-            className="my-2 font-pokemon-solid text-2xl xl:text-3xl 2xl:text-4xl"
+            className="my-2 font-pokemon-solid text-2xl xl:text-3xl 2xl:text-4xl hover:text-blue-800"
           >
             Practice Mode
           </Link>
           <Link
             to="/leaderboard"
-            className="my-2 font-pokemon-solid text-2xl xl:text-3xl 2xl:text-4xl"
+            className="my-2 font-pokemon-solid text-2xl xl:text-3xl 2xl:text-4xl hover:text-blue-800"
           >
             LeaderBoard
           </Link>
@@ -83,30 +76,22 @@ const MainPage = () => {
                 pokemon1="pikachu"
                 pokemon2="pichu"
                 pokemon3="luxray"
-                pokemon4="tinkaton"
               />
 
               <PokeColumn
                 pokemon1="raichu"
                 pokemon2="diglett"
                 pokemon3="garchomp"
-                pokemon4="charizard"
               />
 
               <PokeColumn
                 pokemon1="charmeleon"
                 pokemon2="mewtwo"
                 pokemon3="mew"
-                pokemon4="phanpy"
               />
             </>
           ) : (
-            <PokeColumn
-              pokemon1="pikachu"
-              pokemon2="pichu"
-              pokemon3="luxray"
-              pokemon4="tinkaton"
-            />
+            <PokeColumn pokemon1="pikachu" pokemon2="pichu" pokemon3="luxray" />
           )}
         </div>
       </div>

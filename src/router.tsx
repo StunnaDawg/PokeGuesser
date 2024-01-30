@@ -9,9 +9,9 @@ import RootLayout from "./pages/RootLayout"
 import ChoosePracticeMode from "./pages/PracticeMode/StartPage"
 import AllGensPracticeMode from "./pages/PracticeMode/categories/AllGens"
 import ChooseClassicMode from "./pages/AllGensHardMode/StartPage"
-// import ChooseLeaderBoard from "./pages/LeaderBoard/ChooseLeaderBoard"
 import LeaderBoard from "./pages/LeaderBoard/LeaderBoard"
 import ProfileChanges from "./pages/ProfileChanges"
+import ChooseLeaderBoard from "./pages/LeaderBoard/ChooseLeaderBoard"
 
 function ErrorPage() {
   // const error  = useRouteError()
@@ -68,9 +68,12 @@ export const router = createBrowserRouter([
           },
           {
             path: "leaderboard",
-            element: <LeaderBoard />,
+            element: <ChooseLeaderBoard />,
             children: [
-              { path: "all-gens", element: <LeaderBoard /> },
+              {
+                path: "all-gens",
+                element: <LeaderBoard />,
+              },
               { path: "gen-1", element: <LeaderBoard /> },
               { path: "gen-2", element: <LeaderBoard /> },
               { path: "gen-3", element: <LeaderBoard /> },
@@ -90,7 +93,10 @@ export const router = createBrowserRouter([
             path: "practice-mode",
             element: <ChoosePracticeMode />,
             children: [
-              { path: "all-gens", element: <AllGensPracticeMode /> },
+              {
+                path: "all-gens",
+                element: <AllGensPracticeMode />,
+              },
               { path: "gen-1", element: <AllGensPracticeMode /> },
               { path: "gen-2", element: <AllGensPracticeMode /> },
               { path: "gen-3", element: <AllGensPracticeMode /> },

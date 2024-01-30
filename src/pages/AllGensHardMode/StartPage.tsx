@@ -26,12 +26,13 @@ const ChooseClassicMode = () => {
                     setCategoryEnd={setCategoryEnd}
                     setCategoryStart={setCategoryStart}
                     setClickedLink={setClickedLink}
-                    categoryStart={0}
+                    categoryStart={1}
                     categoryEnd={1015}
                     imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/ditto.png"
                     imgAlt="Ditto"
                     title="All Gens"
                     linkToName="all-gens"
+                    boardId="h220CJnGaLsWLbkeoQK5"
                   />
                 </div>
               </div>
@@ -40,12 +41,13 @@ const ChooseClassicMode = () => {
                   setCategoryEnd={setCategoryEnd}
                   setCategoryStart={setCategoryStart}
                   setClickedLink={setClickedLink}
-                  categoryStart={0}
+                  categoryStart={1}
                   categoryEnd={151}
                   imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/raichu.png"
                   imgAlt="Raichu"
                   title="Gen 1"
                   linkToName="gen-1"
+                  boardId="UCKoA68QcBPPLmHMQ8me"
                 />
                 <GenChoose
                   setCategoryEnd={setCategoryEnd}
@@ -57,6 +59,7 @@ const ChooseClassicMode = () => {
                   imgAlt="Donphan"
                   title="Gen 2"
                   linkToName="gen-2"
+                  boardId="4PfRrkHjmGtxiD4MGjK3"
                 />
                 <GenChoose
                   setCategoryEnd={setCategoryEnd}
@@ -68,6 +71,7 @@ const ChooseClassicMode = () => {
                   imgAlt="swampert"
                   title="Gen 3"
                   linkToName="gen-3"
+                  boardId="lkA8PPZkEonsBWMcnsND"
                 />
               </div>
               <div className="flex flex-row justify-center p-5 bg-slate-400">
@@ -81,6 +85,7 @@ const ChooseClassicMode = () => {
                   imgAlt="shinx"
                   title="Gen 4"
                   linkToName="gen-4"
+                  boardId="gpLowhzzbO66sr8ErtTd"
                 />
 
                 <GenChoose
@@ -93,6 +98,7 @@ const ChooseClassicMode = () => {
                   imgAlt="Axew"
                   title="Gen 5"
                   linkToName="gen-5"
+                  boardId="cpi9AWd20qN5EvEXWv6p"
                 />
 
                 <GenChoose
@@ -105,6 +111,7 @@ const ChooseClassicMode = () => {
                   imgAlt="Greninja"
                   title="Gen 6"
                   linkToName="gen-6"
+                  boardId="KF0xTGOGLtWthfRAthgP"
                 />
               </div>
 
@@ -119,6 +126,7 @@ const ChooseClassicMode = () => {
                   imgAlt="Rowlet"
                   title="Gen 7"
                   linkToName="gen-7"
+                  boardId="QWQNLVYUZN2vPsJRIzgi"
                 />
 
                 <GenChoose
@@ -131,17 +139,19 @@ const ChooseClassicMode = () => {
                   imgAlt="Snom"
                   title="Gen 8"
                   linkToName="gen-8"
+                  boardId="X4YoDaXNLXHgzYEwCwaS"
                 />
                 <GenChoose
                   setCategoryEnd={setCategoryEnd}
                   setCategoryStart={setCategoryStart}
                   setClickedLink={setClickedLink}
                   categoryStart={906}
-                  categoryEnd={1010}
+                  categoryEnd={1015}
                   imgLink="https://img.pokemondb.net/sprites/scarlet-violet/normal/tinkaton.png"
                   imgAlt="Tinkaton"
                   title="Gen 9"
                   linkToName="gen-9"
+                  boardId="fvGXMpX3uzsaM9ImubCb"
                 />
               </div>
             </div>
