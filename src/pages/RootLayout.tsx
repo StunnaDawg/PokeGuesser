@@ -34,12 +34,12 @@ const RootLayout = () => {
 
   return (
     <>
-      <div className="flex flex-row justify-center items-center text-xl xl:text-3xl bg-slate-300">
+      <div className="flex flex-col justify-center items-center text-xl xl:text-3xl bg-slate-300 text-center">
         <div>
           <div>
             {isSignedIn ? (
               <>
-                <div className="flex flex-row">
+                <div>
                   <div className="m-3">
                     <button onClick={() => navigate("profile-updates")}>
                       <div className="flex flex-row">
@@ -62,22 +62,37 @@ const RootLayout = () => {
               </>
             ) : (
               <>
-                <Link className="m-3 font-pokemon-solid" to="/signup">
-                  Create New Account
-                </Link>
-                <Link className="m-1 font-pokemon-solid " to="/login">
-                  Login
-                </Link>
+                <div className="flex flex-col items-center">
+                  <div>
+                    <button onClick={() => navigate("profile-updates")}>
+                      <div className="flex flex-row">
+                        <Link
+                          className="m-3 font-pokemon-solid underline"
+                          to="/main-menu"
+                        >
+                          Click here to play as a Guest!
+                        </Link>
+                      </div>
+                    </button>
+                  </div>
+                  <div className="my-3 mx-1">
+                    <Link className="font-pokemon-solid" to="/create-account">
+                      Create An Account or Login
+                    </Link>
+                  </div>
+                </div>
               </>
             )}
-            <div className="flex flex-row justify-center">
-              <button
-                className="font-pokemon-solid underline"
-                onClick={handleResetGame}
-              >
-                Main Menu
-              </button>
-            </div>
+            {isSignedIn ? (
+              <div className="flex flex-row justify-center">
+                <button
+                  className="font-pokemon-solid underline"
+                  onClick={handleResetGame}
+                >
+                  Main Menu
+                </button>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

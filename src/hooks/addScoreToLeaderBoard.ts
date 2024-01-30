@@ -21,8 +21,6 @@ const addToScoreLeaderboard = async (
       userid: userId,
       completeGame: completeGame,
     })
-
-    console.log("added the score baby")
   } catch (err) {
     console.error(err)
   }

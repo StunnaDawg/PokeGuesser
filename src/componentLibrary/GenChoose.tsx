@@ -45,10 +45,6 @@ const GenChoose = ({
           alt={imgAlt}
           className="w-36 h-36 2xl:w-64 2xl:h-64 object-contain"
         />
-        {/* <img
-                    src="https://img.pokemondb.net/sprites/black-white/anim/normal/blastoise.gif"
-                    alt="Blastoise"
-                  /> */}
         {title}
       </Link>
     </div>

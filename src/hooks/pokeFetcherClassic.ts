@@ -8,8 +8,6 @@ const usePokeFetcherClassic = async (
   setPokemonArray: Dispatch<SetStateAction<number[]>>
 ) => {
   try {
-    console.log(pokemonArray[0])
-    console.log(pokemonArray.length)
     const api = new PokemonClient().getPokemonById(pokemonArray[0])
     const randomPokemon: any = await api
 

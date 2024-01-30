@@ -24,8 +24,6 @@ const TextInput = ({ pokemonArray, setPokemonArray }: TextInputProps) => {
       pokemonNameGuess.toLowerCase() === pokemonTitle &&
       pokemonTitle !== ""
     ) {
-      console.log("winner")
-
       setCorrectAnswerStatus(true)
       const timer = setTimeout(() => {
         usePokeFetcherClassic(
@@ -44,7 +42,6 @@ const TextInput = ({ pokemonArray, setPokemonArray }: TextInputProps) => {
       pokemonNameGuess.length === pokemonTitle.length &&
       pokemonTitle !== ""
     ) {
-      console.log("loser")
       setWrongAnswerStatus(true)
       if (lives.length > 0) {
         const timer = setTimeout(() => {
@@ -56,7 +53,6 @@ const TextInput = ({ pokemonArray, setPokemonArray }: TextInputProps) => {
           )
         }, 1000)
 
-        console.log("I fetced a new pokemon")
         return () => clearTimeout(timer)
       }
     }

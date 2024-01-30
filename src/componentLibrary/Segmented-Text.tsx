@@ -67,7 +67,7 @@ const OTPInput: React.FC = () => {
   }, [otp])
 
   return (
-    <div className="flex justify-center xl:text-4xl font-bold">
+    <div className="flex justify-center xl:text-4xl font-bold max-w-full ">
       <div className="max-w-32">
         {otp.map((_, index) => {
           return (
