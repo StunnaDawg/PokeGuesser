@@ -2,15 +2,9 @@ type PokeColumnProps = {
   pokemon1: string
   pokemon2: string
   pokemon3: string
-  pokemon4: string
 }
 
-const PokeColumn = ({
-  pokemon1,
-  pokemon2,
-  pokemon3,
-  pokemon4,
-}: PokeColumnProps) => {
+const PokeColumn = ({ pokemon1, pokemon2, pokemon3 }: PokeColumnProps) => {
   return (
     <div className="flex flex-col">
       <img
@@ -25,11 +19,6 @@ const PokeColumn = ({
       />
       <img
         src={`https://img.pokemondb.net/sprites/scarlet-violet/normal/${pokemon3}.png`}
-        alt="Pikachu"
-        className="w-36 h-36 2xl:w-72 2xl:h-72 object-contain m-4"
-      />
-      <img
-        src={`https://img.pokemondb.net/sprites/scarlet-violet/normal/${pokemon4}.png`}
         alt="Pikachu"
         className="w-36 h-36 2xl:w-72 2xl:h-72 object-contain m-4"
       />
