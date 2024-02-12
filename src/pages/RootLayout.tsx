@@ -34,7 +34,7 @@ const RootLayout = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center text-xl xl:text-3xl bg-slate-300 text-center">
+      <div className="flex flex-col justify-center items-center text-xl xl:text-3xl bg-slate-300 text-center border-b-2 border-black">
         <div>
           <div>
             {isSignedIn ? (
@@ -89,7 +89,7 @@ const RootLayout = () => {
             {isSignedIn ? (
               <div className="flex flex-row justify-center">
                 <button
-                  className="font-pokemon-solid underline hover:text-blue-800"
+                  className="font-pokemon-solid hover:text-blue-800"
                   onClick={handleResetGame}
                 >
                   Main Menu

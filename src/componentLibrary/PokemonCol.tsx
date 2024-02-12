@@ -10,17 +10,17 @@ const PokeColumn = ({ pokemon1, pokemon2, pokemon3 }: PokeColumnProps) => {
       <img
         src={`https://img.pokemondb.net/sprites/scarlet-violet/normal/${pokemon1}.png`}
         alt={pokemon1}
-        className="w-32 h-32 2xl:w-72 2xl:h-72 object-contain m-4"
+        className="w-32 h-32 xl:w-72 xl:h-72 2xl:w-72 2xl:h-72 object-contain m-4"
       />
       <img
         src={`https://img.pokemondb.net/sprites/scarlet-violet/normal/${pokemon2}.png`}
         alt={pokemon2}
-        className="w-32 h-32 2xl:w-72 2xl:h-72 object-contain m-4"
+        className="w-32 h-32 xl:w-72 xl:h-72 2xl:w-72 2xl:h-72 object-contain m-4"
       />
       <img
         src={`https://img.pokemondb.net/sprites/scarlet-violet/normal/${pokemon3}.png`}
         alt={pokemon3}
-        className="w-32 h-32 2xl:w-72 2xl:h-72 object-contain m-4"
+        className="w-32 h-32 xl:w-72 xl:h-72 2xl:w-72 2xl:h-72 object-contain m-4"
       />
     </div>
   )
